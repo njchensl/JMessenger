@@ -27,11 +27,9 @@
  */
 package jmessenger.shared;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.security.*;
 import org.jetbrains.annotations.NotNull;
+
+import java.security.*;
 
 /**
  *

@@ -27,12 +27,18 @@
  */
 package jmessenger.shared;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.security.*;
-import java.security.spec.*;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
-import java.util.Objects;
-import javax.crypto.*;
-import org.jetbrains.annotations.*;
 
 /**
  *
@@ -42,7 +48,7 @@ public class RSAUtils {
     
     @Nullable
     public static PublicKey getPublicKey(@NotNull String base64PublicKey) {
-        PublicKey publicKey = null;
+        PublicKey publicKey;
         try {
             X509EncodedKeySpec keySpec = new X509EncodedKeySpec(Base64.getDecoder().decode(base64PublicKey.getBytes()));
             KeyFactory keyFactory = KeyFactory.getInstance("RSA");

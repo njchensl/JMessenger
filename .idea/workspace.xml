@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
+    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="optimized import">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/ClientMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/ClientMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/MessageDeliveryStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/MessageDeliveryStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/RegistrationMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/RegistrationMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/RegistrationResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/RegistrationResponseMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/TextMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/TextMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/RSAKeyPairGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/RSAKeyPairGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/RSAUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/RSAUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,15 +150,28 @@
       <option name="project" value="LOCAL" />
       <updated>1576276131980</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="private -&gt; protected">
+      <created>1576280057817</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1576280057817</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="fix" />
     <MESSAGE value="server messages" />
     <MESSAGE value="rsa modified" />
     <MESSAGE value="license header updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="license header updated" />
+    <MESSAGE value="private -&gt; protected" />
+    <MESSAGE value="optimized import" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimized import" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser" timestamp="1576276996567">
@@ -181,10 +190,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576275697753" />
-    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576276131269">
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576280218224">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576276131269" />
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576280218224" />
     <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1576276247191">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -205,10 +214,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1576276982071" />
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1576276133495">
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1576280068584">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576276133495" />
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576280068584" />
     <state x="372" y="144" key="git4idea.merge.GitPullDialog" timestamp="1576276946644">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
