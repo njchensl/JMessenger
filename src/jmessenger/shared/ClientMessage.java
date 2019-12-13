@@ -33,7 +33,6 @@ public class ClientMessage extends Message {
 
     private int recipientID;
 
-    @NotNull
     public ClientMessage() {
         super();
     }
@@ -41,7 +40,6 @@ public class ClientMessage extends Message {
     /**
      * @param ID accept an integer for recipient ID
      */
-    @NotNull
     public ClientMessage(int ID) {
         super();
         recipientID = ID;
