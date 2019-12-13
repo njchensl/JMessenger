@@ -50,7 +50,6 @@ public class ClientMessage extends Message {
     /**
      * @return the recipient ID
      */
-    @NotNull
     public int getRecipientID() {
         return recipientID;
     }
@@ -58,7 +57,6 @@ public class ClientMessage extends Message {
     /**
      * @param ID integer for setting recipient ID
      */
-    @NotNull
     public void setRecipient(int ID) {
         recipientID = ID;
     }
