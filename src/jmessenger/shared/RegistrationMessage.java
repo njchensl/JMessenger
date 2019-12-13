@@ -32,7 +32,7 @@ import java.security.PublicKey;
  * @author frche1699
  */
 public class RegistrationMessage extends ServerMessage {
-    private PublicKey publicKey;
+    protected PublicKey publicKey;
 
     public RegistrationMessage() {
         super();

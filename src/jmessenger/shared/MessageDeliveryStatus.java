@@ -32,8 +32,8 @@ import org.jetbrains.annotations.NotNull;
  * @author frche1699
  */
 public class MessageDeliveryStatus extends ServerMessage {
-    private String message;
-    private boolean successful;
+    protected String message;
+    protected boolean successful;
 
     public MessageDeliveryStatus() {
         super();

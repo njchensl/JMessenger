@@ -23,7 +23,7 @@
  */
 package jmessenger.shared;
 
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
 
 /**
  *
@@ -31,7 +31,7 @@ import org.jetbrains.annotations.*;
  */
 public class TextMessage extends ClientMessage {
 
-    private String text;
+    protected String text;
 
     public TextMessage() {
         super();

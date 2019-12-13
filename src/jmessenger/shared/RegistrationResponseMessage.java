@@ -27,7 +27,7 @@ package jmessenger.shared;
 import org.jetbrains.annotations.NotNull;
 
 public class RegistrationResponseMessage extends ServerMessage {
-    private int userID;
+    protected int userID;
 
     /**
      * @param userID the assigned user id

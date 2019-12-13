@@ -23,8 +23,8 @@
  */
 package jmessenger.shared;
 
-import org.jetbrains.annotations.*;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.jetbrains.annotations.NotNull;
 
 /**
  *
@@ -32,7 +32,7 @@ import org.apache.commons.lang3.RandomStringUtils;
  */
 public abstract class Message implements java.io.Serializable {
 
-    private final String messageID;
+    protected final String messageID;
 
     /**
      * constructs a message object with a 16 character long (including letters
