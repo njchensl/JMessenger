@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/jmessenger/shared/RegistrationMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jmessenger/shared/RegistrationResponseMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/MessageDeliveryStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/MessageDeliveryStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/RSAKeyPairGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/RSAKeyPairGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/RSAUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/RSAUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/RegistrationMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/RegistrationMessage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,26 +47,13 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="file.status.colors" />
   </component>
-  <component name="RunManager" selected="Application.RSAUtils">
+  <component name="RunManager" selected="Application.Server">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jmessenger.client.Client" />
       <module name="JMessenger" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="jmessenger.client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RSAUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jmessenger.shared.RSAUtils" />
-      <module name="JMessenger" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="jmessenger.shared.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -92,11 +77,9 @@
     <list>
       <item itemvalue="Application.Client" />
       <item itemvalue="Application.Server" />
-      <item itemvalue="Application.RSAUtils" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RSAUtils" />
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
       </list>
@@ -153,31 +136,39 @@
       <option name="project" value="LOCAL" />
       <updated>1576274059491</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="rsa modified">
+      <created>1576275427231</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1576275427231</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix" />
     <MESSAGE value="server messages" />
-    <option name="LAST_COMMIT_MESSAGE" value="server messages" />
+    <MESSAGE value="rsa modified" />
+    <option name="LAST_COMMIT_MESSAGE" value="rsa modified" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576274942473">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576275488666">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576274942473" />
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576275488666" />
     <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser" timestamp="1576272821996">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1576272821996" />
-    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1576274246389">
+    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1576275697753">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576274246389" />
-    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576274058536">
+    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576275697753" />
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576275426056">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576274058536" />
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576275426056" />
     <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1576275370754">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

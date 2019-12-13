@@ -38,6 +38,11 @@ public class RegistrationMessage extends ServerMessage {
         super();
     }
 
+    public RegistrationMessage(@NotNull PublicKey publicKey) {
+        this();
+        this.publicKey = publicKey;
+    }
+
     @NotNull
     public PublicKey getPublicKey() {
         return publicKey;
@@ -50,6 +55,6 @@ public class RegistrationMessage extends ServerMessage {
     @NotNull
     @Override
     public String toString() {
-        return "REGISTRATION MESSAGE\n" + super.toString() + "\nPublic key: " + publicKey;
+        return "REGISTRATION MESSAGE\n" + super.toString() + "\nPublic key: " + RSAUtils.encode(publicKey);
     }
 }
