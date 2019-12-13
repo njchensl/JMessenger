@@ -29,7 +29,7 @@ import org.jetbrains.annotations.*;
  *
  * @author Gary Gao
  */
-public class ClientMessage extends Message {
+public abstract class ClientMessage extends Message {
 
     private int recipientID;
 
