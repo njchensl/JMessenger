@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/ClientMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/ClientMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/TextMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/TextMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +31,40 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="file.status.colors" />
+  </component>
+  <component name="RunManager" selected="Application.Client">
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="jmessenger.client.Client" />
+      <module name="JMessenger" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="jmessenger.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="jmessenger.server.Server" />
+      <module name="JMessenger" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="jmessenger.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Server" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -64,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576271918865</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix">
+      <created>1576272161456</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1576272161456</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -72,17 +111,33 @@
     <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576271917768">
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576272160321">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576271917768" />
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576272160321" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1576272538612">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1576272538612" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1576272538611">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1576272538611" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1576272538610">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1576272538610" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1576272538612">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1576272538612" />
     <state x="121" y="0" key="SettingsEditor" timestamp="1576271866319">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1576271866319" />
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1576271922572">
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1576272163645">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576271922572" />
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576272163645" />
   </component>
 </project>
