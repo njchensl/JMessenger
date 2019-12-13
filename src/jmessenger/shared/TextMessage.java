@@ -60,7 +60,7 @@ public class TextMessage extends ClientMessage {
     @NotNull
     @Override
     public String toString() {
-        return "TextMessage:" + text;
+        return "TEXT MESSAGE\n" + super.toString() + "\nContent: " + text;
     }
 
 }

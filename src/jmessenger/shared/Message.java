@@ -53,7 +53,7 @@ public abstract class Message implements java.io.Serializable {
     @NotNull
     @Override
     public String toString() {
-        return "Message ID " + messageID;
+        return "Message ID: " + messageID;
     }
 
 }

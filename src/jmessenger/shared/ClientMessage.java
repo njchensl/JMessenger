@@ -62,7 +62,7 @@ public abstract class ClientMessage extends Message {
     @NotNull
     @Override
     public String toString() {
-        return "Recipient ID:" + recipientID;
+        return super.toString() + "\nRecipient ID: " + recipientID;
     }
 
 }
