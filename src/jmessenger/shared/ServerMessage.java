@@ -1,8 +1,4 @@
 /*
- * Copied and modified from https://www.devglan.com/java8/rsa-encryption-decryption-java
- */
-
- /*
  * The MIT License
  *
  * Copyright 2019 frche1699.
@@ -25,38 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package jmessenger.shared;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.security.*;
 import org.jetbrains.annotations.NotNull;
 
-/**
- *
- * @author frche1699
- */
-public class RSAKeyPairGenerator {
+public abstract class ServerMessage extends Message {
 
-    private final PrivateKey privateKey;
-    private final PublicKey publicKey;
-
-    public RSAKeyPairGenerator() throws NoSuchAlgorithmException {
-        KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
-        keyGen.initialize(1024);
-        KeyPair pair = keyGen.generateKeyPair();
-        this.privateKey = pair.getPrivate();
-        this.publicKey = pair.getPublic();
+    public ServerMessage() {
+        super();
     }
 
     @NotNull
-    public PrivateKey getPrivateKey() {
-        return privateKey;
-    }
-
-    @NotNull
-    public PublicKey getPublicKey() {
-        return publicKey;
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }
