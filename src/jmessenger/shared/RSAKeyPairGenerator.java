@@ -42,7 +42,6 @@ public class RSAKeyPairGenerator {
     private final PrivateKey privateKey;
     private final PublicKey publicKey;
 
-    @NotNull
     public RSAKeyPairGenerator() throws NoSuchAlgorithmException {
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
         keyGen.initialize(1024);
@@ -51,7 +50,6 @@ public class RSAKeyPairGenerator {
         this.publicKey = pair.getPublic();
     }
 
-    @NotNull
     public void writeToFile(@NotNull String path, @NotNull byte[] key) throws IOException {
         File f = new File(path);
         f.getParentFile().mkdirs();
