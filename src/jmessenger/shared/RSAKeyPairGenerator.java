@@ -25,7 +25,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package jmessenger.server;
+package jmessenger.shared;
 
 import java.io.File;
 import java.io.FileOutputStream;
