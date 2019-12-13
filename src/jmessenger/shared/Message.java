@@ -38,7 +38,6 @@ public abstract class Message implements java.io.Serializable {
      * constructs a message object with a 16 character long (including letters
      * and numbers) message ID
      */
-    @NotNull
     public Message() {
         messageID = RandomStringUtils.random(16, true, true);
     }
