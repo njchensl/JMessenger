@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/jmessenger/shared/RegistrationResponseMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/RegistrationMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/RegistrationMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/RegistrationResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/RegistrationResponseMessage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,5 +192,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576272617631" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1576276043883">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1576276043883" />
   </component>
 </project>
