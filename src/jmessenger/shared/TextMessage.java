@@ -55,7 +55,6 @@ public class TextMessage extends ClientMessage {
     /**
      * @param txt set text message
      */
-    @NotNull
     public void setText(@NotNull String txt) {
         text = txt;
     }
