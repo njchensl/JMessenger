@@ -33,12 +33,10 @@ public class TextMessage extends ClientMessage {
 
     private String text;
 
-    @NotNull
     public TextMessage() {
         super();
     }
 
-    @NotNull
     public TextMessage(String txt) {
         super();
         text = txt;
