@@ -23,10 +23,38 @@
  */
 package jmessenger.shared;
 
+import org.jetbrains.annotations.*;
+import org.apache.commons.lang3.RandomStringUtils;
+
 /**
  *
- * @author frche1699
+ * @author Gary Gao
  */
-public abstract class Message {
-    
+public abstract class Message implements java.io.Serializable {
+
+    private final String messageID;
+
+    /**
+     * constructs a message object with a 16 character long (including letters
+     * and numbers) message ID
+     */
+    @NotNull
+    public Message() {
+        messageID = RandomStringUtils.random(16, true, true);
+    }
+
+    /**
+     * @return the message ID
+     */
+    @NotNull
+    public String getMessageID() {
+        return this.messageID;
+    }
+
+    @NotNull
+    @Override
+    public String toString() {
+        return "Message ID " + messageID;
+    }
+
 }
