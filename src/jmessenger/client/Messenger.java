@@ -46,6 +46,8 @@ public class Messenger {
         this.socket.connect(new InetSocketAddress(host, port), 10000);
         this.in = new In(socket);
         this.out = new Out(socket);
+        new Thread(in).start();
+        new Thread(out).start();
     }
 
     public void send(@NotNull Message msg) {
