@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Client JAR" />
+      <artifact name="Server JAR" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="optimized import">
+    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Client_JAR.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Server_JAR.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/material_ui_swing_0_9_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Material_UI/material-ui-swing-0.9.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jmessenger/client/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jmessenger/server/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/RSAKeyPairGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/RSAKeyPairGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JMessenger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JMessenger.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/CopyLibs/org-netbeans-modules-java-j2seproject-copylibstask.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lib/CopyLibs/org-netbeans-modules-java-j2seproject-copylibstask.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/nblibraries.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lib/nblibraries.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/project.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/RSAUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/RSAUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,8 +57,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/Material_UI/material-ui-swing-0.9.6.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -157,8 +173,18 @@
       <option name="project" value="LOCAL" />
       <updated>1576280057817</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="optimized import">
+      <created>1576280254973</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1576280254973</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
@@ -174,26 +200,34 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser" timestamp="1576276996567">
+    <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser" timestamp="1576326661918">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser/0.0.1280.680@0.0.1280.680" timestamp="1576276996567" />
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576277007172">
+    <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser/0.0.1280.680@0.0.1280.680" timestamp="1576326661918" />
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576326668994">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576277007172" />
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576326668994" />
     <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser" timestamp="1576272821996">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1576272821996" />
+    <state x="576" y="257" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1576326589542">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="576" y="257" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1576326589542" />
     <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1576275697753">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576275697753" />
-    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576280218224">
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576328621177">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576280218224" />
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576328621177" />
+    <state x="344" y="84" key="FileChooserDialogImpl" timestamp="1576328528230">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="344" y="84" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1576328528230" />
     <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1576276247191">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -210,18 +244,18 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1576276247191" />
-    <state x="117" y="0" key="SettingsEditor" timestamp="1576276982071">
+    <state x="117" y="0" key="SettingsEditor" timestamp="1576328537920">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1576276982071" />
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1576280068584">
+    <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1576328537920" />
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1576326269354">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576280068584" />
-    <state x="372" y="144" key="git4idea.merge.GitPullDialog" timestamp="1576276946644">
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576326269354" />
+    <state x="372" y="144" key="git4idea.merge.GitPullDialog" timestamp="1576324568980">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="372" y="144" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1576276946644" />
+    <state x="372" y="144" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1576324568980" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1576276043883">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
