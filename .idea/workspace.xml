@@ -8,16 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/jmessenger/client/AbstractPlugin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jmessenger/client/Conversation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jmessenger/client/In.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jmessenger/client/Out.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jmessenger/shared/EncryptedMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Client_JAR.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Client_JAR.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jmessenger/client/NotificationCenter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/In.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/In.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Out.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Out.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576329676705</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="client libraries">
+      <created>1576334844735</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1576334844735</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -208,7 +210,8 @@
     <MESSAGE value="optimized import" />
     <MESSAGE value="new L&amp;F library" />
     <MESSAGE value="new L&amp;F" />
-    <option name="LAST_COMMIT_MESSAGE" value="new L&amp;F" />
+    <MESSAGE value="client libraries" />
+    <option name="LAST_COMMIT_MESSAGE" value="client libraries" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -230,18 +233,18 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="576" y="257" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1576334794486" />
-    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1576275697753">
+    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1576336249735">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576275697753" />
+    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576336249735" />
     <state x="371" y="90" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576334679249">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="90" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1576334679249" />
-    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576329674969">
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576334842747">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576329674969" />
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576334842747" />
     <state x="344" y="84" key="FileChooserDialogImpl" timestamp="1576329612892">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -274,9 +277,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="372" y="144" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1576324568980" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1576334547239">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1576337019639">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1576334547239" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1576337019639" />
   </component>
 </project>
