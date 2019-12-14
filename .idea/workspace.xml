@@ -8,13 +8,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/material_ui_swing_1_0_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Material_UI/material-ui-swing-1.0.6.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/material_ui_swing_0_9_6.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jmessenger/client/AbstractPlugin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jmessenger/client/Conversation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jmessenger/client/In.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jmessenger/client/Out.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jmessenger/shared/EncryptedMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Client_JAR.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Client_JAR.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JMessenger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JMessenger.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Material_UI/material-ui-swing-0.9.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/nblibraries.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lib/nblibraries.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,14 +56,14 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/Material_UI/material-ui-swing-1.0.6.jar!/" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
-  <component name="RunManager" selected="Application.Server">
-    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jmessenger.client.Client" />
+  <component name="RunManager" selected="Application.Messenger">
+    <configuration name="Messenger" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="jmessenger.client.Messenger" />
       <module name="JMessenger" />
       <extension name="coverage">
         <pattern>
@@ -86,12 +89,12 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.Messenger" />
       <item itemvalue="Application.Server" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Messenger" />
         <item itemvalue="Application.Server" />
       </list>
     </recent_temporary>
@@ -182,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576328646029</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="new L&amp;F">
+      <created>1576329676705</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1576329676705</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -197,7 +207,8 @@
     <MESSAGE value="private -&gt; protected" />
     <MESSAGE value="optimized import" />
     <MESSAGE value="new L&amp;F library" />
-    <option name="LAST_COMMIT_MESSAGE" value="new L&amp;F library" />
+    <MESSAGE value="new L&amp;F" />
+    <option name="LAST_COMMIT_MESSAGE" value="new L&amp;F" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -207,26 +218,30 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser/0.0.1280.680@0.0.1280.680" timestamp="1576326661918" />
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576326668994">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576334750331">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576326668994" />
-    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser" timestamp="1576272821996">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576334750331" />
+    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser" timestamp="1576331808827">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1576272821996" />
-    <state x="576" y="257" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1576326589542">
+    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1576331808827" />
+    <state x="576" y="257" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1576334794486">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="576" y="257" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1576326589542" />
+    <state x="576" y="257" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1576334794486" />
     <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1576275697753">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576275697753" />
-    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576328644729">
+    <state x="371" y="90" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576334679249">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576328644729" />
+    <state x="371" y="90" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1576334679249" />
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576329674969">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576329674969" />
     <state x="344" y="84" key="FileChooserDialogImpl" timestamp="1576329612892">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -247,10 +262,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1576276247191" />
-    <state x="117" y="0" key="SettingsEditor" timestamp="1576329616934">
+    <state x="117" y="0" key="SettingsEditor" timestamp="1576334811264">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1576329616934" />
+    <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1576334811264" />
     <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1576326269354">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -259,9 +274,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="372" y="144" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1576324568980" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1576276043883">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1576334547239">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1576276043883" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1576334547239" />
   </component>
 </project>
