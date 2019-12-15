@@ -23,10 +23,7 @@
  */
 package jmessenger.client;
 
-import jmessenger.shared.ClientMessage;
-import jmessenger.shared.Message;
-import jmessenger.shared.MessageDeliveryStatus;
-import jmessenger.shared.RSAKeyPairGenerator;
+import jmessenger.shared.*;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -165,6 +162,8 @@ public class Messenger {
         if (!registered) {
             register();
         }
+
+        // TODO show GUI
     }
 
     @NotNull
@@ -195,7 +194,28 @@ public class Messenger {
     }
 
     private void register() {
-        // TODO register with the server
+        // register with the server
+        RegistrationMessage msg = new RegistrationMessage(myPublicKey);
+        out.send(msg);
+    }
+
+    private void finishRegistration() {
+        registered = true;
+        // write it to the file
+        File f = new File("messenger.conf");
+        try {
+            Scanner sc = new Scanner(f);
+            sc.nextLine();
+            String data = sc.nextLine() + "\n" + sc.nextLine() + "\n";
+            sc.close();
+            BufferedWriter bfConf = new BufferedWriter(new FileWriter(f));
+            bfConf.write("true");
+            bfConf.write(data);
+            bfConf.flush();
+            bfConf.close();
+        } catch (IOException e) {
+            nc.add(e);
+        }
     }
 
     public synchronized void receive(@NotNull Message msg) {
@@ -224,6 +244,10 @@ public class Messenger {
                 if (!mds.isSuccessful()) {
                     nc.add(new Exception("Message Delivery Failed\n" + mds.getMessage()));
                 }
+            } else if (msg instanceof RegistrationResponseMessage) {
+                RegistrationResponseMessage rrm = (RegistrationResponseMessage) msg;
+                JOptionPane.showMessageDialog(null, "You have successfully registered with the server\nUser ID: " + rrm.getUserID(), "Registration Successful", JOptionPane.INFORMATION_MESSAGE);
+                finishRegistration();
             }
         }
     }

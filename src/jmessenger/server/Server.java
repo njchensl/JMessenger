@@ -23,14 +23,73 @@
  */
 package jmessenger.server;
 
+import jmessenger.shared.RSAUtils;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- *
  * @author frche1699
  */
-public class Server {
+public class Server implements Runnable {
+    private static Server server;
+    private ServerSocket ss;
+    private List<@NotNull User> users;
+    private List<@NotNull Connection> connections;
+    private PrivateKey privateKey;
 
+    public Server(PrivateKey privateKey, int port) throws IOException {
+        this.privateKey = privateKey;
+        this.users = new ArrayList<>();
+        this.connections = new ArrayList<>();
+        this.ss = new ServerSocket(port);
+    }
 
-    public static void main(String[] args) {
-        
+    public static void main(String... args) {
+
+    }
+
+    public static Server getInstance() {
+        return server;
+    }
+
+    public void run() {
+        for (; ; ) {
+            try {
+                Socket s = ss.accept();
+                connections.add(new Connection(s));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public PrivateKey getPrivateKey() {
+        return privateKey;
+    }
+
+    public void setPrivateKey(PrivateKey privateKey) {
+        this.privateKey = privateKey;
+    }
+
+    @Nullable
+    public User getUserByPublicKey(@NotNull PublicKey publicKey) {
+        for (User u : users) {
+            if (RSAUtils.encode(u.getPublicKey()).equals(RSAUtils.encode(publicKey))) {
+                return u;
+            }
+        }
+        return null;
+    }
+
+    public List<Connection> getConnections() {
+        return connections;
     }
 }
