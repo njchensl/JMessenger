@@ -28,6 +28,8 @@ package jmessenger.server;
  * @author frche1699
  */
 public class Server {
+
+
     public static void main(String[] args) {
         
     }

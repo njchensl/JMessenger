@@ -27,7 +27,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.jetbrains.annotations.NotNull;
 
 /**
- *
  * @author Gary Gao
  */
 public abstract class Message implements java.io.Serializable {
@@ -48,6 +47,15 @@ public abstract class Message implements java.io.Serializable {
     @NotNull
     public String getMessageID() {
         return this.messageID;
+    }
+
+    @Override
+    public boolean equals(@NotNull Object o) {
+        if (!(o instanceof Message)) {
+            return false;
+        }
+        Message m = (Message) o;
+        return m.getMessageID().equals(this.getMessageID());
     }
 
     @NotNull
