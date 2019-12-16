@@ -7,11 +7,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="server lib">
+    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/server/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/server/Connection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jmessenger/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/server/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/server/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576431233807</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="server lib">
+      <created>1576496908634</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1576496908634</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -248,6 +255,10 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="233" y="2" key="#Auto_Import" timestamp="1576524857335">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="2" key="#Auto_Import/0.0.1280.680@0.0.1280.680" timestamp="1576524857335" />
     <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser" timestamp="1576326661918">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -280,10 +291,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="90" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1576334679249" />
-    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576496879086">
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576526257886">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576496879086" />
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576526257886" />
     <state x="344" y="84" key="FileChooserDialogImpl" timestamp="1576433876899">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -308,17 +319,17 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1576422442034" />
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1576431235848">
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1576496930271">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576431235848" />
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576496930271" />
     <state x="372" y="144" key="git4idea.merge.GitPullDialog" timestamp="1576324568980">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="372" y="144" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1576324568980" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1576337019639">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1576525544160">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1576337019639" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1576525544160" />
   </component>
 </project>

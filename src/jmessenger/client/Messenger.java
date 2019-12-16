@@ -49,11 +49,12 @@ public class Messenger {
     private PublicKey myPublicKey;
     private boolean registered;
 
-    public Messenger(@NotNull String host, int port, PublicKey pub, PrivateKey pri, boolean registered) throws IOException {
+    public Messenger(@NotNull String host, int port, PublicKey pub, PrivateKey pri, PublicKey serverPublicKey, boolean registered) throws IOException {
         this.conversationList = new ArrayList<>();
         this.nc = NotificationCenter.getInstance();
         this.myPublicKey = pub;
         this.myPrivateKey = pri;
+        this.serverPublicKey = serverPublicKey;
         this.registered = registered;
         this.initialize(host, port);
     }
@@ -109,8 +110,13 @@ public class Messenger {
             int port = Integer.parseInt(sc.nextLine());
             sc.close();
 
-            messenger = new Messenger(hostName, port, pub, pri, registered);
-        } catch (IOException e) {
+            // read the server public key
+            ObjectInputStream serverPublicKeyIn = new ObjectInputStream(new FileInputStream(new File("client-stored-server-public.key")));
+            PublicKey serverPublicKey = (PublicKey) serverPublicKeyIn.readObject();
+            serverPublicKeyIn.close();
+
+            messenger = new Messenger(hostName, port, pub, pri, serverPublicKey, registered);
+        } catch (IOException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, e.getStackTrace(), "Error", JOptionPane.ERROR_MESSAGE);
             System.exit(4);
         }
@@ -143,6 +149,19 @@ public class Messenger {
         bfConf.write("false\n"); // this will trigger the registration process
         bfConf.write(JOptionPane.showInputDialog("Please enter the server hostname:") + "\n");
         bfConf.write(JOptionPane.showInputDialog("Please enter the port") + "\n");
+        String serverPublicKey = JOptionPane.showInputDialog("Please enter the base64 string representation of the server's public key");
+
+        // ask and save the server public key
+        assert serverPublicKey != null;
+        PublicKey serverPub = RSAUtils.getPublicKey(serverPublicKey);
+        assert serverPub != null;
+        // store the server public key
+        File serverPublicKeyFile = new File("client-stored-server-public.key");
+        serverPublicKeyFile.createNewFile();
+        ObjectOutputStream outServerPublic = new ObjectOutputStream(new FileOutputStream(serverPublicKeyFile));
+        outServerPublic.writeObject(serverPub);
+        outServerPublic.flush();
+        outServerPublic.close();
         bfConf.flush();
         bfConf.close();
     }
