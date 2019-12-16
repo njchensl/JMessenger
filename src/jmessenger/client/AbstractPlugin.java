@@ -21,47 +21,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package jmessenger.shared;
+package jmessenger.client;
 
-import org.apache.commons.lang3.RandomStringUtils;
+import jmessenger.shared.Message;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-/**
- * @author Gary Gao
- */
-public abstract class Message implements java.io.Serializable {
+public abstract class AbstractPlugin {
+    protected Messenger messenger;
 
-    protected final String messageID;
-
-    /**
-     * constructs a message object with a 16 character long (including letters
-     * and numbers) message ID
-     */
-    public Message() {
-        messageID = RandomStringUtils.random(16, true, true);
+    public AbstractPlugin() {
+        messenger = null;
     }
 
-    /**
-     * @return the message ID
-     */
-    @NotNull
-    public String getMessageID() {
-        return this.messageID;
+    @Nullable
+    public final Messenger getMessenger() {
+        return this.messenger;
     }
 
-    @Override
-    public boolean equals(@NotNull Object o) {
-        if (!(o instanceof Message)) {
-            return false;
-        }
-        Message m = (Message) o;
-        return m.getMessageID().equals(this.getMessageID());
+    public final void setMessenger(@NotNull Messenger messenger) {
+        this.messenger = messenger;
     }
 
-    @NotNull
-    @Override
-    public String toString() {
-        return "Message ID: " + messageID;
-    }
+    public abstract void onStart();
+
+    public abstract void onClose();
+
+    public abstract void onMessageReceived(@NotNull Message msg);
+
+    public abstract void onMessageSent(@NotNull Message msg);
 
 }

@@ -21,47 +21,36 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package jmessenger.shared;
+package jmessenger.client;
 
-import org.apache.commons.lang3.RandomStringUtils;
+import jmessenger.shared.ClientMessage;
 import org.jetbrains.annotations.NotNull;
 
-/**
- * @author Gary Gao
- */
-public abstract class Message implements java.io.Serializable {
+import java.util.ArrayList;
+import java.util.List;
 
-    protected final String messageID;
+public class Conversation {
+    private int recipient;
+    private List<ClientMessage> messages;
 
-    /**
-     * constructs a message object with a 16 character long (including letters
-     * and numbers) message ID
-     */
-    public Message() {
-        messageID = RandomStringUtils.random(16, true, true);
+    public Conversation(int recipient) {
+        this.recipient = recipient;
+        this.messages = new ArrayList<>();
     }
 
-    /**
-     * @return the message ID
-     */
-    @NotNull
-    public String getMessageID() {
-        return this.messageID;
+    public int getRecipient() {
+        return this.recipient;
     }
 
-    @Override
-    public boolean equals(@NotNull Object o) {
-        if (!(o instanceof Message)) {
-            return false;
-        }
-        Message m = (Message) o;
-        return m.getMessageID().equals(this.getMessageID());
+    public void setRecipient(int recipient) {
+        this.recipient = recipient;
     }
 
-    @NotNull
-    @Override
-    public String toString() {
-        return "Message ID: " + messageID;
+    public void addMessage(@NotNull ClientMessage cm) {
+        messages.add(cm);
     }
 
+    public List<ClientMessage> getAllMessages() {
+        return this.messages;
+    }
 }
