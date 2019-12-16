@@ -23,12 +23,159 @@
  */
 package jmessenger.server;
 
+import jmessenger.shared.RSAKeyPairGenerator;
+import jmessenger.shared.RSAUtils;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 /**
- *
  * @author frche1699
  */
-public class Server {
-    public static void main(String[] args) {
-        
+public class Server implements Runnable {
+    private static Server server;
+    private ServerSocket ss;
+    private List<@NotNull User> users;
+    private List<@NotNull Connection> connections;
+    private PrivateKey privateKey;
+
+    /**
+     * no server instance for anyone else
+     */
+    private Server(PrivateKey privateKey, int port) throws IOException {
+        this.privateKey = privateKey;
+        this.users = new ArrayList<>();
+        this.connections = new ArrayList<>();
+        this.ss = new ServerSocket(port);
+        System.out.println("Server started on port " + port);
+    }
+
+    public static void main(String... args) {
+        File conf = new File("server.conf");
+        if (!conf.exists()) {
+            System.out.println("Initializing");
+            try {
+                initialize(conf);
+            } catch (IOException | NoSuchAlgorithmException e) {
+                e.printStackTrace();
+                System.exit(1);
+            }
+        }
+        // read the server private key and port information
+        int port = 8966;
+        try {
+            Scanner sc = new Scanner(conf);
+            port = Integer.parseInt(sc.nextLine());
+            sc.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.exit(2);
+        }
+        PrivateKey pri = null;
+        try {
+            ObjectInputStream privateIn = new ObjectInputStream(new FileInputStream(new File("server-private.key")));
+            pri = (PrivateKey) privateIn.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            System.exit(3);
+        }
+
+        try {
+            server = new Server(pri, port);
+            new Thread(server).start();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(4);
+        }
+
+
+    }
+
+    public static Server getInstance() {
+        return server;
+    }
+
+    private static void initialize(@NotNull File conf) throws IOException, NoSuchAlgorithmException {
+        File privateKey = new File("server-private.key");
+        File publicKey = new File("server-public.key");
+        conf.createNewFile();
+        privateKey.createNewFile();
+        publicKey.createNewFile();
+        // generate RSA keypair
+        RSAKeyPairGenerator rsakpg = new RSAKeyPairGenerator();
+        PrivateKey pri = rsakpg.getPrivateKey();
+        PublicKey pub = rsakpg.getPublicKey();
+        ObjectOutputStream sPrivate = new ObjectOutputStream(new FileOutputStream(privateKey));
+        ObjectOutputStream sPublic = new ObjectOutputStream(new FileOutputStream(publicKey));
+        sPrivate.writeObject(pri);
+        sPublic.writeObject(pub);
+        sPrivate.flush();
+        sPublic.flush();
+        sPrivate.close();
+        sPublic.close();
+        Scanner in = new Scanner(System.in);
+        System.out.println("Which port do you want to run the server on?");
+        String port = in.nextLine();
+        BufferedWriter bw = new BufferedWriter(new FileWriter(conf));
+        bw.write(port + "\n");
+        bw.flush();
+        bw.close();
+    }
+
+    @Override
+    public void run() {
+        for (; ; ) {
+            try {
+                Socket s = ss.accept();
+                connections.add(new Connection(s));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    PrivateKey getPrivateKey() {
+        return privateKey;
+    }
+
+    void setPrivateKey(PrivateKey privateKey) {
+        this.privateKey = privateKey;
+    }
+
+    @Nullable
+    User getUserByPublicKey(@NotNull PublicKey publicKey) {
+        for (User u : users) {
+            if (RSAUtils.encode(u.getPublicKey()).equals(RSAUtils.encode(publicKey))) {
+                return u;
+            }
+        }
+        return null;
+    }
+
+    @Nullable
+    User getUserByID(int id) {
+        for (User u : users) {
+            if (u.getId() == id) {
+                return u;
+            }
+        }
+        return null;
+    }
+
+    void addUser(@NotNull User u) {
+        this.users.add(u);
+    }
+
+    List<Connection> getConnections() {
+        return connections;
     }
 }

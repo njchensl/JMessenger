@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Server JAR">
+    <output-path>$PROJECT_DIR$/out/artifacts/Server_JAR</output-path>
+    <root id="archive" name="JMessenger.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/jmessenger/server/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="JMessenger" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/Apache_Commons/commons-lang3-3.9-sources.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/Apache_Commons/commons-lang3-3.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/Jetbrains_Annotations/annotations-17.0.0-sources.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/Jetbrains_Annotations/annotations-17.0.0-javadoc.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/Jetbrains_Annotations/annotations-17.0.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -2,3 +2,14 @@
 /dist
 /build
 /nbproject/private/
+
+/conf
+
+# configuration files
+messenger.conf
+server.conf
+public.key
+private.key
+server-private.key
+server-public.key
+client-stored-server-public.key

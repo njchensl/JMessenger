@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Client JAR" />
+      <artifact name="Server JAR" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="optimized import">
+    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="client-and-server-libraries" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,14 +49,15 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/Material_UI/material-ui-swing-1.0.6.jar!/" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
-  <component name="RunManager" selected="Application.Server">
-    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jmessenger.client.Client" />
+  <component name="RunManager" selected="Application.Messenger">
+    <configuration name="Messenger" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="jmessenger.client.Messenger" />
       <module name="JMessenger" />
       <extension name="coverage">
         <pattern>
@@ -73,12 +83,12 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.Messenger" />
       <item itemvalue="Application.Server" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Messenger" />
         <item itemvalue="Application.Server" />
       </list>
     </recent_temporary>
@@ -155,8 +165,74 @@
       <option name="project" value="LOCAL" />
       <updated>1576280057817</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="optimized import">
+      <created>1576280254973</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1576280254973</updated>
+    </task>
+    <task id="LOCAL-00009" summary="new L&amp;F library">
+      <created>1576328646029</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1576328646029</updated>
+    </task>
+    <task id="LOCAL-00010" summary="new L&amp;F">
+      <created>1576329676705</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1576329676705</updated>
+    </task>
+    <task id="LOCAL-00011" summary="client libraries">
+      <created>1576334844735</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1576334844735</updated>
+    </task>
+    <task id="LOCAL-00012" summary="client logic">
+      <created>1576338198899</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1576338198899</updated>
+    </task>
+    <task id="LOCAL-00013" summary="client logic">
+      <created>1576338273941</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1576338273941</updated>
+    </task>
+    <task id="LOCAL-00014" summary="client lib">
+      <created>1576423895494</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1576423895494</updated>
+    </task>
+    <task id="LOCAL-00015" summary="server lib and logic">
+      <created>1576431233807</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1576431233807</updated>
+    </task>
+    <task id="LOCAL-00016" summary="server lib">
+      <created>1576496908634</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1576496908634</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
+  </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
@@ -166,67 +242,94 @@
     <MESSAGE value="license header updated" />
     <MESSAGE value="private -&gt; protected" />
     <MESSAGE value="optimized import" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimized import" />
+    <MESSAGE value="new L&amp;F library" />
+    <MESSAGE value="new L&amp;F" />
+    <MESSAGE value="client libraries" />
+    <MESSAGE value="client logic" />
+    <MESSAGE value="client lib" />
+    <MESSAGE value="server lib and logic" />
+    <MESSAGE value="server lib" />
+    <option name="LAST_COMMIT_MESSAGE" value="server lib" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser" timestamp="1576276996567">
+    <state x="233" y="2" key="#Auto_Import" timestamp="1576524857335">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser/0.0.1280.680@0.0.1280.680" timestamp="1576276996567" />
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576277007172">
+    <state x="233" y="2" key="#Auto_Import/0.0.1280.680@0.0.1280.680" timestamp="1576524857335" />
+    <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser" timestamp="1576326661918">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576277007172" />
-    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser" timestamp="1576272821996">
+    <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser/0.0.1280.680@0.0.1280.680" timestamp="1576326661918" />
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576334750331">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1576272821996" />
-    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1576275697753">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576334750331" />
+    <state x="400" y="150" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1576414484486">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576275697753" />
-    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576526406141">
+    <state x="400" y="150" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1576414484486" />
+    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser" timestamp="1576426493988">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576526406141" />
-    <state x="121" y="50" key="DiffContextDialog" timestamp="1576526465801">
+    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1576426493988" />
+    <state x="576" y="257" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1576334794486">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="121" y="50" key="DiffContextDialog/0.0.1280.680@0.0.1280.680" timestamp="1576526465801" />
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1576276247191">
+    <state x="576" y="257" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1576334794486" />
+    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1576430872817">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1576276247191" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1576276247191">
+    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576430872817" />
+    <state x="443" y="232" width="394" height="223" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1576428110458">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1576276247191" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1576276247191">
+    <state x="443" y="232" width="394" height="223" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.680@0.0.1280.680" timestamp="1576428110458" />
+    <state x="371" y="90" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576334679249">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1576276247191" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1576276247191">
+    <state x="371" y="90" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1576334679249" />
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576526257886">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1576276247191" />
-    <state x="117" y="0" key="SettingsEditor" timestamp="1576276982071">
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576526257886" />
+    <state x="344" y="84" key="FileChooserDialogImpl" timestamp="1576433876899">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1576276982071" />
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1576280068584">
+    <state x="344" y="84" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1576433876899" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1576431431528">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576280068584" />
-    <state x="372" y="144" key="git4idea.merge.GitPullDialog" timestamp="1576526440390">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1576431431528" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1576431431528">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="372" y="144" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1576526440390" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1576276043883">
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1576431431528" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1576431431528">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1576276043883" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1576431431528" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1576431431528">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1576431431528" />
+    <state x="117" y="0" key="SettingsEditor" timestamp="1576422442034">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1576422442034" />
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1576496930271">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576496930271" />
+    <state x="372" y="144" key="git4idea.merge.GitPullDialog" timestamp="1576324568980">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="372" y="144" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1576324568980" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1576525544160">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1576525544160" />
   </component>
 </project>

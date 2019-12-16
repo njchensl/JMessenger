@@ -21,47 +21,36 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package jmessenger.shared;
+package jmessenger.client;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.jetbrains.annotations.NotNull;
 
-/**
- * @author Gary Gao
- */
-public abstract class Message implements java.io.Serializable {
+import java.util.ArrayList;
+import java.util.List;
 
-    protected final String messageID;
+public class NotificationCenter {
+    private static NotificationCenter nc;
 
-    /**
-     * constructs a message object with a 16 character long (including letters
-     * and numbers) message ID
-     */
-    public Message() {
-        messageID = RandomStringUtils.random(16, true, true);
+    static {
+        nc = new NotificationCenter();
     }
 
-    /**
-     * @return the message ID
-     */
-    @NotNull
-    public String getMessageID() {
-        return this.messageID;
+    private List<@NotNull Throwable> throwableList;
+
+    public NotificationCenter() {
+        this.throwableList = new ArrayList<>();
     }
 
-    @Override
-    public boolean equals(@NotNull Object o) {
-        if (!(o instanceof Message)) {
-            return false;
-        }
-        Message m = (Message) o;
-        return m.getMessageID().equals(this.getMessageID());
+    public static NotificationCenter getInstance() {
+        return nc;
     }
 
-    @NotNull
-    @Override
-    public String toString() {
-        return "Message ID: " + messageID;
+    public synchronized void add(@NotNull Throwable t) {
+        t.printStackTrace();
+        throwableList.add(t);
     }
 
+    public @NotNull List<@NotNull Throwable> getThrowables() {
+        return this.throwableList;
+    }
 }
