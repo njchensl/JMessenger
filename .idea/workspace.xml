@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="optimized import">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/RSAKeyPairGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/RSAKeyPairGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/RSAUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/RSAUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +19,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="client-and-server-libraries" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -190,10 +188,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576275697753" />
-    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576280218224">
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576526406141">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576280218224" />
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576526406141" />
+    <state x="121" y="50" key="DiffContextDialog" timestamp="1576526465801">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="121" y="50" key="DiffContextDialog/0.0.1280.680@0.0.1280.680" timestamp="1576526465801" />
     <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1576276247191">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -218,10 +220,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576280068584" />
-    <state x="372" y="144" key="git4idea.merge.GitPullDialog" timestamp="1576276946644">
+    <state x="372" y="144" key="git4idea.merge.GitPullDialog" timestamp="1576526440390">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="372" y="144" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1576276946644" />
+    <state x="372" y="144" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1576526440390" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1576276043883">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
