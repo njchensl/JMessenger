@@ -25,6 +25,7 @@ package jmessenger.server;
 
 import jmessenger.shared.ClientMessage;
 import jmessenger.shared.Message;
+import jmessenger.shared.RSAUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -38,7 +39,7 @@ public class User {
     private transient List<ClientMessage> inbox;
     private transient Connection connection; // the connection is not null when the user is online
 
-    public User(PublicKey publicKey, int id) {
+    User(PublicKey publicKey, int id) {
         this.publicKey = publicKey;
         this.id = id;
         this.inbox = new ArrayList<>();
@@ -49,7 +50,7 @@ public class User {
         return publicKey;
     }
 
-    public void setPublicKey(@NotNull PublicKey publicKey) {
+    void setPublicKey(@NotNull PublicKey publicKey) {
         this.publicKey = publicKey;
     }
 
@@ -57,7 +58,7 @@ public class User {
         return id;
     }
 
-    public void setId(int id) {
+    void setId(int id) {
         this.id = id;
     }
 
@@ -66,7 +67,7 @@ public class User {
         return connection;
     }
 
-    public void setConnection(@Nullable Connection connection) {
+    void setConnection(@Nullable Connection connection) {
         this.connection = connection;
     }
 
@@ -76,14 +77,24 @@ public class User {
     }
 
     public synchronized void send(Message msg) {
-        if (connection != null) {
+        if (this.isOnline()) {
             this.connection.send(msg);
         } else {
             // offline
             if (msg instanceof ClientMessage) {
                 inbox.add((ClientMessage) msg);
             }
-            // ignored if not clientm essage
+            // ignored if not client message
         }
+    }
+
+    public boolean isOnline() {
+        return connection != null;
+    }
+
+    @Override
+    @NotNull
+    public String toString() {
+        return "USER\nUser ID: " + id + "User Public Key: " + RSAUtils.encode(publicKey);
     }
 }

@@ -24,6 +24,7 @@
 package jmessenger.server;
 
 import jmessenger.shared.*;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.SerializationUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -47,7 +48,7 @@ public class Connection {
     private In in;
     private Out out;
 
-    public Connection(@NotNull Socket s) throws IOException {
+    Connection(@NotNull Socket s) throws IOException {
         this.s = s;
         this.in = new In(new ObjectInputStream(s.getInputStream()), this);
         this.out = new Out(new ObjectOutputStream(s.getOutputStream()), this);
@@ -59,28 +60,28 @@ public class Connection {
         new Thread(out).start();
     }
 
-    public synchronized void send(Message msg) {
+    synchronized void send(Message msg) {
         this.out.send(msg);
     }
 
     @Nullable
-    public User getUser() {
+    User getUser() {
         return user;
     }
 
-    public void setUser(@Nullable User user) {
+    void setUser(@Nullable User user) {
         this.user = user;
     }
 
-    public In getIn() {
+    In getIn() {
         return in;
     }
 
-    public Out getOut() {
+    Out getOut() {
         return out;
     }
 
-    public void end() {
+    void end() {
         in.stop();
         out.stop();
         // uncouple the user and the connection
@@ -101,7 +102,7 @@ class In implements Runnable {
     private Connection connection;
     private boolean running;
 
-    public In(ObjectInputStream in, @NotNull Connection c) {
+    In(ObjectInputStream in, @NotNull Connection c) {
         this.in = in;
         this.connection = c;
         this.running = true;
@@ -126,6 +127,7 @@ class In implements Runnable {
                             System.err.println("Unauthorized access\nPublic key: " + RSAUtils.encode(userPublicKey));
                             // stop the connection
                             this.connection.end();
+                            break;
                         }
                         // bind the connection to the user
                         this.connection.setUser(u);
@@ -134,14 +136,45 @@ class In implements Runnable {
                         this.connection.getOut().clearInbox();
                         // login complete
                     } else if (msg instanceof RegistrationMessage) {
+                        // registration
+                        RegistrationMessage rm = (RegistrationMessage) msg;
+                        PublicKey userPublicKey = rm.getPublicKey();
+                        // generate ID
+                        String sID = RandomStringUtils.random((int) (Math.random() * 3) + 6, false, true);
+                        // add this user
+                        User u = new User(userPublicKey, Integer.parseInt(sID));
+                        System.out.println("New user registered:\n" + u);
+                        this.connection.setUser(u);
+                        u.setConnection(this.connection);
+                        Server.getInstance().addUser(u);
 
+                        // registration response
+                        RegistrationResponseMessage rrm = new RegistrationResponseMessage(u.getId());
+                        this.connection.getOut().send(rrm);
+                    }
+                } else if (msg instanceof ClientMessage) {
+                    // client message
+                    ClientMessage cm = (ClientMessage) msg;
+                    int recipient = cm.getRecipientID();
+                    assert this.connection.getUser() != null;
+                    int sender = this.connection.getUser().getId();
+                    cm.setRecipient(sender);
+                    User rec = Server.getInstance().getUserByID(recipient);
+                    if (rec == null) {
+                        // no user with a matching ID was found
+                        this.connection.send(new MessageDeliveryStatus(false, "Delivery Failed\n" + cm));
+                    } else {
+                        // send the msg
+                        rec.send(cm);
                     }
                 } else {
-                    // client message
-
+                    System.out.println("Unrecognized message type " + msg);
                 }
             } catch (IOException | ClassNotFoundException | NoSuchAlgorithmException | InvalidKeyException | NoSuchPaddingException | BadPaddingException | IllegalBlockSizeException ex) {
                 ex.printStackTrace();
+                // stop connection
+                this.connection.end();
+                System.out.println("Connection terminated");
             }
         }
         try {
@@ -149,6 +182,7 @@ class In implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        connection = null;
     }
 
     public void stop() {
@@ -162,7 +196,7 @@ class Out implements Runnable {
     private Connection connection;
     private boolean running;
 
-    public Out(ObjectOutputStream out, Connection c) {
+    Out(ObjectOutputStream out, Connection c) {
         this.out = out;
         this.connection = c;
         this.buffer = new ConcurrentLinkedQueue<>();
@@ -187,6 +221,7 @@ class Out implements Runnable {
                     e.printStackTrace();
                     // assuming that the connection is not possible
                     this.connection.end();
+                    System.out.println("Connection terminated");
                 }
             }
         }
@@ -196,24 +231,26 @@ class Out implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        connection = null; // dereference
     }
 
     /**
      * THE USER MUST NOT BE NULL WHEN THIS METHOD IS CALLED
      */
-    public void clearInbox() {
+    void clearInbox() {
         User user = this.connection.getUser();
+        assert user != null;
         if (!user.getInbox().isEmpty()) {
             buffer.addAll(user.getInbox());
             user.getInbox().clear();
         }
     }
 
-    public void send(@NotNull Message msg) {
+    void send(@NotNull Message msg) {
         this.buffer.add(msg);
     }
 
-    public void stop() {
+    void stop() {
         running = false;
     }
 }

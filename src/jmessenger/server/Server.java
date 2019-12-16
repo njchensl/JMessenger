@@ -45,7 +45,7 @@ public class Server implements Runnable {
     private List<@NotNull Connection> connections;
     private PrivateKey privateKey;
 
-    public Server(PrivateKey privateKey, int port) throws IOException {
+    Server(PrivateKey privateKey, int port) throws IOException {
         this.privateKey = privateKey;
         this.users = new ArrayList<>();
         this.connections = new ArrayList<>();
@@ -60,6 +60,12 @@ public class Server implements Runnable {
         return server;
     }
 
+    // TODO
+    private static void initialize() {
+
+    }
+
+    @Override
     public void run() {
         for (; ; ) {
             try {
@@ -71,16 +77,16 @@ public class Server implements Runnable {
         }
     }
 
-    public PrivateKey getPrivateKey() {
+    PrivateKey getPrivateKey() {
         return privateKey;
     }
 
-    public void setPrivateKey(PrivateKey privateKey) {
+    void setPrivateKey(PrivateKey privateKey) {
         this.privateKey = privateKey;
     }
 
     @Nullable
-    public User getUserByPublicKey(@NotNull PublicKey publicKey) {
+    User getUserByPublicKey(@NotNull PublicKey publicKey) {
         for (User u : users) {
             if (RSAUtils.encode(u.getPublicKey()).equals(RSAUtils.encode(publicKey))) {
                 return u;
@@ -89,7 +95,21 @@ public class Server implements Runnable {
         return null;
     }
 
-    public List<Connection> getConnections() {
+    @Nullable
+    User getUserByID(int id) {
+        for (User u : users) {
+            if (u.getId() == id) {
+                return u;
+            }
+        }
+        return null;
+    }
+
+    void addUser(@NotNull User u) {
+        this.users.add(u);
+    }
+
+    List<Connection> getConnections() {
         return connections;
     }
 }
