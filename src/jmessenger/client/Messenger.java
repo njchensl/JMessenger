@@ -173,8 +173,10 @@ public class Messenger {
     private void initialize(@NotNull String host, int port) throws IOException {
         this.socket = new Socket();
         this.socket.connect(new InetSocketAddress(host, port), 10000);
-        this.in = new In(socket);
+
         this.out = new Out(socket);
+        this.in = new In(socket);
+
         new Thread(in).start();
         new Thread(out).start();
 

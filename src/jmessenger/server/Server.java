@@ -122,6 +122,10 @@ public class Server implements Runnable {
         sPublic.flush();
         sPrivate.close();
         sPublic.close();
+        // show the user the base64 string representation of the public key
+        System.out.println("Public Key:\n");
+        System.out.println(RSAUtils.encode(pub));
+
         Scanner in = new Scanner(System.in);
         System.out.println("Which port do you want to run the server on?");
         String port = in.nextLine();
@@ -134,8 +138,10 @@ public class Server implements Runnable {
     @Override
     public void run() {
         for (; ; ) {
+            System.out.println("Listening for incoming connections...");
             try {
                 Socket s = ss.accept();
+                System.out.println("User connected: " + s.getRemoteSocketAddress());
                 connections.add(new Connection(s));
             } catch (IOException e) {
                 e.printStackTrace();

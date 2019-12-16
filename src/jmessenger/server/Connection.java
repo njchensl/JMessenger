@@ -33,6 +33,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
@@ -49,15 +50,30 @@ public class Connection {
     private Out out;
 
     Connection(@NotNull Socket s) throws IOException {
+        System.out.println("Initializing connection...");
         this.s = s;
-        this.in = new In(new ObjectInputStream(s.getInputStream()), this);
+        System.out.println("Creating I/O streams");
+
         this.out = new Out(new ObjectOutputStream(s.getOutputStream()), this);
+        System.out.println("Output object created");
+
+        InputStream is = s.getInputStream();
+        System.out.println("Input stream created");
+        ObjectInputStream oin = new ObjectInputStream(is);
+        System.out.println("Object input stream created");
+        this.in = new In(oin, this);
+        System.out.println("Input object created");
+
+
         initialize();
+        System.out.println("Connection initialized");
     }
 
     private void initialize() {
+        System.out.println("Starting I/O threads");
         new Thread(in).start();
         new Thread(out).start();
+        System.out.println("I/O threads started");
     }
 
     synchronized void send(Message msg) {
@@ -103,6 +119,7 @@ class In implements Runnable {
     private boolean running;
 
     In(ObjectInputStream in, @NotNull Connection c) {
+        System.out.println("creating in");
         this.in = in;
         this.connection = c;
         this.running = true;
@@ -112,11 +129,14 @@ class In implements Runnable {
     public void run() {
         // listening for new messages regardless if the user is null
         while (running) {
+            System.out.println("Listening for incoming messages");
             try {
                 EncryptedMessage e = (EncryptedMessage) in.readObject();
                 byte[] data = e.getMessage();
                 byte[] decrypted = RSAUtils.decrypt(data, Server.getInstance().getPrivateKey());
                 Message msg = SerializationUtils.deserialize(decrypted);
+                System.out.println("Message received:");
+                System.out.println(msg);
                 if (msg instanceof ServerMessage) {
                     // login
                     if (msg instanceof LoginMessage) {
@@ -205,6 +225,7 @@ class Out implements Runnable {
 
     @Override
     public void run() {
+        System.out.println("Waiting for outgoing messages");
         while (running) {
             Message msg = buffer.poll();
             if (msg == null) {

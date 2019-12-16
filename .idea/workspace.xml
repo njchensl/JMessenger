@@ -8,10 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/In.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/In.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/server/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/server/Connection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jmessenger/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/RSAKeyPairGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/RSAKeyPairGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +57,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
-  <component name="RunManager" selected="Application.Messenger">
+  <component name="RunManager" selected="Application.Server">
     <configuration name="Messenger" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jmessenger.client.Messenger" />
       <module name="JMessenger" />
@@ -88,8 +90,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Messenger" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="Application.Messenger" />
       </list>
     </recent_temporary>
   </component>
@@ -299,22 +301,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="344" y="84" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1576433876899" />
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1576431431528">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1576531127470">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1576431431528" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1576431431528">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1576531127470" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1576531127470">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1576431431528" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1576431431528">
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1576531127470" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1576531127470">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1576431431528" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1576431431528">
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1576531127470" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1576531127470">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1576431431528" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1576531127470" />
     <state x="117" y="0" key="SettingsEditor" timestamp="1576422442034">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -323,13 +325,13 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576496930271" />
-    <state x="372" y="144" key="git4idea.merge.GitPullDialog" timestamp="1576324568980">
+    <state x="372" y="144" key="git4idea.merge.GitPullDialog" timestamp="1576526532063">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="372" y="144" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1576324568980" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1576525544160">
+    <state x="372" y="144" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1576526532063" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1576530791460">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1576525544160" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1576530791460" />
   </component>
 </project>
