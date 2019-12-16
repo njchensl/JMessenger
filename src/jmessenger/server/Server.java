@@ -28,6 +28,7 @@ import jmessenger.shared.RSAUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.crypto.SecretKey;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -97,7 +98,6 @@ public class Server implements Runnable {
             System.exit(4);
         }
 
-
     }
 
     public static Server getInstance() {
@@ -158,9 +158,9 @@ public class Server implements Runnable {
     }
 
     @Nullable
-    User getUserByPublicKey(@NotNull PublicKey publicKey) {
+    User getUserByKey(@NotNull SecretKey key) {
         for (User u : users) {
-            if (RSAUtils.encode(u.getPublicKey()).equals(RSAUtils.encode(publicKey))) {
+            if (RSAUtils.encode(u.getKey()).equals(RSAUtils.encode(key))) {
                 return u;
             }
         }

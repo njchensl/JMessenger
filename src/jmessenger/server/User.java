@@ -29,29 +29,29 @@ import jmessenger.shared.RSAUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.security.PublicKey;
+import javax.crypto.SecretKey;
 import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-    private PublicKey publicKey;
+    private SecretKey key;
     private int id;
     private transient List<ClientMessage> inbox;
     private transient Connection connection; // the connection is not null when the user is online
 
-    User(PublicKey publicKey, int id) {
-        this.publicKey = publicKey;
+    User(SecretKey key, int id) {
+        this.key = key;
         this.id = id;
         this.inbox = new ArrayList<>();
     }
 
     @NotNull
-    public PublicKey getPublicKey() {
-        return publicKey;
+    public SecretKey getKey() {
+        return key;
     }
 
-    void setPublicKey(@NotNull PublicKey publicKey) {
-        this.publicKey = publicKey;
+    void setKey(@NotNull SecretKey key) {
+        this.key = key;
     }
 
     public int getId() {
@@ -95,6 +95,6 @@ public class User {
     @Override
     @NotNull
     public String toString() {
-        return "USER\nUser ID: " + id + "User Public Key: " + RSAUtils.encode(publicKey);
+        return "USER\nUser ID: " + id + "User Public Key: " + RSAUtils.encode(key);
     }
 }

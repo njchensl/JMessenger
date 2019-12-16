@@ -4,9 +4,11 @@ import org.jetbrains.annotations.NotNull;
 
 public class EncryptedMessage implements java.io.Serializable {
     private byte[] data;
+    private boolean usingAES;
 
-    public EncryptedMessage(@NotNull byte[] data) {
+    public EncryptedMessage(@NotNull byte[] data, boolean usingAES) {
         this.data = data.clone();
+        this.usingAES = usingAES;
     }
 
     @NotNull
@@ -14,7 +16,7 @@ public class EncryptedMessage implements java.io.Serializable {
         return this.data;
     }
 
-    public void setMessage(@NotNull byte[] data) {
-        this.data = data.clone();
+    public boolean isUsingAES() {
+        return usingAES;
     }
 }

@@ -8,8 +8,7 @@
 # configuration files
 messenger.conf
 server.conf
-public.key
-private.key
+client.key
 server-private.key
 server-public.key
 client-stored-server-public.key

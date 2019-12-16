@@ -26,12 +26,12 @@ package jmessenger.client;
 import jmessenger.shared.*;
 import org.jetbrains.annotations.NotNull;
 
+import javax.crypto.SecretKey;
 import javax.swing.*;
 import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,17 +45,17 @@ public class Messenger {
     private List<Conversation> conversationList;
     private NotificationCenter nc;
     private PublicKey serverPublicKey;
-    private PrivateKey myPrivateKey;
-    private PublicKey myPublicKey;
+    private SecretKey myKey;
     private boolean registered;
+    private boolean usingAES;
 
-    public Messenger(@NotNull String host, int port, PublicKey pub, PrivateKey pri, PublicKey serverPublicKey, boolean registered) throws IOException {
+    public Messenger(@NotNull String host, int port, SecretKey myKey, PublicKey serverPublicKey, boolean registered) throws IOException {
         this.conversationList = new ArrayList<>();
         this.nc = NotificationCenter.getInstance();
-        this.myPublicKey = pub;
-        this.myPrivateKey = pri;
         this.serverPublicKey = serverPublicKey;
         this.registered = registered;
+        this.myKey = myKey;
+        this.usingAES = false;
         this.initialize(host, port);
     }
 
@@ -82,25 +82,18 @@ public class Messenger {
             }
         }
         System.out.println("Running");
-        // read the files
-        File privateKey = new File("private.key");
-        File publicKey = new File("public.key");
-        ObjectInputStream sPrivate, sPublic;
-        PublicKey pub = null;
-        PrivateKey pri = null;
+        // read the keys
+
+        SecretKey key = null;
+        File k = new File("client.key");
         try {
-            sPrivate = new ObjectInputStream(new FileInputStream(privateKey));
-            sPublic = new ObjectInputStream(new FileInputStream(publicKey));
-            pub = (PublicKey) sPublic.readObject();
-            pri = (PrivateKey) sPrivate.readObject();
-            sPrivate.close();
-            sPublic.close();
+            ObjectInputStream keyIn = new ObjectInputStream(new FileInputStream(k));
+            key = (SecretKey) keyIn.readObject();
+            keyIn.close();
         } catch (IOException | ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, e.getStackTrace(), "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
             System.exit(3);
         }
-
-        // pub / pri will definitely not be null at this point
 
         // read the client config
         try {
@@ -115,7 +108,7 @@ public class Messenger {
             PublicKey serverPublicKey = (PublicKey) serverPublicKeyIn.readObject();
             serverPublicKeyIn.close();
 
-            messenger = new Messenger(hostName, port, pub, pri, serverPublicKey, registered);
+            messenger = new Messenger(hostName, port, key, serverPublicKey, registered);
         } catch (IOException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, e.getStackTrace(), "Error", JOptionPane.ERROR_MESSAGE);
             System.exit(4);
@@ -125,24 +118,18 @@ public class Messenger {
 
     private static void initialize(@NotNull File conf) throws IOException, NoSuchAlgorithmException {
         System.out.println("Initializing");
-        File privateKey = new File("private.key");
-        File publicKey = new File("public.key");
+
         // create the files
         conf.createNewFile();
-        privateKey.createNewFile();
-        publicKey.createNewFile();
-        ObjectOutputStream sPrivate = new ObjectOutputStream(new FileOutputStream(privateKey));
-        ObjectOutputStream sPublic = new ObjectOutputStream(new FileOutputStream(publicKey));
-        // Generate key pair
-        RSAKeyPairGenerator pair = new RSAKeyPairGenerator();
-        PublicKey pub = pair.getPublicKey();
-        PrivateKey pri = pair.getPrivateKey();
-        sPublic.writeObject(pub);
-        sPrivate.writeObject(pri);
-        sPublic.flush();
-        sPrivate.flush();
-        sPublic.close();
-        sPrivate.close();
+
+        File clientKey = new File("client.key");
+        ObjectOutputStream sKey = new ObjectOutputStream(new FileOutputStream(clientKey));
+
+        // generate client key
+        SecretKey key = AESUtils.generate();
+        sKey.writeObject(key);
+        sKey.flush();
+        sKey.close();
 
         // client configuration
         BufferedWriter bfConf = new BufferedWriter(new FileWriter(conf));
@@ -166,6 +153,14 @@ public class Messenger {
         bfConf.close();
     }
 
+    public boolean isUsingAES() {
+        return usingAES;
+    }
+
+    public void setUsingAES(boolean b) {
+        this.usingAES = b;
+    }
+
     public void send(@NotNull Message msg) {
         this.out.send(msg);
     }
@@ -184,6 +179,10 @@ public class Messenger {
             register();
         }
 
+        // login
+        LoginMessage lm = new LoginMessage(this.myKey);
+        this.send(lm);
+
         // TODO show GUI
     }
 
@@ -192,31 +191,13 @@ public class Messenger {
         return serverPublicKey;
     }
 
-    public void setServerPublicKey(@NotNull PublicKey serverPublicKey) {
-        this.serverPublicKey = serverPublicKey;
-    }
-
-    @NotNull
-    public PrivateKey getMyPrivateKey() {
-        return myPrivateKey;
-    }
-
-    public void setMyPrivateKey(@NotNull PrivateKey myPrivateKey) {
-        this.myPrivateKey = myPrivateKey;
-    }
-
-    @NotNull
-    public PublicKey getMyPublicKey() {
-        return myPublicKey;
-    }
-
-    public void setMyPublicKey(@NotNull PublicKey myPublicKey) {
-        this.myPublicKey = myPublicKey;
+    public SecretKey getMyKey() {
+        return this.myKey;
     }
 
     private void register() {
         // register with the server
-        RegistrationMessage msg = new RegistrationMessage(myPublicKey);
+        RegistrationMessage msg = new RegistrationMessage(myKey);
         out.send(msg);
     }
 
@@ -230,7 +211,7 @@ public class Messenger {
             String data = sc.nextLine() + "\n" + sc.nextLine() + "\n";
             sc.close();
             BufferedWriter bfConf = new BufferedWriter(new FileWriter(f));
-            bfConf.write("true");
+            bfConf.write("true\n");
             bfConf.write(data);
             bfConf.flush();
             bfConf.close();
@@ -266,9 +247,11 @@ public class Messenger {
                     nc.add(new Exception("Message Delivery Failed\n" + mds.getMessage()));
                 }
             } else if (msg instanceof RegistrationResponseMessage) {
+                this.usingAES = true;
                 RegistrationResponseMessage rrm = (RegistrationResponseMessage) msg;
                 JOptionPane.showMessageDialog(null, "You have successfully registered with the server\nUser ID: " + rrm.getUserID(), "Registration Successful", JOptionPane.INFORMATION_MESSAGE);
                 finishRegistration();
+
             }
         }
     }

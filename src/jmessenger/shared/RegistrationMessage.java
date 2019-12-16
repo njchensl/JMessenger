@@ -26,35 +26,27 @@ package jmessenger.shared;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.security.PublicKey;
+import javax.crypto.SecretKey;
 
 /**
  * @author frche1699
  */
 public class RegistrationMessage extends ServerMessage {
-    protected PublicKey publicKey;
+    protected SecretKey key;
 
-    public RegistrationMessage() {
+    public RegistrationMessage(@NotNull SecretKey publicKey) {
         super();
-    }
-
-    public RegistrationMessage(@NotNull PublicKey publicKey) {
-        this();
-        this.publicKey = publicKey;
+        this.key = publicKey;
     }
 
     @NotNull
-    public PublicKey getPublicKey() {
-        return publicKey;
-    }
-
-    public void setPublicKey(@NotNull PublicKey publicKey) {
-        this.publicKey = publicKey;
+    public SecretKey getKey() {
+        return key;
     }
 
     @NotNull
     @Override
     public String toString() {
-        return "REGISTRATION MESSAGE\n" + super.toString() + "\nPublic key: " + RSAUtils.encode(publicKey);
+        return "REGISTRATION MESSAGE\n" + super.toString() + "\nKey: " + RSAUtils.encode(key);
     }
 }

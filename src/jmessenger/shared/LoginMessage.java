@@ -2,32 +2,24 @@ package jmessenger.shared;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.security.PublicKey;
+import javax.crypto.SecretKey;
 
 public class LoginMessage extends ServerMessage {
-    protected PublicKey publicKey;
+    protected SecretKey key;
 
-    public LoginMessage() {
+    public LoginMessage(@NotNull SecretKey key) {
         super();
-    }
-
-    public LoginMessage(@NotNull PublicKey publicKey) {
-        this();
-        this.publicKey = publicKey;
+        this.key = key;
     }
 
     @NotNull
-    public PublicKey getPublicKey() {
-        return publicKey;
-    }
-
-    public void setPublicKey(@NotNull PublicKey publicKey) {
-        this.publicKey = publicKey;
+    public SecretKey getKey() {
+        return key;
     }
 
     @NotNull
     @Override
     public String toString() {
-        return "LOGIN MESSAGE\n" + super.toString() + "\nPublic key: " + RSAUtils.encode(publicKey);
+        return "LOGIN MESSAGE\n" + super.toString() + "\nKey: " + RSAUtils.encode(key);
     }
 }

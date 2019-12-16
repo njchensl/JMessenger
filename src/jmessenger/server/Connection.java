@@ -32,14 +32,15 @@ import org.jetbrains.annotations.Nullable;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -101,8 +102,10 @@ public class Connection {
         in.stop();
         out.stop();
         // uncouple the user and the connection
-        this.user.setConnection(null);
-        this.user = null;
+        if (this.user != null) {
+            this.user.setConnection(null);
+            this.user = null;
+        }
         try {
             s.close();
         } catch (IOException e) {
@@ -133,7 +136,14 @@ class In implements Runnable {
             try {
                 EncryptedMessage e = (EncryptedMessage) in.readObject();
                 byte[] data = e.getMessage();
-                byte[] decrypted = RSAUtils.decrypt(data, Server.getInstance().getPrivateKey());
+                byte[] decrypted;
+                if (e.isUsingAES()) {
+                    assert this.connection.getUser() != null;
+                    decrypted = AESUtils.decrypt(data, this.connection.getUser().getKey());
+                } else {
+                    decrypted = RSAUtils.decrypt(data, Server.getInstance().getPrivateKey());
+                }
+
                 Message msg = SerializationUtils.deserialize(decrypted);
                 System.out.println("Message received:");
                 System.out.println(msg);
@@ -141,10 +151,10 @@ class In implements Runnable {
                     // login
                     if (msg instanceof LoginMessage) {
                         LoginMessage lm = (LoginMessage) msg;
-                        PublicKey userPublicKey = lm.getPublicKey();
-                        User u = Server.getInstance().getUserByPublicKey(userPublicKey);
+                        SecretKey userKey = lm.getKey();
+                        User u = Server.getInstance().getUserByKey(userKey);
                         if (u == null) {
-                            System.err.println("Unauthorized access\nPublic key: " + RSAUtils.encode(userPublicKey));
+                            System.err.println("Unauthorized access\nPublic key: " + RSAUtils.encode(userKey));
                             // stop the connection
                             this.connection.end();
                             break;
@@ -158,11 +168,11 @@ class In implements Runnable {
                     } else if (msg instanceof RegistrationMessage) {
                         // registration
                         RegistrationMessage rm = (RegistrationMessage) msg;
-                        PublicKey userPublicKey = rm.getPublicKey();
+                        SecretKey userKey = rm.getKey();
                         // generate ID
                         String sID = RandomStringUtils.random((int) (Math.random() * 3) + 6, false, true);
                         // add this user
-                        User u = new User(userPublicKey, Integer.parseInt(sID));
+                        User u = new User(userKey, Integer.parseInt(sID));
                         System.out.println("New user registered:\n" + u);
                         this.connection.setUser(u);
                         u.setConnection(this.connection);
@@ -190,7 +200,7 @@ class In implements Runnable {
                 } else {
                     System.out.println("Unrecognized message type " + msg);
                 }
-            } catch (IOException | ClassNotFoundException | NoSuchAlgorithmException | InvalidKeyException | NoSuchPaddingException | BadPaddingException | IllegalBlockSizeException ex) {
+            } catch (IOException | ClassNotFoundException | NoSuchAlgorithmException | InvalidKeyException | NoSuchPaddingException | BadPaddingException | IllegalBlockSizeException | InvalidAlgorithmParameterException ex) {
                 ex.printStackTrace();
                 // stop connection
                 this.connection.end();
@@ -232,13 +242,13 @@ class Out implements Runnable {
                 continue;
             }
             if (connection.getUser() != null) {
-                PublicKey pub = connection.getUser().getPublicKey();
+                SecretKey key = connection.getUser().getKey();
                 byte[] data = SerializationUtils.serialize(msg);
                 try {
-                    byte[] encrypted = RSAUtils.encrypt(data, pub);
-                    EncryptedMessage em = new EncryptedMessage(encrypted);
+                    byte[] encrypted = AESUtils.encrypt(data, key);
+                    EncryptedMessage em = new EncryptedMessage(encrypted, true);
                     out.writeObject(em);
-                } catch (NoSuchAlgorithmException | InvalidKeyException | NoSuchPaddingException | IllegalBlockSizeException | BadPaddingException | IOException e) {
+                } catch (NoSuchAlgorithmException | InvalidKeyException | NoSuchPaddingException | IllegalBlockSizeException | BadPaddingException | IOException | InvalidAlgorithmParameterException e) {
                     e.printStackTrace();
                     // assuming that the connection is not possible
                     this.connection.end();
