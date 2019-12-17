@@ -46,7 +46,7 @@ public class NotificationCenter {
     }
 
     public synchronized void add(@NotNull Throwable t) {
-        t.printStackTrace();
+        //t.printStackTrace();
         throwableList.add(t);
     }
 

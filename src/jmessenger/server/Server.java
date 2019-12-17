@@ -28,10 +28,12 @@ import jmessenger.shared.RSAUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.crypto.SecretKey;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.ArrayList;
@@ -47,16 +49,32 @@ public class Server implements Runnable {
     private List<@NotNull User> users;
     private List<@NotNull Connection> connections;
     private PrivateKey privateKey;
+    private UserDatabaseBackup backup;
 
     /**
      * no server instance for anyone else
      */
-    private Server(PrivateKey privateKey, int port) throws IOException {
+    @SuppressWarnings("unchecked")
+    private Server(PrivateKey privateKey, int port) throws IOException, ClassNotFoundException {
         this.privateKey = privateKey;
         this.users = new ArrayList<>();
+        // read users from database
+        File db = new File("database");
+        if (db.exists()) {
+            Object o = new ObjectInputStream(new FileInputStream(db)).readObject();
+            this.users = (List<User>) o;
+            for (User u : users) {
+                u.resetUserInboxAndConnection();
+            }
+        }
+
         this.connections = new ArrayList<>();
         this.ss = new ServerSocket(port);
         System.out.println("Server started on port " + port);
+        backup = new UserDatabaseBackup();
+        Thread t = new Thread(backup);
+        t.setDaemon(true);
+        t.start();
     }
 
     public static void main(String... args) {
@@ -65,7 +83,7 @@ public class Server implements Runnable {
             System.out.println("Initializing");
             try {
                 initialize(conf);
-            } catch (IOException | NoSuchAlgorithmException e) {
+            } catch (IOException | NoSuchAlgorithmException | NoSuchProviderException e) {
                 e.printStackTrace();
                 System.exit(1);
             }
@@ -92,11 +110,10 @@ public class Server implements Runnable {
         try {
             server = new Server(pri, port);
             new Thread(server).start();
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
             System.exit(4);
         }
-
 
     }
 
@@ -104,7 +121,7 @@ public class Server implements Runnable {
         return server;
     }
 
-    private static void initialize(@NotNull File conf) throws IOException, NoSuchAlgorithmException {
+    private static void initialize(@NotNull File conf) throws IOException, NoSuchAlgorithmException, NoSuchProviderException {
         File privateKey = new File("server-private.key");
         File publicKey = new File("server-public.key");
         conf.createNewFile();
@@ -158,9 +175,11 @@ public class Server implements Runnable {
     }
 
     @Nullable
-    User getUserByPublicKey(@NotNull PublicKey publicKey) {
+    User getUserByKey(@NotNull SecretKey key) {
         for (User u : users) {
-            if (RSAUtils.encode(u.getPublicKey()).equals(RSAUtils.encode(publicKey))) {
+            System.out.println(RSAUtils.encode(u.getKey()));
+            System.out.println(RSAUtils.encode(key));
+            if (RSAUtils.encode(u.getKey()).equals(RSAUtils.encode(key))) {
                 return u;
             }
         }
@@ -175,6 +194,10 @@ public class Server implements Runnable {
             }
         }
         return null;
+    }
+
+    List<User> getUsers() {
+        return this.users;
     }
 
     void addUser(@NotNull User u) {

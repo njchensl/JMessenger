@@ -23,15 +23,20 @@
  */
 package jmessenger.client;
 
-import jmessenger.shared.EncryptedMessage;
-import jmessenger.shared.Message;
-import jmessenger.shared.RSAUtils;
+import jmessenger.shared.*;
 import org.apache.commons.lang3.SerializationUtils;
 import org.jetbrains.annotations.NotNull;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -51,6 +56,12 @@ public class Out implements Runnable {
     @Override
     public void run() {
         running = true;
+        // wait until the messenger is initialized
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         for (; ; ) {
             Message msg = buffer.poll();
             if (msg == null) {
@@ -61,15 +72,30 @@ public class Out implements Runnable {
                     return;
                 }
             }
-            // encrypt and send
-            PublicKey pub = Messenger.getInstance().getServerPublicKey();
             byte[] unencrypted = SerializationUtils.serialize(msg);
-            try {
-                byte[] encrypted = RSAUtils.encrypt(unencrypted, pub);
-                EncryptedMessage encryptedMsg = new EncryptedMessage(encrypted);
-                out.writeObject(encryptedMsg);
-            } catch (Exception e) {
-                NotificationCenter.getInstance().add(e);
+            System.out.println(unencrypted.length);
+            // encrypt and send
+            if (Messenger.getInstance().isUsingAES()) {
+                SecretKey key = Messenger.getInstance().getMyKey();
+                try {
+                    byte[] encrypted = AESUtils.encrypt(unencrypted, key);
+                    EncryptedMessage encryptedMsg = new EncryptedMessage(encrypted, true);
+                    out.writeObject(encryptedMsg);
+                } catch (NoSuchPaddingException | NoSuchAlgorithmException | InvalidKeyException | BadPaddingException | IllegalBlockSizeException | IOException | InvalidAlgorithmParameterException e) {
+                    NotificationCenter.getInstance().add(e);
+                }
+            } else {
+                if (msg instanceof LoginMessage) {
+                    Messenger.getInstance().setUsingAES(true);
+                }
+                PublicKey pub = Messenger.getInstance().getServerPublicKey();
+                try {
+                    byte[] encrypted = RSAUtils.encrypt(unencrypted, pub);
+                    EncryptedMessage encryptedMsg = new EncryptedMessage(encrypted, false);
+                    out.writeObject(encryptedMsg);
+                } catch (Exception e) {
+                    NotificationCenter.getInstance().add(e);
+                }
             }
 
         }

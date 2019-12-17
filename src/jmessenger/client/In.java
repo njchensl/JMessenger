@@ -23,15 +23,15 @@
  */
 package jmessenger.client;
 
+import jmessenger.shared.AESUtils;
 import jmessenger.shared.EncryptedMessage;
 import jmessenger.shared.Message;
-import jmessenger.shared.RSAUtils;
 import org.apache.commons.lang3.SerializationUtils;
 
+import javax.crypto.SecretKey;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
-import java.security.PrivateKey;
 
 public class In implements Runnable {
     private Socket socket;
@@ -48,11 +48,12 @@ public class In implements Runnable {
         running = true;
         while (running) {
             try {
+                // ALWAYS USING AES
                 EncryptedMessage msg = (EncryptedMessage) in.readObject();
                 byte[] data = msg.getMessage();
                 // decryption
-                PrivateKey pri = Messenger.getInstance().getMyPrivateKey();
-                byte[] decrypted = RSAUtils.decrypt(data, pri);
+                SecretKey key = Messenger.getInstance().getMyKey();
+                byte[] decrypted = AESUtils.decrypt(data, key);
                 Message decryptedMsg = SerializationUtils.deserialize(decrypted);
                 System.out.println("Message Received:");
                 System.out.println(decryptedMsg);
