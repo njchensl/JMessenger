@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2019 jingli.
+ * Copyright 2019 Gary Gao.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  *
- * @author jingli
+ * @author Gary Gao
  */
 public class TextMessage extends ClientMessage {
 

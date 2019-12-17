@@ -69,6 +69,8 @@ public class Messenger {
 
     @NotNull
     public static Messenger getInstance() {
+        while (messenger == null) {
+        }
         return messenger;
     }
 
@@ -246,7 +248,7 @@ public class Messenger {
             ClientMessage cm = (ClientMessage) msg;
             int recipient = cm.getRecipientID();
             boolean added = false;
-            for (Conversation c : conversationList) {
+            for (Conversation c : getConversationList()) {
                 if (c.getRecipient() == recipient) {
                     c.addMessage(cm); // the rest is handled by the GUI message renderer
                     added = true;
@@ -256,7 +258,7 @@ public class Messenger {
             if (!added) {
                 Conversation cNew = new Conversation(recipient);
                 cNew.addMessage(cm);
-                conversationList.add(cNew);
+                getConversationList().add(cNew);
             }
         } else {
             // server message
@@ -278,5 +280,12 @@ public class Messenger {
 
     public MainFrame getMainFrame() {
         return mainFrame;
+    }
+
+    /**
+     * @return the conversationList
+     */
+    public List<Conversation> getConversationList() {
+        return conversationList;
     }
 }

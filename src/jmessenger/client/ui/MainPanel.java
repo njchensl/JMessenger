@@ -35,7 +35,7 @@ public class MainPanel extends JPanel {
         this.add(bottom, c);
 
         // init the bottom panel
-        JLabel lbl = new JLabel("AA");
+        JLabel lbl = new JLabel("Conversations");
         lbl.setFont(new Font("Arial", Font.PLAIN, 10));
         lbl.setHorizontalAlignment(JLabel.CENTER);
         ((BottomPanel) bottom).addButton(lbl, this.main);

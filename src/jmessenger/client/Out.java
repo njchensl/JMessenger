@@ -58,7 +58,7 @@ public class Out implements Runnable {
         running = true;
         // wait until the messenger is initialized
         try {
-            Thread.sleep(200);
+            Thread.sleep(300);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
