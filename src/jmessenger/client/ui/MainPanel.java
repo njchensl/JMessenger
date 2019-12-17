@@ -38,7 +38,16 @@ public class MainPanel extends JPanel {
         JLabel lbl = new JLabel("Conversations");
         lbl.setFont(new Font("Arial", Font.PLAIN, 10));
         lbl.setHorizontalAlignment(JLabel.CENTER);
-        ((BottomPanel) bottom).addButton(lbl, this.main);
+        //((BottomPanel) bottom).addButton(lbl, this.main);
+
+        //testing
+        JPanel pnl = new JPanel() {
+            {
+                add(new JButton("SOMETHING"));
+            }
+        };
+
+        ((BottomPanel) bottom).addButton(lbl, pnl);
     }
 
     public JPanel getMainPanel() {

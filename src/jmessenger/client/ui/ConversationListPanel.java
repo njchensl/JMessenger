@@ -1,17 +1,18 @@
 package jmessenger.client.ui;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.util.List;
-import javax.swing.*;
 import jmessenger.client.Conversation;
 import jmessenger.client.Messenger;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.List;
 
 public class ConversationListPanel extends JPanel {
 
     public ConversationListPanel() {
         this.setLayout(new GridBagLayout());
         updateConversations();
+        //test();
     }
 
     private void test() {
@@ -47,14 +48,11 @@ public class ConversationListPanel extends JPanel {
     }
 
     public void updateConversations() {
-        try {
-            Thread.sleep(200);
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
-        }
+        this.removeAll();
         List<Conversation> cons = Messenger.getInstance().getConversationList();
         int gridy = 0;
         for (Conversation co : cons) {
+            /*
             ConversationItem item = new ConversationItem(co);
             GridBagConstraints c = new GridBagConstraints();
             c.fill = GridBagConstraints.HORIZONTAL;
@@ -63,7 +61,23 @@ public class ConversationListPanel extends JPanel {
             c.weightx = 1;
             c.weighty = 0;
             this.add(item, c);
+            */
+            GridBagConstraints c = new GridBagConstraints();
+            c.fill = GridBagConstraints.HORIZONTAL;
+            c.gridx = 0;
+            c.gridy = gridy;
+            c.weightx = 1;
+            c.weighty = 0;
+            this.add(new JButton("" + co.getRecipient()), c);
             gridy++;
         }
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 0;
+        c.gridy = gridy;
+        c.weightx = 1;
+        c.weighty = 1;
+        JLabel lblEmpty = new JLabel();
+        this.add(lblEmpty, c);
     }
 }

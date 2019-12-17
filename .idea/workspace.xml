@@ -8,19 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/BottomPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationListPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/MainFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/MainPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/MessagesPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jmessenger/server/UserDatabaseBackup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Out.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Out.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/server/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/server/Connection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/server/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/server/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/BottomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/BottomPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationListPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/MainPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/MessagesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/MessagesPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -317,18 +311,18 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="400" y="150" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1576414484486" />
-    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser" timestamp="1576582646848">
+    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser" timestamp="1576619332500">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1576582646848" />
+    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1576619332500" />
     <state x="576" y="257" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1576334794486">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="576" y="257" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1576334794486" />
-    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1576600436661">
+    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1576621041310">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576600436661" />
+    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576621041310" />
     <state x="443" y="232" width="394" height="223" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1576428110458">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -349,22 +343,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="344" y="84" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1576433876899" />
-    <state width="1237" height="159" key="GridCell.Tab.0.bottom" timestamp="1576601308437">
+    <state width="1237" height="159" key="GridCell.Tab.0.bottom" timestamp="1576621402745">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="159" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1576601308437" />
-    <state width="1237" height="159" key="GridCell.Tab.0.center" timestamp="1576601308436">
+    <state width="1237" height="159" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1576621402745" />
+    <state width="1237" height="159" key="GridCell.Tab.0.center" timestamp="1576621402745">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="159" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1576601308436" />
-    <state width="1237" height="159" key="GridCell.Tab.0.left" timestamp="1576601308436">
+    <state width="1237" height="159" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1576621402745" />
+    <state width="1237" height="159" key="GridCell.Tab.0.left" timestamp="1576621402744">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="159" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1576601308436" />
-    <state width="1237" height="159" key="GridCell.Tab.0.right" timestamp="1576601308437">
+    <state width="1237" height="159" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1576621402744" />
+    <state width="1237" height="159" key="GridCell.Tab.0.right" timestamp="1576621402745">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="159" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1576601308437" />
+    <state width="1237" height="159" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1576621402745" />
     <state x="117" y="0" key="SettingsEditor" timestamp="1576422442034">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -381,9 +375,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1576532105239" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1576532766959">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1576619562050">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1576532766959" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1576619562050" />
   </component>
 </project>

@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MessagesPanel extends JPanel {
+    private ConversationListPanel conversationListPanel;
+
     public MessagesPanel() {
         super(new GridBagLayout());
         initialize();
@@ -29,8 +31,12 @@ public class MessagesPanel extends JPanel {
         c.weighty = 1;
         c.gridx = 0;
         c.gridy = 1;
-        JPanel pnlList = new ConversationListPanel();
-        this.add(pnlList, c);
+        conversationListPanel = new ConversationListPanel();
+        this.add(conversationListPanel, c);
+    }
 
+
+    public ConversationListPanel getConversationListPanel() {
+        return conversationListPanel;
     }
 }

@@ -24,6 +24,8 @@
 package jmessenger.client;
 
 import jmessenger.client.ui.MainFrame;
+import jmessenger.client.ui.MainPanel;
+import jmessenger.client.ui.MessagesPanel;
 import jmessenger.shared.*;
 import mdlaf.MaterialLookAndFeel;
 import org.jetbrains.annotations.NotNull;
@@ -42,7 +44,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Messenger {
-    private static Messenger messenger;
+    private static volatile Messenger messenger;
     private In in;
     private Out out;
     private Socket socket;
@@ -62,20 +64,19 @@ public class Messenger {
         this.myKey = myKey;
         this.usingAES = false;
         this.initialize(host, port);
-        // display GUI
-        this.mainFrame = new MainFrame();
-        SwingUtilities.invokeLater(() -> this.mainFrame.setVisible(true));
+
+
+        // jpanel repainting
+        test();
+
     }
 
     @NotNull
     public static Messenger getInstance() {
         while (messenger == null) {
+            Thread.onSpinWait();
         }
         return messenger;
-    }
-
-    public void close() throws IOException {
-        socket.close();
     }
 
     public static void main(String... args) {
@@ -131,11 +132,36 @@ public class Messenger {
             serverPublicKeyIn.close();
 
             messenger = new Messenger(hostName, port, key, serverPublicKey, registered);
+            messenger.displayGUI();
         } catch (IOException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, e.getStackTrace(), "Error", JOptionPane.ERROR_MESSAGE);
             System.exit(4);
         }
 
+        // for testing only
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("added");
+        getInstance().conversationList.add(new Conversation(123456));
+        ((MessagesPanel) ((MainPanel) messenger.getMainFrame().getContentPane()).getMainPanel()).getConversationListPanel().updateConversations();
+        getInstance().getMainFrame().revalidate();
+    }
+
+    void test() {
+        this.conversationList.add(new Conversation(123));
+        this.conversationList.add(new Conversation(456));
+    }
+
+    public void close() throws IOException {
+        socket.close();
+    }
+
+    void displayGUI() {
+        this.mainFrame = new MainFrame();
+        SwingUtilities.invokeLater(() -> this.mainFrame.setVisible(true));
     }
 
     private static void initialize(@NotNull File conf) throws IOException, NoSuchAlgorithmException, NoSuchProviderException {
