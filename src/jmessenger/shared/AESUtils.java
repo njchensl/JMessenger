@@ -5,9 +5,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
+import java.security.*;
 
 public class AESUtils {
 
@@ -17,9 +15,9 @@ public class AESUtils {
         IV = new byte[16];
     }
 
-    public static SecretKey generate() throws NoSuchAlgorithmException {
+    public static SecretKey generate() throws NoSuchAlgorithmException, NoSuchProviderException {
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
-        keyGen.init(128);
+        keyGen.init(128, SecureRandom.getInstance("SHA1PRNG", "SUN"));
         return keyGen.generateKey();
     }
 

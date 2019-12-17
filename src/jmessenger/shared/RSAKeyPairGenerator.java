@@ -40,9 +40,9 @@ public class RSAKeyPairGenerator {
     private final PrivateKey privateKey;
     private final PublicKey publicKey;
 
-    public RSAKeyPairGenerator() throws NoSuchAlgorithmException {
+    public RSAKeyPairGenerator() throws NoSuchAlgorithmException, NoSuchProviderException {
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
-        keyGen.initialize(3000);
+        keyGen.initialize(3000, SecureRandom.getInstance("SHA1PRNG", "SUN"));
         KeyPair pair = keyGen.generateKeyPair();
         this.privateKey = pair.getPrivate();
         this.publicKey = pair.getPublic();

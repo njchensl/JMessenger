@@ -32,6 +32,7 @@ import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
@@ -79,6 +80,9 @@ public class Messenger {
             } catch (NoSuchAlgorithmException e) {
                 JOptionPane.showMessageDialog(null, e.getStackTrace(), "Error", JOptionPane.ERROR_MESSAGE);
                 System.exit(2);
+            } catch (NoSuchProviderException e) {
+                e.printStackTrace();
+                System.exit(4);
             }
         }
         System.out.println("Running");
@@ -116,7 +120,7 @@ public class Messenger {
 
     }
 
-    private static void initialize(@NotNull File conf) throws IOException, NoSuchAlgorithmException {
+    private static void initialize(@NotNull File conf) throws IOException, NoSuchAlgorithmException, NoSuchProviderException {
         System.out.println("Initializing");
 
         // create the files

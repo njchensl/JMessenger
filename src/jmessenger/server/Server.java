@@ -33,6 +33,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.ArrayList;
@@ -66,7 +67,7 @@ public class Server implements Runnable {
             System.out.println("Initializing");
             try {
                 initialize(conf);
-            } catch (IOException | NoSuchAlgorithmException e) {
+            } catch (IOException | NoSuchAlgorithmException | NoSuchProviderException e) {
                 e.printStackTrace();
                 System.exit(1);
             }
@@ -104,7 +105,7 @@ public class Server implements Runnable {
         return server;
     }
 
-    private static void initialize(@NotNull File conf) throws IOException, NoSuchAlgorithmException {
+    private static void initialize(@NotNull File conf) throws IOException, NoSuchAlgorithmException, NoSuchProviderException {
         File privateKey = new File("server-private.key");
         File publicKey = new File("server-public.key");
         conf.createNewFile();
@@ -160,6 +161,8 @@ public class Server implements Runnable {
     @Nullable
     User getUserByKey(@NotNull SecretKey key) {
         for (User u : users) {
+            System.out.println(RSAUtils.encode(u.getKey()));
+            System.out.println(RSAUtils.encode(key));
             if (RSAUtils.encode(u.getKey()).equals(RSAUtils.encode(key))) {
                 return u;
             }
