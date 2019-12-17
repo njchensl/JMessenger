@@ -12,6 +12,7 @@ public class ConversationListPanel extends JPanel {
     public ConversationListPanel() {
         this.setLayout(new GridBagLayout());
         updateConversations();
+
         //test();
     }
 
@@ -47,7 +48,7 @@ public class ConversationListPanel extends JPanel {
         this.add(lblEmpty, c);
     }
 
-    public void updateConversations() {
+    public synchronized void updateConversations() {
         this.removeAll();
         List<Conversation> cons = Messenger.getInstance().getConversationList();
         int gridy = 0;

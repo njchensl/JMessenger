@@ -9,6 +9,7 @@ public class MessagesPanel extends JPanel {
     public MessagesPanel() {
         super(new GridBagLayout());
         initialize();
+        conversationListPanel.updateConversations();
     }
 
     private void initialize() {
