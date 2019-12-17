@@ -56,6 +56,12 @@ public class Out implements Runnable {
     @Override
     public void run() {
         running = true;
+        // wait until the messenger is initialized
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         for (; ; ) {
             Message msg = buffer.poll();
             if (msg == null) {

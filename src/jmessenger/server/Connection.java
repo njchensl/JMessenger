@@ -53,28 +53,20 @@ public class Connection {
     Connection(@NotNull Socket s) throws IOException {
         System.out.println("Initializing connection...");
         this.s = s;
-        System.out.println("Creating I/O streams");
-
         this.out = new Out(new ObjectOutputStream(s.getOutputStream()), this);
-        System.out.println("Output object created");
-
         InputStream is = s.getInputStream();
-        System.out.println("Input stream created");
         ObjectInputStream oin = new ObjectInputStream(is);
-        System.out.println("Object input stream created");
         this.in = new In(oin, this);
-        System.out.println("Input object created");
-
 
         initialize();
         System.out.println("Connection initialized");
     }
 
     private void initialize() {
-        System.out.println("Starting I/O threads");
+        //System.out.println("Starting I/O threads");
         new Thread(in).start();
         new Thread(out).start();
-        System.out.println("I/O threads started");
+        //System.out.println("I/O threads started");
     }
 
     synchronized void send(Message msg) {

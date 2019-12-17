@@ -49,16 +49,32 @@ public class Server implements Runnable {
     private List<@NotNull User> users;
     private List<@NotNull Connection> connections;
     private PrivateKey privateKey;
+    private UserDatabaseBackup backup;
 
     /**
      * no server instance for anyone else
      */
-    private Server(PrivateKey privateKey, int port) throws IOException {
+    @SuppressWarnings("unchecked")
+    private Server(PrivateKey privateKey, int port) throws IOException, ClassNotFoundException {
         this.privateKey = privateKey;
         this.users = new ArrayList<>();
+        // read users from database
+        File db = new File("database");
+        if (db.exists()) {
+            Object o = new ObjectInputStream(new FileInputStream(db)).readObject();
+            this.users = (List<User>) o;
+            for (User u : users) {
+                u.resetUserInboxAndConnection();
+            }
+        }
+
         this.connections = new ArrayList<>();
         this.ss = new ServerSocket(port);
         System.out.println("Server started on port " + port);
+        backup = new UserDatabaseBackup();
+        Thread t = new Thread(backup);
+        t.setDaemon(true);
+        t.start();
     }
 
     public static void main(String... args) {
@@ -94,7 +110,7 @@ public class Server implements Runnable {
         try {
             server = new Server(pri, port);
             new Thread(server).start();
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
             System.exit(4);
         }
@@ -178,6 +194,10 @@ public class Server implements Runnable {
             }
         }
         return null;
+    }
+
+    List<User> getUsers() {
+        return this.users;
     }
 
     void addUser(@NotNull User u) {

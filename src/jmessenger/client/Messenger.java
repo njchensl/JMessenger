@@ -23,11 +23,14 @@
  */
 package jmessenger.client;
 
+import jmessenger.client.ui.MainFrame;
 import jmessenger.shared.*;
+import mdlaf.MaterialLookAndFeel;
 import org.jetbrains.annotations.NotNull;
 
 import javax.crypto.SecretKey;
 import javax.swing.*;
+import java.awt.*;
 import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -49,6 +52,7 @@ public class Messenger {
     private SecretKey myKey;
     private boolean registered;
     private boolean usingAES;
+    private MainFrame mainFrame;
 
     public Messenger(@NotNull String host, int port, SecretKey myKey, PublicKey serverPublicKey, boolean registered) throws IOException {
         this.conversationList = new ArrayList<>();
@@ -58,6 +62,9 @@ public class Messenger {
         this.myKey = myKey;
         this.usingAES = false;
         this.initialize(host, port);
+        // display GUI
+        this.mainFrame = new MainFrame();
+        SwingUtilities.invokeLater(() -> this.mainFrame.setVisible(true));
     }
 
     @NotNull
@@ -70,6 +77,15 @@ public class Messenger {
     }
 
     public static void main(String... args) {
+        // L&F
+        try {
+            UIManager.setLookAndFeel(new MaterialLookAndFeel());
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
+        UIManager.put("OptionPane.messageFont", new Font("Arial", Font.PLAIN, 11));
+        UIManager.put("OptionPane.buttonFont", new Font("Arial", Font.PLAIN, 11));
+
         File conf = new File("messenger.conf");
         if (!conf.exists()) {
             try {
@@ -258,5 +274,9 @@ public class Messenger {
 
             }
         }
+    }
+
+    public MainFrame getMainFrame() {
+        return mainFrame;
     }
 }

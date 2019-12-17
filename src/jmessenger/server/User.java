@@ -33,7 +33,7 @@ import javax.crypto.SecretKey;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User {
+public class User implements java.io.Serializable {
     private SecretKey key;
     private int id;
     private transient List<ClientMessage> inbox;
@@ -43,6 +43,12 @@ public class User {
         this.key = key;
         this.id = id;
         this.inbox = new ArrayList<>();
+        this.connection = null;
+    }
+
+    public void resetUserInboxAndConnection() {
+        this.inbox = new ArrayList<>();
+        this.connection = null;
     }
 
     @NotNull
@@ -95,6 +101,6 @@ public class User {
     @Override
     @NotNull
     public String toString() {
-        return "USER\nUser ID: " + id + "User Public Key: " + RSAUtils.encode(key);
+        return "USER\nUser ID: " + id + "User key: " + RSAUtils.encode(key);
     }
 }
