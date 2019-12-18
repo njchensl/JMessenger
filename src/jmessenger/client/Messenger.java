@@ -306,6 +306,7 @@ public class Messenger {
         // analyse the message type
         if (msg instanceof ClientMessage) {
             ClientMessage cm = (ClientMessage) msg;
+            cm.setMyMessage(false); // mark the message as sent by another person
             int recipient = cm.getRecipientID();
             boolean added = false;
             for (Conversation c : getConversationList()) {
