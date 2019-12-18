@@ -1,11 +1,11 @@
 package jmessenger.client.ui;
 
+import jmessenger.client.Conversation;
 import jmessenger.shared.ClientMessage;
 import jmessenger.shared.TextMessage;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ConversationMessagesPanel extends JPanel {
@@ -19,15 +19,28 @@ public class ConversationMessagesPanel extends JPanel {
 
     public static void main(String[] args) throws InterruptedException {
         // TODO debug this first
-        List<ClientMessage> m = new ArrayList<>();
+        Conversation c = new Conversation(12);
+        List<ClientMessage> m = c.getAllMessages();
+
         m.add(new TextMessage("T"));
         ConversationMessagesPanel pnl = new ConversationMessagesPanel(m);
+        ConversationPanel cpnl = new ConversationPanel(c);
         JFrame f = new JFrame();
-        f.setContentPane(pnl);
+        f.setContentPane(cpnl);
         f.pack();
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);
-        Thread.sleep(1000);
-        m.add(new TextMessage("C"));
+
+        for (; ; ) {
+            Thread.sleep(1000);
+            m.add(new TextMessage("C"));
+            pnl.refresh();
+
+            cpnl.initializeComponents();
+            cpnl.revalidate();
+        }
+
+
     }
 
     public void refresh() {

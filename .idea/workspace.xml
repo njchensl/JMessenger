@@ -7,16 +7,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="conversation gui">
-      <change afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationMessagesPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationListPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationMessagesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationMessagesPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/ClientMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/ClientMessage.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,25 +53,13 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../git/bin/git.exe" />
+    <property name="last_opened_file_path" value="$USER_HOME$/git/bin/git.exe" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Application.ConversationMessagesPanel">
+  <component name="RunManager" selected="Application.Messenger">
     <configuration name="ConversationMessagesPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jmessenger.client.ui.ConversationMessagesPanel" />
       <module name="JMessenger" />
@@ -123,11 +106,23 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ConversationMessagesPanel" />
         <item itemvalue="Application.Messenger" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="Application.ConversationMessagesPanel" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -365,49 +360,57 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="233" y="2" key="#Auto_Import" />
-    <state x="233" y="2" key="#Auto_Import/0.0.1280.680@0.0.1280.680" />
-    <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser" />
-    <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser/0.0.1280.680@0.0.1280.680" />
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" />
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" />
-    <state x="400" y="150" key="#com.intellij.fileTypes.FileTypeChooser" />
-    <state x="400" y="150" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" />
-    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser" />
-    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" />
-    <state x="576" y="257" key="#com.intellij.ide.util.TreeClassChooserDialog" />
-    <state x="576" y="257" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.680@0.0.1280.680" />
-    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" />
-    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1280.680@0.0.1280.680" />
-    <state x="443" y="232" width="394" height="223" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" />
-    <state x="443" y="232" width="394" height="223" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.680@0.0.1280.680" />
-    <state x="273" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" />
-    <state x="273" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.680@0.0.1280.680" />
-    <state x="371" y="90" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" />
-    <state x="371" y="90" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" />
-    <state x="299" y="0" key="CommitChangelistDialog2" />
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" />
-    <state x="344" y="84" key="FileChooserDialogImpl" />
-    <state x="344" y="84" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" />
-    <state width="1237" height="159" key="GridCell.Tab.0.bottom" />
-    <state width="1237" height="159" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" />
-    <state width="1237" height="159" key="GridCell.Tab.0.center" />
-    <state width="1237" height="159" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" />
-    <state width="1237" height="159" key="GridCell.Tab.0.left" />
-    <state width="1237" height="159" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" />
-    <state width="1237" height="159" key="GridCell.Tab.0.right" />
-    <state width="1237" height="159" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" />
-    <state x="117" y="0" key="SettingsEditor" />
-    <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" />
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2" />
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" />
-    <state x="372" y="144" key="git4idea.merge.GitPullDialog" />
-    <state x="372" y="144" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" />
-    <state x="297" y="151" key="run.anything.popup" />
-    <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" />
-    <state x="363" y="258" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" />
-    <state x="363" y="258" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1280.680@0.0.1280.680" />
+    <state x="233" y="2" key="#Auto_Import" timestamp="1576704295016" />
+    <state x="233" y="2" key="#Auto_Import/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
+    <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser" timestamp="1576704295016" />
+    <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576704295016" />
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
+    <state x="400" y="150" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1576704295016" />
+    <state x="400" y="150" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
+    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser" timestamp="1576704295016" />
+    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
+    <state x="576" y="257" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1576704295016" />
+    <state x="576" y="257" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
+    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1576704295016" />
+    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
+    <state x="443" y="232" width="394" height="223" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1576704295016" />
+    <state x="443" y="232" width="394" height="223" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
+    <state x="273" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1576704295016" />
+    <state x="273" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
+    <state x="371" y="90" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576704295016" />
+    <state x="371" y="90" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576704295016" />
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
+    <state x="344" y="84" key="FileChooserDialogImpl" timestamp="1576704295016" />
+    <state x="344" y="84" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
+    <state width="1237" height="159" key="GridCell.Tab.0.bottom" timestamp="1576706697147">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="159" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1576706697147" />
+    <state width="1237" height="159" key="GridCell.Tab.0.center" timestamp="1576706697145">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="159" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1576706697145" />
+    <state width="1237" height="159" key="GridCell.Tab.0.left" timestamp="1576706697144">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="159" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1576706697144" />
+    <state width="1237" height="159" key="GridCell.Tab.0.right" timestamp="1576706697145">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="159" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1576706697145" />
+    <state x="117" y="0" key="SettingsEditor" timestamp="1576704295016" />
+    <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1576704295016" />
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
+    <state x="372" y="144" key="git4idea.merge.GitPullDialog" timestamp="1576704295016" />
+    <state x="372" y="144" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
+    <state x="297" y="151" key="run.anything.popup" timestamp="1576704295016" />
+    <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1576704295016" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
+    <state x="363" y="258" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1576704295016" />
+    <state x="363" y="258" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
   </component>
 </project>
