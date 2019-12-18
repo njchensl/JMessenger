@@ -14,7 +14,7 @@ public class ConversationListPanel extends JPanel {
     /**
      * create a conversation list panel
      */
-    public ConversationListPanel() {
+    ConversationListPanel() {
         this.setLayout(new GridBagLayout());
         updateConversations();
     }
@@ -43,6 +43,25 @@ public class ConversationListPanel extends JPanel {
             }
             JButton btn = new JButton("<html><font face=\"arial\"><p><font size=\"5\">" + co.getRecipient() + "</font></p><p><font size=\"3\">" + latest + "</font></p></font></html>");
             btn.setHorizontalAlignment(SwingConstants.LEFT);
+            // clicking the button will open up a new conversation window
+            btn.addActionListener((evt) ->
+                    new JFrame() {{
+                        setContentPane(new ConversationPanel(co));
+                        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                        setPreferredSize(getContentPane().getPreferredSize());
+                        pack();
+                        new Thread(() -> {
+                            for (; ; ) {
+                                try {
+                                    Thread.sleep(1000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                this.revalidate();
+                            }
+                        }).start();
+                    }}.setVisible(true)
+            );
             this.add(btn, c);
 
             gridy++;

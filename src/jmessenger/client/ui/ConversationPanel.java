@@ -23,16 +23,49 @@
  */
 package jmessenger.client.ui;
 
+import jmessenger.client.Conversation;
+import jmessenger.client.Messenger;
+import jmessenger.shared.ClientMessage;
+import jmessenger.shared.TextMessage;
+import org.jetbrains.annotations.NotNull;
+
+import java.awt.*;
+import java.util.List;
+
 /**
  * @author gagao9815
  */
 public class ConversationPanel extends javax.swing.JPanel {
 
+    private Conversation conversation;
+
     /**
      * Creates new form ConversationPanel
      */
-    public ConversationPanel() {
+    public ConversationPanel(@NotNull Conversation conversation) {
+        this.conversation = conversation;
+        List<ClientMessage> messages = conversation.getAllMessages();
+
         initComponents();
+        this.pnlConversationMessages = new ConversationMessagesPanel(messages);
+        pnlConversationMessages.setBackground(Color.LIGHT_GRAY);
+        reinitializeComponents();
+
+        this.sendBtn.addActionListener((evt) -> {
+            // make sure it is not empty
+            String txt = txtInput.getText();
+            if (!txt.trim().equals("")) {
+                // send the text message
+                TextMessage tm = new TextMessage(txt);
+                tm.setMyMessage(true);
+                tm.setRecipient(conversation.getRecipient());
+                this.conversation.addMessage(tm);
+                Messenger.getInstance().send(tm);
+                txtInput.setText("");
+                ((ConversationMessagesPanel) pnlConversationMessages).refresh();
+                this.revalidate();
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -90,24 +123,24 @@ public class ConversationPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout pnlTextLayout = new javax.swing.GroupLayout(pnlText);
         pnlText.setLayout(pnlTextLayout);
         pnlTextLayout.setHorizontalGroup(
-            pnlTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTextLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(scrollPaneTextInput, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTextLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(sendBtn)))
-                .addContainerGap())
+                pnlTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlTextLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(pnlTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(scrollPaneTextInput, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTextLayout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addComponent(sendBtn)))
+                                .addContainerGap())
         );
         pnlTextLayout.setVerticalGroup(
-            pnlTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTextLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(scrollPaneTextInput, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(sendBtn)
-                    .addContainerGap())
+                pnlTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlTextLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(scrollPaneTextInput, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(sendBtn)
+                                .addContainerGap())
         );
 
         javax.swing.GroupLayout pnlPluginLayout = new javax.swing.GroupLayout(pnlPlugin);

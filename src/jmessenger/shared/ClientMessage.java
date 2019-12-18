@@ -32,17 +32,27 @@ import org.jetbrains.annotations.NotNull;
 public abstract class ClientMessage extends Message {
 
     protected int recipientID;
+    protected boolean myMessage; // if the message is sent by the user
 
     public ClientMessage() {
         super();
+        myMessage = false;
     }
 
     /**
      * @param ID accept an integer for recipient ID
      */
     public ClientMessage(int ID) {
-        super();
+        this();
         recipientID = ID;
+    }
+
+    public boolean isMyMessage() {
+        return this.myMessage;
+    }
+
+    public void setMyMessage(boolean myMessage) {
+        this.myMessage = myMessage;
     }
 
     /**
