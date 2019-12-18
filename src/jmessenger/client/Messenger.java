@@ -159,7 +159,11 @@ public class Messenger {
                 e.printStackTrace();
             }
             System.out.println("added");
-            getInstance().conversationList.add(new Conversation(i));
+            getInstance().conversationList.add(new Conversation(i) {
+                {
+                    addMessage(new TextMessage("Message #" + getRecipient()));
+                }
+            });
             ((MessagesPanel) ((MainPanel) messenger.getMainFrame().getContentPane()).getMainPanel()).getConversationListPanel().updateConversations();
             getInstance().getMainFrame().revalidate();
         }

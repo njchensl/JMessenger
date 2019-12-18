@@ -9,12 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Conversation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Conversation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/BottomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/BottomPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationListPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/MessagesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/MessagesPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576625302999</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="more gui">
+      <created>1576670817612</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1576670817612</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -351,30 +355,30 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="90" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1576334679249" />
-    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576625300346">
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576670814361">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576625300346" />
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576670814361" />
     <state x="344" y="84" key="FileChooserDialogImpl" timestamp="1576433876899">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="344" y="84" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1576433876899" />
-    <state width="1237" height="159" key="GridCell.Tab.0.bottom" timestamp="1576670765944">
+    <state width="1237" height="159" key="GridCell.Tab.0.bottom" timestamp="1576673807313">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="159" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1576670765944" />
-    <state width="1237" height="159" key="GridCell.Tab.0.center" timestamp="1576670765944">
+    <state width="1237" height="159" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1576673807313" />
+    <state width="1237" height="159" key="GridCell.Tab.0.center" timestamp="1576673807313">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="159" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1576670765944" />
-    <state width="1237" height="159" key="GridCell.Tab.0.left" timestamp="1576670765944">
+    <state width="1237" height="159" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1576673807313" />
+    <state width="1237" height="159" key="GridCell.Tab.0.left" timestamp="1576673807313">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="159" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1576670765944" />
-    <state width="1237" height="159" key="GridCell.Tab.0.right" timestamp="1576670765944">
+    <state width="1237" height="159" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1576673807313" />
+    <state width="1237" height="159" key="GridCell.Tab.0.right" timestamp="1576673807313">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="159" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1576670765944" />
+    <state width="1237" height="159" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1576673807313" />
     <state x="117" y="0" key="SettingsEditor" timestamp="1576422442034">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -391,9 +395,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1576532105239" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1576619562050">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1576673161273">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1576619562050" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1576673161273" />
   </component>
 </project>
