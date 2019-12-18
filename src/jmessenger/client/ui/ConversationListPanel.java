@@ -17,40 +17,6 @@ public class ConversationListPanel extends JPanel {
     public ConversationListPanel() {
         this.setLayout(new GridBagLayout());
         updateConversations();
-
-        //test();
-    }
-
-    private void test() {
-        JButton btn1, btn2;
-        btn1 = new JButton("text");
-        btn2 = new JButton("More text");
-
-        GridBagConstraints c = new GridBagConstraints();
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.anchor = GridBagConstraints.NORTHWEST;
-        c.gridx = 0;
-        c.gridy = 0;
-        c.weightx = 1;
-        c.weighty = 0;
-        this.add(btn1, c);
-
-        c = new GridBagConstraints();
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 0;
-        c.gridy = 1;
-        c.weightx = 1;
-        c.weighty = 0;
-        this.add(btn2, c);
-
-        c = new GridBagConstraints();
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 0;
-        c.gridy = 2;
-        c.weightx = 1;
-        c.weighty = 1;
-        JLabel lblEmpty = new JLabel();
-        this.add(lblEmpty, c);
     }
 
     /**
