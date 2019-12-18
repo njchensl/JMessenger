@@ -61,16 +61,6 @@ public class ConversationListPanel extends JPanel {
         List<Conversation> cons = Messenger.getInstance().getConversationList();
         int gridy = 0;
         for (Conversation co : cons) {
-            /*
-            ConversationItem item = new ConversationItem(co);
-            GridBagConstraints c = new GridBagConstraints();
-            c.fill = GridBagConstraints.HORIZONTAL;
-            c.gridx = 0;
-            c.gridy = gridy;
-            c.weightx = 1;
-            c.weighty = 0;
-            this.add(item, c);
-            */
             GridBagConstraints c = new GridBagConstraints();
             c.fill = GridBagConstraints.HORIZONTAL;
             c.gridx = 0;
