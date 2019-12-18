@@ -8,6 +8,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class BottomPanel extends JPanel {
+
+    /**
+     * create a new bottom panel
+     * it is actually a series of jlabels that the user could click on to switch the upper part of the main panel
+     */
     public BottomPanel() {
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
     }

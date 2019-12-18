@@ -24,6 +24,11 @@
 package jmessenger.client.ui;
 
 import jmessenger.client.Conversation;
+import org.jetbrains.annotations.NotNull;
+
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
  *
@@ -32,9 +37,45 @@ import jmessenger.client.Conversation;
 public class ConversationItem extends javax.swing.JPanel {
     private Conversation c;
 
-    public ConversationItem(Conversation c) {
+    public ConversationItem(@NotNull Conversation c) {
         this.c = c;
         initComponents();
+        this.setPreferredSize(new Dimension(250, 50));
+        this.setOpaque(true);
+        this.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // show it
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                ConversationItem.super.setBackground(Color.GRAY);
+                lblRecipient.setBackground(Color.GRAY);
+                ConversationItem.super.revalidate();
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                ConversationItem.super.setBackground(Color.LIGHT_GRAY);
+                lblRecipient.setBackground(Color.LIGHT_GRAY);
+                ConversationItem.super.revalidate();
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                ConversationItem.super.setBackground(Color.LIGHT_GRAY);
+                lblRecipient.setBackground(Color.LIGHT_GRAY);
+                ConversationItem.super.revalidate();
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                ConversationItem.super.setBackground(Color.WHITE);
+                lblRecipient.setBackground(Color.WHITE);
+                ConversationItem.super.revalidate();
+            }
+        });
         this.lblRecipient.setText(Integer.toString(c.getRecipient()));
     }
 

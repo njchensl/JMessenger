@@ -56,7 +56,17 @@ public class Messenger {
     private boolean usingAES;
     private MainFrame mainFrame;
 
-    public Messenger(@NotNull String host, int port, SecretKey myKey, PublicKey serverPublicKey, boolean registered) throws IOException {
+    /**
+     * creates a messenger object
+     *
+     * @param host            the host name
+     * @param port            the port
+     * @param myKey           my secret key
+     * @param serverPublicKey the server's public key
+     * @param registered      if it has been registered
+     * @throws IOException io exception
+     */
+    private Messenger(@NotNull String host, int port, SecretKey myKey, PublicKey serverPublicKey, boolean registered) throws IOException {
         this.conversationList = new ArrayList<>();
         this.nc = NotificationCenter.getInstance();
         this.serverPublicKey = serverPublicKey;
@@ -71,6 +81,9 @@ public class Messenger {
 
     }
 
+    /**
+     * @return the instance of Messenger, will never be null
+     */
     @NotNull
     public static Messenger getInstance() {
         while (messenger == null) {
@@ -139,15 +152,18 @@ public class Messenger {
         }
 
         // for testing only
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        for (int i = 0; ; i++) {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("added");
+            getInstance().conversationList.add(new Conversation(i));
+            ((MessagesPanel) ((MainPanel) messenger.getMainFrame().getContentPane()).getMainPanel()).getConversationListPanel().updateConversations();
+            getInstance().getMainFrame().revalidate();
         }
-        System.out.println("added");
-        getInstance().conversationList.add(new Conversation(123456));
-        ((MessagesPanel) ((MainPanel) messenger.getMainFrame().getContentPane()).getMainPanel()).getConversationListPanel().updateConversations();
-        getInstance().getMainFrame().revalidate();
+
     }
 
     void test() {
@@ -209,6 +225,11 @@ public class Messenger {
         this.usingAES = b;
     }
 
+    /**
+     * sends out a message
+     *
+     * @param msg the message to send
+     */
     public void send(@NotNull Message msg) {
         this.out.send(msg);
     }
@@ -230,15 +251,19 @@ public class Messenger {
         // login
         LoginMessage lm = new LoginMessage(this.myKey);
         this.send(lm);
-
-        // TODO show GUI
     }
 
+    /**
+     * @return the server public key
+     */
     @NotNull
     public PublicKey getServerPublicKey() {
         return serverPublicKey;
     }
 
+    /**
+     * @return my AES secret key
+     */
     public SecretKey getMyKey() {
         return this.myKey;
     }
@@ -268,6 +293,11 @@ public class Messenger {
         }
     }
 
+    /**
+     * receive and analyse the message
+     *
+     * @param msg the message to analyse
+     */
     public synchronized void receive(@NotNull Message msg) {
         // analyse the message type
         if (msg instanceof ClientMessage) {
@@ -304,6 +334,9 @@ public class Messenger {
         }
     }
 
+    /**
+     * @return the main JFrame
+     */
     public MainFrame getMainFrame() {
         return mainFrame;
     }

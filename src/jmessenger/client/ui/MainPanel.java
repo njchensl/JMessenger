@@ -8,6 +8,9 @@ import java.awt.*;
 public class MainPanel extends JPanel {
     private JPanel main, bottom;
 
+    /**
+     * create a main panel, which consists of the upper part and the lower part
+     */
     public MainPanel() {
         super(new GridBagLayout());
         main = new MessagesPanel();

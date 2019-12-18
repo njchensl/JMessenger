@@ -6,12 +6,18 @@ import java.awt.*;
 public class MessagesPanel extends JPanel {
     private ConversationListPanel conversationListPanel;
 
+    /**
+     * create a messages pane
+     */
     public MessagesPanel() {
         super(new GridBagLayout());
         initialize();
         conversationListPanel.updateConversations();
     }
 
+    /**
+     * initialize the messages panel
+     */
     private void initialize() {
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -33,10 +39,13 @@ public class MessagesPanel extends JPanel {
         c.gridx = 0;
         c.gridy = 1;
         conversationListPanel = new ConversationListPanel();
-        this.add(conversationListPanel, c);
+        this.add(new JScrollPane(conversationListPanel), c);
+        //this.add(conversationListPanel, c);
     }
 
-
+    /**
+     * @return the jpanel that contains all the list of conversations
+     */
     public ConversationListPanel getConversationListPanel() {
         return conversationListPanel;
     }

@@ -9,6 +9,9 @@ import java.util.List;
 
 public class ConversationListPanel extends JPanel {
 
+    /**
+     * create a conversation list panel
+     */
     public ConversationListPanel() {
         this.setLayout(new GridBagLayout());
         updateConversations();
@@ -48,6 +51,9 @@ public class ConversationListPanel extends JPanel {
         this.add(lblEmpty, c);
     }
 
+    /**
+     * fetch the latest conversations and display them
+     */
     public synchronized void updateConversations() {
         this.removeAll();
         List<Conversation> cons = Messenger.getInstance().getConversationList();
@@ -69,8 +75,13 @@ public class ConversationListPanel extends JPanel {
             c.gridy = gridy;
             c.weightx = 1;
             c.weighty = 0;
-            this.add(new JButton("" + co.getRecipient()), c);
+            // TODO modify the HTML code to make the font fit
+            this.add(new JButton("<html><p>" + co.getRecipient() + "</p><p>LATEST MESSAGE</p></html>"), c);
+
+
             gridy++;
+
+
         }
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
