@@ -24,6 +24,8 @@
 package jmessenger.client;
 
 import jmessenger.client.ui.MainFrame;
+import jmessenger.client.ui.MainPanel;
+import jmessenger.client.ui.MessagesPanel;
 import jmessenger.shared.*;
 import mdlaf.MaterialLookAndFeel;
 import org.jetbrains.annotations.NotNull;
@@ -42,7 +44,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Messenger {
-    private static Messenger messenger;
+    private static volatile Messenger messenger;
     private In in;
     private Out out;
     private Socket socket;
@@ -54,7 +56,17 @@ public class Messenger {
     private boolean usingAES;
     private MainFrame mainFrame;
 
-    public Messenger(@NotNull String host, int port, SecretKey myKey, PublicKey serverPublicKey, boolean registered) throws IOException {
+    /**
+     * creates a messenger object
+     *
+     * @param host            the host name
+     * @param port            the port
+     * @param myKey           my secret key
+     * @param serverPublicKey the server's public key
+     * @param registered      if it has been registered
+     * @throws IOException io exception
+     */
+    private Messenger(@NotNull String host, int port, SecretKey myKey, PublicKey serverPublicKey, boolean registered) throws IOException {
         this.conversationList = new ArrayList<>();
         this.nc = NotificationCenter.getInstance();
         this.serverPublicKey = serverPublicKey;
@@ -62,18 +74,22 @@ public class Messenger {
         this.myKey = myKey;
         this.usingAES = false;
         this.initialize(host, port);
-        // display GUI
-        this.mainFrame = new MainFrame();
-        SwingUtilities.invokeLater(() -> this.mainFrame.setVisible(true));
+
+
+        // jpanel repainting
+        test();
+
     }
 
+    /**
+     * @return the instance of Messenger, will never be null
+     */
     @NotNull
     public static Messenger getInstance() {
+        while (messenger == null) {
+            Thread.onSpinWait();
+        }
         return messenger;
-    }
-
-    public void close() throws IOException {
-        socket.close();
     }
 
     public static void main(String... args) {
@@ -129,11 +145,43 @@ public class Messenger {
             serverPublicKeyIn.close();
 
             messenger = new Messenger(hostName, port, key, serverPublicKey, registered);
+            messenger.displayGUI();
         } catch (IOException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, e.getStackTrace(), "Error", JOptionPane.ERROR_MESSAGE);
             System.exit(4);
         }
 
+        // for testing only
+        for (int i = 0; ; i++) {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("added");
+            getInstance().conversationList.add(new Conversation(i) {
+                {
+                    addMessage(new TextMessage("Message #" + getRecipient()));
+                }
+            });
+            ((MessagesPanel) ((MainPanel) messenger.getMainFrame().getContentPane()).getMainPanel()).getConversationListPanel().updateConversations();
+            getInstance().getMainFrame().revalidate();
+        }
+
+    }
+
+    void test() {
+        this.conversationList.add(new Conversation(123));
+        this.conversationList.add(new Conversation(456));
+    }
+
+    public void close() throws IOException {
+        socket.close();
+    }
+
+    void displayGUI() {
+        this.mainFrame = new MainFrame();
+        SwingUtilities.invokeLater(() -> this.mainFrame.setVisible(true));
     }
 
     private static void initialize(@NotNull File conf) throws IOException, NoSuchAlgorithmException, NoSuchProviderException {
@@ -181,6 +229,11 @@ public class Messenger {
         this.usingAES = b;
     }
 
+    /**
+     * sends out a message
+     *
+     * @param msg the message to send
+     */
     public void send(@NotNull Message msg) {
         this.out.send(msg);
     }
@@ -202,15 +255,19 @@ public class Messenger {
         // login
         LoginMessage lm = new LoginMessage(this.myKey);
         this.send(lm);
-
-        // TODO show GUI
     }
 
+    /**
+     * @return the server public key
+     */
     @NotNull
     public PublicKey getServerPublicKey() {
         return serverPublicKey;
     }
 
+    /**
+     * @return my AES secret key
+     */
     public SecretKey getMyKey() {
         return this.myKey;
     }
@@ -240,13 +297,18 @@ public class Messenger {
         }
     }
 
+    /**
+     * receive and analyse the message
+     *
+     * @param msg the message to analyse
+     */
     public synchronized void receive(@NotNull Message msg) {
         // analyse the message type
         if (msg instanceof ClientMessage) {
             ClientMessage cm = (ClientMessage) msg;
             int recipient = cm.getRecipientID();
             boolean added = false;
-            for (Conversation c : conversationList) {
+            for (Conversation c : getConversationList()) {
                 if (c.getRecipient() == recipient) {
                     c.addMessage(cm); // the rest is handled by the GUI message renderer
                     added = true;
@@ -256,7 +318,7 @@ public class Messenger {
             if (!added) {
                 Conversation cNew = new Conversation(recipient);
                 cNew.addMessage(cm);
-                conversationList.add(cNew);
+                getConversationList().add(cNew);
             }
         } else {
             // server message
@@ -276,7 +338,17 @@ public class Messenger {
         }
     }
 
+    /**
+     * @return the main JFrame
+     */
     public MainFrame getMainFrame() {
         return mainFrame;
+    }
+
+    /**
+     * @return the conversationList
+     */
+    public List<Conversation> getConversationList() {
+        return conversationList;
     }
 }

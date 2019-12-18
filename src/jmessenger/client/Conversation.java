@@ -25,6 +25,7 @@ package jmessenger.client;
 
 import jmessenger.shared.ClientMessage;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,19 +39,42 @@ public class Conversation {
         this.messages = new ArrayList<>();
     }
 
+    /**
+     * @return the recipient of the conversation
+     */
     public int getRecipient() {
         return this.recipient;
     }
 
+    /**
+     * @param recipient the ID of the other end of the conversation
+     */
     public void setRecipient(int recipient) {
         this.recipient = recipient;
     }
 
+    /**
+     * add a message to the conversation
+     *
+     * @param cm the client message to add
+     */
     public void addMessage(@NotNull ClientMessage cm) {
         messages.add(cm);
     }
 
-    public List<ClientMessage> getAllMessages() {
+    /**
+     * @return all the messages stored in this conversation
+     */
+    public List<@NotNull ClientMessage> getAllMessages() {
         return this.messages;
     }
+
+    @Nullable
+    public ClientMessage getLatestMessage() {
+        if (messages.isEmpty()) {
+            return null;
+        }
+        return messages.get(messages.size() - 1);
+    }
+
 }

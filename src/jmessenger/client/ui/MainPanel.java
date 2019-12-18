@@ -8,15 +8,19 @@ import java.awt.*;
 public class MainPanel extends JPanel {
     private JPanel main, bottom;
 
+    /**
+     * create a main panel, which consists of the upper part and the lower part
+     */
     public MainPanel() {
         super(new GridBagLayout());
+        main = new MessagesPanel();
         initialize();
     }
 
-    private void initialize() {
+    public void refreshComponents() {
+        this.removeAll();
         GridBagConstraints c = new GridBagConstraints();
 
-        main = new MessagesPanel();
         c.fill = GridBagConstraints.BOTH;
         c.weightx = 1;
         c.weighty = 1;
@@ -34,11 +38,18 @@ public class MainPanel extends JPanel {
         bottom = new BottomPanel();
         this.add(bottom, c);
 
+
         // init the bottom panel
-        JLabel lbl = new JLabel("AA");
+        JLabel lbl = new JLabel("Conversations");
         lbl.setFont(new Font("Arial", Font.PLAIN, 10));
         lbl.setHorizontalAlignment(JLabel.CENTER);
-        ((BottomPanel) bottom).addButton(lbl, this.main);
+
+        MessagesPanel msgPnl = new MessagesPanel();
+        ((BottomPanel) bottom).addButton(lbl, msgPnl, msgPnl.getConversationListPanel()::updateConversations);
+    }
+
+    private void initialize() {
+        refreshComponents();
     }
 
     public JPanel getMainPanel() {
@@ -47,6 +58,7 @@ public class MainPanel extends JPanel {
 
     public void setMainPanel(@NotNull JPanel pnl) {
         this.main = pnl;
+        refreshComponents();
     }
 
     public BottomPanel getBottomPanel() {
