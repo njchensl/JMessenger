@@ -9,10 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Conversation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Conversation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationListPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationMessagesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationMessagesPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -304,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576706718690</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="gui conversation">
+      <created>1576755567668</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1576755567668</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -349,7 +352,8 @@
     <MESSAGE value="deleted unused classes" />
     <MESSAGE value="conversation gui" />
     <MESSAGE value="more gui work" />
-    <option name="LAST_COMMIT_MESSAGE" value="more gui work" />
+    <MESSAGE value="gui conversation" />
+    <option name="LAST_COMMIT_MESSAGE" value="gui conversation" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -377,28 +381,28 @@
     <state x="273" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
     <state x="371" y="90" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576704295016" />
     <state x="371" y="90" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
-    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576706715626">
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1576755564698">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576706715626" />
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576755564698" />
     <state x="344" y="84" key="FileChooserDialogImpl" timestamp="1576704295016" />
     <state x="344" y="84" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
-    <state width="1237" height="159" key="GridCell.Tab.0.bottom" timestamp="1576755440420">
+    <state width="1237" height="159" key="GridCell.Tab.0.bottom" timestamp="1576755574814">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="159" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1576755440420" />
-    <state width="1237" height="159" key="GridCell.Tab.0.center" timestamp="1576755440420">
+    <state width="1237" height="159" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1576755574814" />
+    <state width="1237" height="159" key="GridCell.Tab.0.center" timestamp="1576755574813">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="159" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1576755440420" />
-    <state width="1237" height="159" key="GridCell.Tab.0.left" timestamp="1576755440420">
+    <state width="1237" height="159" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1576755574813" />
+    <state width="1237" height="159" key="GridCell.Tab.0.left" timestamp="1576755574813">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="159" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1576755440420" />
-    <state width="1237" height="159" key="GridCell.Tab.0.right" timestamp="1576755440420">
+    <state width="1237" height="159" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1576755574813" />
+    <state width="1237" height="159" key="GridCell.Tab.0.right" timestamp="1576755574814">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="159" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1576755440420" />
+    <state width="1237" height="159" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1576755574814" />
     <state x="117" y="0" key="SettingsEditor" timestamp="1576704295016" />
     <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1576704295016" />
     <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1576706720574">
