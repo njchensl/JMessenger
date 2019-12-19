@@ -1,6 +1,5 @@
 package jmessenger.client.ui;
 
-import jmessenger.client.Conversation;
 import jmessenger.shared.ClientMessage;
 import jmessenger.shared.TextMessage;
 
@@ -17,32 +16,6 @@ public class ConversationMessagesPanel extends JPanel {
         refresh();
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        // TODO debug this first
-        Conversation c = new Conversation(12);
-        List<ClientMessage> m = c.getAllMessages();
-
-        m.add(new TextMessage("T"));
-        ConversationMessagesPanel pnl = new ConversationMessagesPanel(m);
-        ConversationPanel cpnl = new ConversationPanel(c);
-        JFrame f = new JFrame();
-        f.setContentPane(cpnl);
-        f.pack();
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setVisible(true);
-
-        for (; ; ) {
-            Thread.sleep(1000);
-            m.add(new TextMessage("C"));
-            pnl.refresh();
-
-            cpnl.initializeComponents();
-            cpnl.revalidate();
-        }
-
-
-    }
-
     public void refresh() {
         this.removeAll();
         int gridy = 0;
@@ -56,6 +29,7 @@ public class ConversationMessagesPanel extends JPanel {
             c.weighty = 0;
 
             if (m instanceof TextMessage) {
+                /*
                 JButton btn = new JButton(((TextMessage) m).getText());
                 if (m.isMyMessage()) {
                     btn.setBackground(Color.LIGHT_GRAY);
@@ -64,6 +38,18 @@ public class ConversationMessagesPanel extends JPanel {
                 }
                 btn.setHorizontalAlignment(SwingConstants.LEFT);
                 this.add(btn, c);
+
+                 */
+                String text = ((TextMessage) m).getText();
+                JLabel lbl = new JLabel((text.contains("<html>") ? "" : "    ") + text);
+                lbl.setFont(new Font("Arial", Font.PLAIN, 17));
+                if (m.isMyMessage()) {
+                    lbl.setBackground(new Color(240, 240, 240));
+                } else {
+                    lbl.setBackground(Color.WHITE);
+                }
+                lbl.setHorizontalAlignment(SwingConstants.LEFT);
+                this.add(lbl, c);
             }
             gridy++;
 

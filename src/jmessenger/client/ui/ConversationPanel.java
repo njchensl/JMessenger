@@ -37,11 +37,10 @@ import java.util.List;
  * @author gagao9815
  */
 public class ConversationPanel extends javax.swing.JPanel {
-
     private Conversation conversation;
+    private long length;
 
     private javax.swing.JButton sendBtn;
-
     private javax.swing.JPanel pnlConversationMessages;
     private javax.swing.JPanel pnlPlugin;
     private javax.swing.JPanel pnlTitle;
@@ -52,16 +51,22 @@ public class ConversationPanel extends javax.swing.JPanel {
      */
     public ConversationPanel(@NotNull Conversation conversation) {
         super(new GridBagLayout());
+        this.length = 0;
         this.conversation = conversation;
         List<ClientMessage> messages = conversation.getAllMessages();
 
         this.pnlConversationMessages = new ConversationMessagesPanel(messages);
 
         txtInput = new JTextArea();
-        txtInput.setFont(new Font("Arial", Font.PLAIN, 13));
+        txtInput.setFont(new Font("Arial", Font.PLAIN, 17));
         sendBtn = new JButton("SEND");
-        sendBtn.setFont(new Font("Arial", Font.PLAIN, 13));
+        sendBtn.setFont(new Font("Arial", Font.PLAIN, 17));
         pnlTitle = new JPanel();
+        JLabel lblTitle = new JLabel("Conversation with " + conversation.getRecipient());
+        lblTitle.setHorizontalAlignment(SwingConstants.LEFT);
+        lblTitle.setHorizontalTextPosition(SwingConstants.LEFT);
+        lblTitle.setFont(new Font("Arial", Font.PLAIN, 25));
+        pnlTitle.add(lblTitle);
         pnlPlugin = new JPanel();
         initializeComponents();
 
@@ -77,9 +82,23 @@ public class ConversationPanel extends javax.swing.JPanel {
                 Messenger.getInstance().send(tm);
                 txtInput.setText("");
                 ((ConversationMessagesPanel) pnlConversationMessages).refresh();
-                this.revalidate();
             }
         });
+
+        // refreshing when message is received
+        new Thread(() -> {
+            for (; ; ) {
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                if (conversation.hasNewMessage(length)) {
+                    ((ConversationMessagesPanel) pnlConversationMessages).refresh();
+                    this.length = conversation.getAllMessages().size();
+                }
+            }
+        }).start();
     }
 
     public void initializeComponents() {
@@ -93,7 +112,7 @@ public class ConversationPanel extends javax.swing.JPanel {
         c.weighty = 0;
         c.gridx = 0;
         c.gridy = 0;
-        c.ipady = 50;
+        c.ipady = 15;
         this.add(pnlTitle, c);
 
         c = new GridBagConstraints();

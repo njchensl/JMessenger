@@ -48,7 +48,8 @@ public class ConversationListPanel extends JPanel {
                     new JFrame() {{
                         setContentPane(new ConversationPanel(co));
                         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-                        setPreferredSize(getContentPane().getPreferredSize());
+                        setPreferredSize(new Dimension(800, 600));
+                        setMinimumSize(new Dimension(600, 400));
                         pack();
                         new Thread(() -> {
                             for (; ; ) {

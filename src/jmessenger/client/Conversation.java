@@ -33,8 +33,10 @@ import java.util.List;
 public class Conversation {
     private int recipient;
     private List<ClientMessage> messages;
+    private long length;
 
     public Conversation(int recipient) {
+        this.length = 0;
         this.recipient = recipient;
         this.messages = new ArrayList<>();
     }
@@ -60,10 +62,11 @@ public class Conversation {
      */
     public void addMessage(@NotNull ClientMessage cm) {
         messages.add(cm);
+        this.length = messages.size();
     }
 
     /**
-     * @return all the messages stored in this conversation
+     * @return all the messages stored in this conversation. DO NOT MODIFY THEM OUTSIDE IT
      */
     public List<@NotNull ClientMessage> getAllMessages() {
         return this.messages;
@@ -75,6 +78,14 @@ public class Conversation {
             return null;
         }
         return messages.get(messages.size() - 1);
+    }
+
+    /**
+     * @param length the current length of the messages as recorded by the GUI
+     * @return if there is a new message
+     */
+    public boolean hasNewMessage(long length) {
+        return this.length != length;
     }
 
 }
