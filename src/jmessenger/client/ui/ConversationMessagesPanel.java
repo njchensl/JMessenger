@@ -5,6 +5,10 @@ import jmessenger.shared.TextMessage;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.List;
 
 public class ConversationMessagesPanel extends JPanel {
@@ -49,6 +53,44 @@ public class ConversationMessagesPanel extends JPanel {
                     lbl.setBackground(Color.WHITE);
                 }
                 lbl.setHorizontalAlignment(SwingConstants.LEFT);
+                lbl.addMouseListener(new MouseListener() {
+                    private Color defaultColor;
+                    private Color originalColor;
+
+                    {
+                        defaultColor = lbl.getBackground();
+                    }
+
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        String myString = lbl.getText().trim();
+                        StringSelection stringSelection = new StringSelection(myString);
+                        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                        clipboard.setContents(stringSelection, null);
+                    }
+
+                    @Override
+                    public void mousePressed(MouseEvent e) {
+                        originalColor = lbl.getBackground();
+                        lbl.setBackground(Color.GRAY);
+                    }
+
+                    @Override
+                    public void mouseReleased(MouseEvent e) {
+                        lbl.setBackground(originalColor);
+                    }
+
+                    @Override
+                    public void mouseEntered(MouseEvent e) {
+                        defaultColor = lbl.getBackground();
+                        lbl.setBackground(Color.LIGHT_GRAY);
+                    }
+
+                    @Override
+                    public void mouseExited(MouseEvent e) {
+                        lbl.setBackground(defaultColor);
+                    }
+                });
                 this.add(lbl, c);
             }
             gridy++;

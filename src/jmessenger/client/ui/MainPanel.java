@@ -1,9 +1,14 @@
 package jmessenger.client.ui;
 
+import jmessenger.client.Messenger;
 import org.jetbrains.annotations.NotNull;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
 
 public class MainPanel extends JPanel {
     private JPanel main, bottom;
@@ -34,15 +39,27 @@ public class MainPanel extends JPanel {
         c.weighty = 0;
         c.gridx = 0;
         c.gridy = 1;
-        c.ipady = 25;
+        c.ipady = 1;
         bottom = new BottomPanel();
+        bottom.setBackground(new Color(246, 246, 246));
         this.add(bottom, c);
 
 
         // init the bottom panel
-        JLabel lbl = new JLabel("Conversations");
-        lbl.setFont(new Font("Arial", Font.PLAIN, 10));
-        lbl.setHorizontalAlignment(JLabel.CENTER);
+        JLabel lbl = new JLabel();
+        URL url = Messenger.class.getResource("/jmessenger/client/ui/resources/chats.jpg");
+        BufferedImage img = null;
+        try {
+            img = ImageIO.read(url);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert img != null;
+        Image dimg = img.getScaledInstance(70, 45,
+                Image.SCALE_SMOOTH);
+        lbl.setIcon(new ImageIcon(dimg));
+        //lbl.setFont(new Font("Arial", Font.PLAIN, 10));
+        //lbl.setHorizontalAlignment(JLabel.CENTER);
 
         MessagesPanel msgPnl = new MessagesPanel();
         ((BottomPanel) bottom).addButton(lbl, msgPnl, msgPnl.getConversationListPanel()::updateConversations);

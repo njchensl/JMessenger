@@ -4,6 +4,7 @@ import jmessenger.client.Messenger;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -15,6 +16,7 @@ public class BottomPanel extends JPanel {
      */
     public BottomPanel() {
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+        this.setAlignmentX(Component.CENTER_ALIGNMENT); // TODO
     }
 
     /**
@@ -26,6 +28,12 @@ public class BottomPanel extends JPanel {
      */
     public void addButton(@NotNull JLabel btn, @NotNull JPanel panelToDisplay, Runnable r) {
         btn.addMouseListener(new MouseListener() {
+            Color originalColor;
+
+            {
+                originalColor = BottomPanel.super.getBackground();
+            }
+
             @Override
             public void mouseClicked(MouseEvent e) {
                 // ignored
@@ -33,6 +41,7 @@ public class BottomPanel extends JPanel {
 
             @Override
             public void mousePressed(MouseEvent e) {
+
                 ((MainPanel) Messenger.getInstance().getMainFrame().getContentPane()).setMainPanel(panelToDisplay);
                 r.run();
                 Messenger.getInstance().getMainFrame().revalidate();
@@ -44,14 +53,15 @@ public class BottomPanel extends JPanel {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                // TODO change color
+                btn.setBackground(new Color(240, 240, 240));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                // TODO change color
+                btn.setBackground(originalColor);
             }
         });
+        btn.setBackground(this.getBackground());
         this.add(btn);
     }
 }

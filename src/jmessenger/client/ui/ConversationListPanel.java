@@ -68,7 +68,15 @@ public class ConversationListPanel extends JPanel {
             String latest = "Empty Conversation";
             if (cm != null) {
                 if (cm instanceof TextMessage) {
-                    latest = ((TextMessage) cm).getText();
+                    String s = ((TextMessage) cm).getText();
+                    if (s.contains("<html>")) {
+                        latest = "[HTML Message]";
+                    } else {
+                        if (s.length() > 20) {
+                            s = s.substring(0, 20) + " ...";
+                        }
+                        latest = s;
+                    }
                 }
             }
             JButton btn = new JButton("<html><font face=\"arial\"><p><font size=\"5\">" + co.getRecipient() + "</font></p><p><font size=\"3\">" + latest + "</font></p></font></html>");
