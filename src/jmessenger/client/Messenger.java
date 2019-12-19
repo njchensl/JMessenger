@@ -24,8 +24,6 @@
 package jmessenger.client;
 
 import jmessenger.client.ui.MainFrame;
-import jmessenger.client.ui.MainPanel;
-import jmessenger.client.ui.MessagesPanel;
 import jmessenger.shared.*;
 import mdlaf.MaterialLookAndFeel;
 import org.jetbrains.annotations.NotNull;
@@ -76,8 +74,7 @@ public class Messenger {
         this.initialize(host, port);
 
 
-        // jpanel repainting
-        test();
+        // test();
 
     }
 
@@ -151,6 +148,7 @@ public class Messenger {
             System.exit(4);
         }
 
+        /*
         // for testing only
         for (int i = 0; ; i++) {
             try {
@@ -167,6 +165,7 @@ public class Messenger {
             ((MessagesPanel) ((MainPanel) messenger.getMainFrame().getContentPane()).getMainPanel()).getConversationListPanel().updateConversations();
             getInstance().getMainFrame().revalidate();
         }
+        */
 
     }
 
@@ -351,5 +350,20 @@ public class Messenger {
      */
     public List<Conversation> getConversationList() {
         return conversationList;
+    }
+
+    /**
+     * checks if a conversation already exists
+     *
+     * @param recipient the recipient ID
+     * @return if it exists
+     */
+    public boolean conversationAlreadyExists(int recipient) {
+        for (Conversation co : conversationList) {
+            if (recipient == co.getRecipient()) {
+                return true;
+            }
+        }
+        return false;
     }
 }

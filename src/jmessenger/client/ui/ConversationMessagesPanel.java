@@ -52,7 +52,6 @@ public class ConversationMessagesPanel extends JPanel {
                 this.add(lbl, c);
             }
             gridy++;
-
         }
         // the "spring" will push everything upwards so that everything is align to the top of the panel
         GridBagConstraints c = new GridBagConstraints();

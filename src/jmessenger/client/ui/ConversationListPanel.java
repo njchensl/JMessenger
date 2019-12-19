@@ -25,9 +25,39 @@ public class ConversationListPanel extends JPanel {
     public synchronized void updateConversations() {
         this.removeAll();
         List<Conversation> cons = Messenger.getInstance().getConversationList();
-        int gridy = 0;
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 0;
+        c.gridy = 0;
+        c.weightx = 1;
+        c.weighty = 0;
+        c.ipady = 5;
+        JButton btnAdd = new JButton("<html><h1>+</h1></html>");
+        btnAdd.addActionListener((evt) -> {
+            // add a new conversation
+            int recipient;
+            try {
+                recipient = Integer.parseInt(JOptionPane.showInputDialog(null, "Who do you want to talk to?", "New Conversation", JOptionPane.OK_OPTION));
+            } catch (Exception ignored) {
+                return;
+            }
+            // see if a conversation already exists
+            if (Messenger.getInstance().conversationAlreadyExists(recipient)) {
+                JOptionPane.showMessageDialog(null, "This conversation already exists", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            Messenger.getInstance().getConversationList().add(new Conversation(recipient));
+            // refresh the list
+            this.updateConversations();
+            // revalidate the main frame
+            Messenger.getInstance().getMainFrame().revalidate();
+        });
+        this.add(btnAdd, c);
+
+        int gridy = 1;
+        // draw each conversation
         for (Conversation co : cons) {
-            GridBagConstraints c = new GridBagConstraints();
+            c = new GridBagConstraints();
             c.fill = GridBagConstraints.HORIZONTAL;
             c.gridx = 0;
             c.gridy = gridy;
@@ -67,7 +97,7 @@ public class ConversationListPanel extends JPanel {
 
             gridy++;
         }
-        GridBagConstraints c = new GridBagConstraints();
+        c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = gridy;
@@ -75,5 +105,7 @@ public class ConversationListPanel extends JPanel {
         c.weighty = 1;
         JLabel lblEmpty = new JLabel();
         this.add(lblEmpty, c);
+
+
     }
 }
