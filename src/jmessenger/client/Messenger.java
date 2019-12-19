@@ -24,6 +24,8 @@
 package jmessenger.client;
 
 import jmessenger.client.ui.MainFrame;
+import jmessenger.client.ui.MainPanel;
+import jmessenger.client.ui.MessagesPanel;
 import jmessenger.shared.*;
 import mdlaf.MaterialLookAndFeel;
 import org.jetbrains.annotations.NotNull;
@@ -320,6 +322,12 @@ public class Messenger {
                 cNew.addMessage(cm);
                 getConversationList().add(cNew);
             }
+            // update the gui
+            JPanel pnl = ((MainPanel) this.getMainFrame().getContentPane()).getMainPanel();
+            if (pnl instanceof MessagesPanel) {
+                ((MessagesPanel) pnl).getConversationListPanel().updateConversations();
+            }
+            this.getMainFrame().revalidate();
         } else {
             // server message
             // analyse the type

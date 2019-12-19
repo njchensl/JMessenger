@@ -82,6 +82,11 @@ public class ConversationPanel extends javax.swing.JPanel {
                 Messenger.getInstance().send(tm);
                 txtInput.setText("");
                 ((ConversationMessagesPanel) pnlConversationMessages).refresh();
+                JPanel pnl = ((MainPanel) Messenger.getInstance().getMainFrame().getContentPane()).getMainPanel();
+                if (pnl instanceof MessagesPanel) {
+                    ((MessagesPanel) pnl).getConversationListPanel().updateConversations();
+                }
+                Messenger.getInstance().getMainFrame().revalidate();
             }
         });
 
