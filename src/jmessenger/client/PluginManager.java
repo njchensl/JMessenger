@@ -18,6 +18,10 @@ public class PluginManager {
 
     private static volatile PluginManager pluginManager;
     private List<AbstractPlugin> plugins;
+    //private List<Object> objects = new ArrayList<>(); // testing dynamic class loading and unloading
+    /*
+     * IF THE OBJECTS ARE NOT GC'ED, THEIR RESPECTIVE CLASSES WILL NOT BE UNLOADED
+     */
 
     /**
      * NO INSTANCE OF PLUGIN MANAGER FOR YOU!
@@ -93,6 +97,7 @@ public class PluginManager {
                         System.out.println(className);
                         try {
                             Object o = c.newInstance();
+                            //objects.add(o);
                             if (o instanceof AbstractPlugin) {
                                 // load the plugin
                                 this.plugins.add((AbstractPlugin) o);

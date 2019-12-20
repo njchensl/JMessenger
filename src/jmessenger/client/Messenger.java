@@ -159,11 +159,19 @@ public class Messenger {
     }
 
 
-    public void close() throws IOException {
-        socket.close();
+    /**
+     * stops the messenger by closing the IO streams and then the socket
+     */
+    public void close() throws IOException, InterruptedException {
+        this.in.stop();
+        this.out.stop();
+        while (!in.isTerminated() || !out.isTerminated()) {
+            Thread.onSpinWait();
+        }
+        this.socket.close();
     }
 
-    void displayGUI() {
+    private void displayGUI() {
         this.mainFrame = new MainFrame();
         SwingUtilities.invokeLater(() -> this.mainFrame.setVisible(true));
     }

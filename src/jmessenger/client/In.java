@@ -37,6 +37,7 @@ public class In implements Runnable {
     private Socket socket;
     private ObjectInputStream in;
     private boolean running;
+    private boolean terminated;
 
     public In(Socket s) throws IOException {
         this.socket = s;
@@ -46,6 +47,7 @@ public class In implements Runnable {
     @Override
     public void run() {
         running = true;
+        terminated = false;
         while (running) {
             try {
                 // ALWAYS USING AES
@@ -62,9 +64,14 @@ public class In implements Runnable {
                 NotificationCenter.getInstance().add(e);
             }
         }
+        terminated = true;
     }
 
     public void stop() {
         running = false;
+    }
+
+    public boolean isTerminated() {
+        return terminated;
     }
 }

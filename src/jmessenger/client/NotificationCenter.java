@@ -25,7 +25,6 @@ package jmessenger.client;
 
 import org.jetbrains.annotations.NotNull;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,8 +46,8 @@ public class NotificationCenter {
     }
 
     public synchronized void add(@NotNull Throwable t) {
-        JOptionPane.showMessageDialog(null, "An error has occured.\nDetails:\n" + t.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        JOptionPane.showMessageDialog(null, t.getStackTrace(), "Error", JOptionPane.ERROR_MESSAGE);
+        //JOptionPane.showMessageDialog(null, "An error has occured.\nDetails:\n" + t.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        //JOptionPane.showMessageDialog(null, t.getStackTrace(), "Error", JOptionPane.ERROR_MESSAGE);
         throwableList.add(t);
     }
 

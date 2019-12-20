@@ -46,6 +46,7 @@ public class Out implements Runnable {
     private Socket socket;
     private ObjectOutputStream out;
     private boolean running;
+    private boolean terminated;
 
     public Out(@NotNull Socket s) throws IOException {
         this.socket = s;
@@ -56,6 +57,7 @@ public class Out implements Runnable {
     @Override
     public void run() {
         running = true;
+        terminated = false;
         for (; ; ) {
             Message msg = buffer.poll();
             if (msg == null) {
@@ -102,6 +104,7 @@ public class Out implements Runnable {
         } catch (IOException e) {
             NotificationCenter.getInstance().add(e);
         }
+        terminated = true;
     }
 
     public void stop() {
@@ -110,5 +113,9 @@ public class Out implements Runnable {
 
     public synchronized void send(@NotNull Message msg) {
         buffer.add(msg);
+    }
+
+    public boolean isTerminated() {
+        return terminated;
     }
 }
