@@ -151,6 +151,9 @@ public class Messenger {
             PluginManager pm = PluginManager.getInstance();
             pm.loadPlugins();
 
+            pm.onStart(); // call the onStart method of each plugin
+
+
         } catch (IOException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, e.getStackTrace(), "Error", JOptionPane.ERROR_MESSAGE);
             System.exit(4);
@@ -163,6 +166,7 @@ public class Messenger {
      * stops the messenger by closing the IO streams and then the socket
      */
     public void close() throws IOException, InterruptedException {
+        PluginManager.getInstance().onClose();
         this.in.stop();
         this.out.stop();
         while (!in.isTerminated() || !out.isTerminated()) {
@@ -226,8 +230,9 @@ public class Messenger {
      *
      * @param msg the message to send
      */
-    public void send(@NotNull Message msg) {
+    public synchronized void send(@NotNull Message msg) {
         this.out.send(msg);
+        //PluginManager.getInstance().onMessageSent(msg);
     }
 
     private void initialize(@NotNull String host, int port) throws IOException {
@@ -335,6 +340,7 @@ public class Messenger {
 
             }
         }
+        PluginManager.getInstance().onMessageReceived(msg);
     }
 
     /**

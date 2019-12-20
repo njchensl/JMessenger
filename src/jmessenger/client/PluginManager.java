@@ -1,5 +1,9 @@
 package jmessenger.client;
 
+import jmessenger.shared.Message;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -18,6 +22,7 @@ public class PluginManager {
 
     private static volatile PluginManager pluginManager;
     private List<AbstractPlugin> plugins;
+    private List<Class> classes;
     //private List<Object> objects = new ArrayList<>(); // testing dynamic class loading and unloading
     /*
      * IF THE OBJECTS ARE NOT GC'ED, THEIR RESPECTIVE CLASSES WILL NOT BE UNLOADED
@@ -28,6 +33,47 @@ public class PluginManager {
      */
     private PluginManager() {
         plugins = new ArrayList<>();
+        classes = new ArrayList<>();
+    }
+
+    /**
+     * NOTE: INITIALIZE BEFORE GETTING AN INSTANCE
+     *
+     * @return an instance of the plugin manager
+     */
+    @Nullable
+    public static PluginManager getInstance() {
+        return pluginManager;
+    }
+
+    protected void onStart() {
+        for (AbstractPlugin p : plugins) {
+            try {
+                p.onStart();
+            } catch (Throwable e) {
+                NotificationCenter.getInstance().add(e);
+            }
+        }
+    }
+
+    protected void onClose() {
+        for (AbstractPlugin p : plugins) {
+            try {
+                p.onClose();
+            } catch (Throwable e) {
+                NotificationCenter.getInstance().add(e);
+            }
+        }
+    }
+
+    protected void onMessageReceived(@NotNull Message msg) {
+        for (AbstractPlugin p : plugins) {
+            try {
+                p.onMessageReceived(msg);
+            } catch (Throwable e) {
+                NotificationCenter.getInstance().add(e);
+            }
+        }
     }
 
     /**
@@ -49,16 +95,14 @@ public class PluginManager {
     }
     */
 
-    /**
-     * NOTE: INITIALIZE BEFORE GETTING AN INSTANCE
-     *
-     * @return an instance of the plugin manager
-     */
-    public static PluginManager getInstance() {
-        while (pluginManager == null) {
-            Thread.onSpinWait();
+    protected void onMessageSent(@NotNull Message msg) {
+        for (AbstractPlugin p : plugins) {
+            try {
+                p.onMessageSent(msg);
+            } catch (Throwable e) {
+                NotificationCenter.getInstance().add(e);
+            }
         }
-        return pluginManager;
     }
 
     /**
@@ -92,7 +136,7 @@ public class PluginManager {
                     className = className.replace('/', '.');
                     Class c = cl.loadClass(className);
                     //addPath(className);
-
+                    classes.add(c);
                     if (!className.contains("$")) {
                         System.out.println(className);
                         try {
@@ -100,7 +144,9 @@ public class PluginManager {
                             //objects.add(o);
                             if (o instanceof AbstractPlugin) {
                                 // load the plugin
-                                this.plugins.add((AbstractPlugin) o);
+                                AbstractPlugin p = (AbstractPlugin) o;
+                                p.setMessenger(Messenger.getInstance());
+                                this.plugins.add(p);
 
                             }
                         } catch (Exception ignored) {

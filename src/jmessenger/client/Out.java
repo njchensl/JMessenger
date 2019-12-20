@@ -113,6 +113,10 @@ public class Out implements Runnable {
 
     public synchronized void send(@NotNull Message msg) {
         buffer.add(msg);
+        PluginManager pm = PluginManager.getInstance();
+        if (pm != null) {
+            pm.onMessageSent(msg);
+        }
     }
 
     public boolean isTerminated() {
