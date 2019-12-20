@@ -145,36 +145,19 @@ public class Messenger {
 
             messenger = new Messenger(hostName, port, key, serverPublicKey, registered);
             messenger.displayGUI();
+
+            // load plugins
+            PluginManager.initialize();
+            PluginManager pm = PluginManager.getInstance();
+            pm.loadPlugins();
+
         } catch (IOException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, e.getStackTrace(), "Error", JOptionPane.ERROR_MESSAGE);
             System.exit(4);
         }
 
-        /*
-        // for testing only
-        for (int i = 0; ; i++) {
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            System.out.println("added");
-            getInstance().conversationList.add(new Conversation(i) {
-                {
-                    addMessage(new TextMessage("Message #" + getRecipient()));
-                }
-            });
-            ((MessagesPanel) ((MainPanel) messenger.getMainFrame().getContentPane()).getMainPanel()).getConversationListPanel().updateConversations();
-            getInstance().getMainFrame().revalidate();
-        }
-        */
-
     }
 
-    void test() {
-        this.conversationList.add(new Conversation(123));
-        this.conversationList.add(new Conversation(456));
-    }
 
     public void close() throws IOException {
         socket.close();
