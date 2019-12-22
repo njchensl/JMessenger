@@ -4,6 +4,8 @@ import jmessenger.client.Messenger;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
@@ -25,7 +27,7 @@ public class MainFrame extends JFrame {
             public void windowClosing(WindowEvent e) {
                 try {
                     Messenger.getInstance().close();
-                } catch (IOException | InterruptedException ex) {
+                } catch (IOException ex) {
                     ex.printStackTrace();
                 }
                 System.exit(0);
@@ -54,6 +56,21 @@ public class MainFrame extends JFrame {
             @Override
             public void windowDeactivated(WindowEvent e) {
                 // ignored
+            }
+        });
+        this.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                showPop(e);
+            }
+
+            private void showPop(MouseEvent e) {
+                new PopupMenu() {
+                    {
+                        add(new MenuItem("ITEM"));
+                    }
+                }.show(e.getComponent(), e.getX(), e.getY());
             }
         });
         this.pack();

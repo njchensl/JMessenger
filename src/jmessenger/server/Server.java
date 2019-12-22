@@ -121,6 +121,7 @@ public class Server implements Runnable {
         return server;
     }
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     private static void initialize(@NotNull File conf) throws IOException, NoSuchAlgorithmException, NoSuchProviderException {
         File privateKey = new File("server-private.key");
         File publicKey = new File("server-public.key");
@@ -153,6 +154,7 @@ public class Server implements Runnable {
     }
 
     @Override
+    @SuppressWarnings("InfiniteLoopStatement")
     public void run() {
         for (; ; ) {
             System.out.println("Listening for incoming connections...");

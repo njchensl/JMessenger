@@ -13,3 +13,4 @@ server-private.key
 server-public.key
 client-stored-server-public.key
 database
+conversations

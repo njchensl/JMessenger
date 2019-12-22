@@ -66,7 +66,7 @@ public class Messenger {
      * @param registered      if it has been registered
      * @throws IOException io exception
      */
-    private Messenger(@NotNull String host, int port, SecretKey myKey, PublicKey serverPublicKey, boolean registered) throws IOException {
+    private Messenger(@NotNull String host, int port, SecretKey myKey, PublicKey serverPublicKey, boolean registered) throws IOException, ClassNotFoundException {
         this.conversationList = new ArrayList<>();
         this.nc = NotificationCenter.getInstance();
         this.serverPublicKey = serverPublicKey;
@@ -161,25 +161,7 @@ public class Messenger {
 
     }
 
-
-    /**
-     * stops the messenger by closing the IO streams and then the socket
-     */
-    public void close() throws IOException, InterruptedException {
-        PluginManager.getInstance().onClose();
-        this.in.stop();
-        this.out.stop();
-        while (!in.isTerminated() || !out.isTerminated()) {
-            Thread.onSpinWait();
-        }
-        this.socket.close();
-    }
-
-    private void displayGUI() {
-        this.mainFrame = new MainFrame();
-        SwingUtilities.invokeLater(() -> this.mainFrame.setVisible(true));
-    }
-
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     private static void initialize(@NotNull File conf) throws IOException, NoSuchAlgorithmException, NoSuchProviderException {
         System.out.println("Initializing");
 
@@ -217,6 +199,24 @@ public class Messenger {
         bfConf.close();
     }
 
+    private void displayGUI() {
+        this.mainFrame = new MainFrame();
+        SwingUtilities.invokeLater(() -> this.mainFrame.setVisible(true));
+    }
+
+    /**
+     * stops the messenger by closing the IO streams and then the socket
+     */
+    public void close() throws IOException {
+        PluginManager.getInstance().onClose();
+        this.in.stop();
+        this.out.stop();
+        while (!in.isTerminated() || !out.isTerminated()) {
+            Thread.onSpinWait();
+        }
+        this.socket.close();
+    }
+
     public boolean isUsingAES() {
         return usingAES;
     }
@@ -235,7 +235,8 @@ public class Messenger {
         //PluginManager.getInstance().onMessageSent(msg);
     }
 
-    private void initialize(@NotNull String host, int port) throws IOException {
+    @SuppressWarnings("unchecked")
+    private void initialize(@NotNull String host, int port) throws IOException, ClassNotFoundException {
         this.socket = new Socket();
         this.socket.connect(new InetSocketAddress(host, port), 10000);
 
@@ -252,6 +253,18 @@ public class Messenger {
         // login
         LoginMessage lm = new LoginMessage(this.myKey);
         this.send(lm);
+
+        // read all conversations from the datafile
+        File db = new File("conversations");
+        if (db.exists()) {
+            Object o = new ObjectInputStream(new FileInputStream(db)).readObject();
+            this.conversationList = (List<Conversation>) o;
+        }
+
+        // start to backup conversations to the datafile
+        Thread t = new Thread(new ConversationSaver(this.conversationList));
+        t.setDaemon(true);
+        t.start();
     }
 
     /**
@@ -299,6 +312,7 @@ public class Messenger {
      *
      * @param msg the message to analyse
      */
+    @SuppressWarnings("SynchronizeOnNonFinalField")
     public synchronized void receive(@NotNull Message msg) {
         // analyse the message type
         if (msg instanceof ClientMessage) {
@@ -306,17 +320,21 @@ public class Messenger {
             cm.setMyMessage(false); // mark the message as sent by another person
             int recipient = cm.getRecipientID();
             boolean added = false;
-            for (Conversation c : getConversationList()) {
-                if (c.getRecipient() == recipient) {
-                    c.addMessage(cm); // the rest is handled by the GUI message renderer
-                    added = true;
+            synchronized (conversationList) {
+                for (Conversation c : getConversationList()) {
+                    if (c.getRecipient() == recipient) {
+                        c.addMessage(cm); // the rest is handled by the GUI message renderer
+                        added = true;
+                    }
                 }
             }
             // if none was found, create a new one
             if (!added) {
                 Conversation cNew = new Conversation(recipient);
                 cNew.addMessage(cm);
-                getConversationList().add(cNew);
+                synchronized (conversationList) {
+                    getConversationList().add(cNew);
+                }
             }
             // update the gui
             JPanel pnl = ((MainPanel) this.getMainFrame().getContentPane()).getMainPanel();
@@ -363,10 +381,13 @@ public class Messenger {
      * @param recipient the recipient ID
      * @return if it exists
      */
+    @SuppressWarnings("SynchronizeOnNonFinalField")
     public boolean conversationAlreadyExists(int recipient) {
-        for (Conversation co : conversationList) {
-            if (recipient == co.getRecipient()) {
-                return true;
+        synchronized (conversationList) {
+            for (Conversation co : conversationList) {
+                if (recipient == co.getRecipient()) {
+                    return true;
+                }
             }
         }
         return false;

@@ -146,6 +146,7 @@ public class ConversationPanel extends javax.swing.JPanel {
         c.gridx = 0;
         c.gridy = 3;
         c.ipady = 50;
+        DefaultContextMenu.addDefaultContextMenu(txtInput);
         this.add(new JScrollPane(txtInput), c);
 
         c = new GridBagConstraints();
