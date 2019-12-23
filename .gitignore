@@ -15,4 +15,4 @@ client-stored-server-public.key
 database
 conversations
 
-.disabled
+*.disabled

@@ -34,7 +34,6 @@ import org.jetbrains.annotations.NotNull;
 import javax.crypto.SecretKey;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -96,19 +95,6 @@ public class Messenger {
 
     public static void main(String... args) {
 
-        new JFrame() {{
-            setContentPane(new JPanel() {{
-                JTabbedPane tabbedPane = new JTabbedPane();
-
-                JComponent panel1 = new JTextArea("Panel #1");
-                tabbedPane.addTab("Tab 1", panel1);
-                tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
-                add(tabbedPane);
-            }});
-            pack();
-            setVisible(true);
-        }};
-
         // L&F
         try {
             UIManager.setLookAndFeel(new FlatIntelliJLaf()/*new MaterialLookAndFeel()*/);
@@ -164,7 +150,6 @@ public class Messenger {
             serverPublicKeyIn.close();
 
             messenger = new Messenger(hostName, port, key, serverPublicKey, registered);
-            messenger.displayGUI();
 
             // load plugins
             PluginManager.initialize();
@@ -173,6 +158,8 @@ public class Messenger {
             pm.loadPlugins();
 
             pm.onStart(); // call the onStart method of each plugin
+
+            messenger.displayGUI();
 
 
         } catch (IOException | ClassNotFoundException e) {

@@ -4,6 +4,7 @@ import jmessenger.shared.Message;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -104,6 +105,20 @@ public class PluginManager {
                 NotificationCenter.getInstance().add(e);
             }
         }
+    }
+
+    /**
+     * the plugin manager will ask each plugin to provide with a custom JPanel
+     */
+    public List<JComponent> getAdditionalPanels() {
+        List<JComponent> components = new ArrayList<>();
+        for (AbstractPlugin p : plugins) {
+            JComponent pnl = p.getCustomJComponent();
+            if (pnl != null) {
+                components.add(pnl);
+            }
+        }
+        return components;
     }
 
     /**

@@ -27,6 +27,8 @@ import jmessenger.shared.Message;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.swing.*;
+
 public abstract class AbstractPlugin {
     protected Messenger messenger;
 
@@ -51,4 +53,5 @@ public abstract class AbstractPlugin {
 
     public abstract void onMessageSent(@NotNull Message msg);
 
+    public abstract @Nullable JComponent getCustomJComponent();
 }
