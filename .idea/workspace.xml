@@ -7,15 +7,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="new">
-      <change afterPath="$PROJECT_DIR$/plugins/JMessengerMaterialLafPlugin.jar.disabled" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/JMessengerPluginTest.jar.disabled" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/AbstractPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/AbstractPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/PluginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/PluginManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/BottomPanel.java" beforeDir="false" />
+    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/MainPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -364,7 +356,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577064190891</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="new plugin interface">
+      <created>1577065658874</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1577065658874</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -386,7 +385,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="private -&gt; protected" />
     <MESSAGE value="optimized import" />
     <MESSAGE value="new L&amp;F library" />
     <MESSAGE value="new L&amp;F" />
@@ -411,7 +409,8 @@
     <MESSAGE value="new termination logic" />
     <MESSAGE value="plugin manager finished" />
     <MESSAGE value="saving conversations and text area context menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="saving conversations and text area context menu" />
+    <MESSAGE value="new plugin interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="new plugin interface" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -453,10 +452,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="367" y="98" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1280.680@0.0.1280.680" timestamp="1577025370311" />
-    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1577065642378">
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1577065657780">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577065642378" />
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577065657780" />
     <state x="344" y="84" key="FileChooserDialogImpl" timestamp="1577025438999">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -497,10 +496,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1577062325443" />
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1577009602554">
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1577065666670">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1577009602554" />
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1577065666670" />
     <state x="372" y="144" key="git4idea.merge.GitPullDialog" timestamp="1576840668787" />
     <state x="372" y="144" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1576840668787" />
     <state x="91" y="0" key="new project wizard" timestamp="1577062356654">

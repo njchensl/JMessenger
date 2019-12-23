@@ -19,7 +19,7 @@ public class MainPanel extends JPanel {
      */
     public MainPanel() {
         super(new GridBagLayout());
-        // TODO ask the plugin manager to do this
+        // ask the plugin manager for the extra components
         components = Objects.requireNonNull(PluginManager.getInstance()).getAdditionalPanels();
         main = new MessagesPanel();
         initialize();
