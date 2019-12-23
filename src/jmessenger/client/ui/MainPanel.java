@@ -33,7 +33,6 @@ public class MainPanel extends JPanel {
             tp.add(p.getName(), p);
         }
 
-
         GridBagConstraints c = new GridBagConstraints();
 
         c.fill = GridBagConstraints.BOTH;

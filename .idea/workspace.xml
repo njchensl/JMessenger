@@ -7,7 +7,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
+    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="saving conversations and text area context menu">
+      <change afterPath="$PROJECT_DIR$/plugins/kotlin-runtime.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/MainPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,11 +27,12 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="developers-manual" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -90,6 +93,8 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Messenger" />
+        <item itemvalue="Application.Server" />
         <item itemvalue="Application.Messenger" />
         <item itemvalue="Application.Server" />
       </list>
@@ -420,10 +425,10 @@
     <state x="233" y="2" key="#Auto_Import/0.0.1280.680@0.0.1280.680" timestamp="1576840668787" />
     <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser" timestamp="1576840668787" />
     <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser/0.0.1280.680@0.0.1280.680" timestamp="1576840668787" />
-    <state x="191" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577064874424">
+    <state x="191" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577068923190">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="191" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1577064874424" />
+    <state x="191" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1577068923190" />
     <state x="400" y="150" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1576840668787" />
     <state x="400" y="150" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1576840668787" />
     <state x="421" y="48" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1576846708805">
@@ -460,22 +465,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="344" y="84" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1577025438999" />
-    <state width="1237" height="183" key="GridCell.Tab.0.bottom" timestamp="1577065642428">
+    <state width="1237" height="183" key="GridCell.Tab.0.bottom" timestamp="1577068887082">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="183" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577065642428" />
-    <state width="1237" height="183" key="GridCell.Tab.0.center" timestamp="1577065642428">
+    <state width="1237" height="183" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577068887082" />
+    <state width="1237" height="183" key="GridCell.Tab.0.center" timestamp="1577068887082">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="183" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1577065642428" />
-    <state width="1237" height="183" key="GridCell.Tab.0.left" timestamp="1577065642428">
+    <state width="1237" height="183" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1577068887082" />
+    <state width="1237" height="183" key="GridCell.Tab.0.left" timestamp="1577068887081">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="183" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1577065642428" />
-    <state width="1237" height="183" key="GridCell.Tab.0.right" timestamp="1577065642428">
+    <state width="1237" height="183" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1577068887081" />
+    <state width="1237" height="183" key="GridCell.Tab.0.right" timestamp="1577068887082">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="183" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1577065642428" />
+    <state width="1237" height="183" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1577068887082" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1577062130148">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -500,6 +505,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1577065666670" />
+    <state x="452" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577066162684">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="452" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1577066162684" />
     <state x="372" y="144" key="git4idea.merge.GitPullDialog" timestamp="1576840668787" />
     <state x="372" y="144" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1576840668787" />
     <state x="91" y="0" key="new project wizard" timestamp="1577062356654">
