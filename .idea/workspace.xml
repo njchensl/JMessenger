@@ -7,10 +7,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="saving conversations and text area context menu">
-      <change afterPath="$PROJECT_DIR$/plugins/kotlin-runtime.jar" afterDir="false" />
+    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/MainPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Conversation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Conversation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationMessagesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationMessagesPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -368,7 +369,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577065658874</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="kotlin runtime included">
+      <created>1577068972739</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1577068972739</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -390,7 +398,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="optimized import" />
     <MESSAGE value="new L&amp;F library" />
     <MESSAGE value="new L&amp;F" />
     <MESSAGE value="client libraries" />
@@ -415,7 +422,8 @@
     <MESSAGE value="plugin manager finished" />
     <MESSAGE value="saving conversations and text area context menu" />
     <MESSAGE value="new plugin interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="new plugin interface" />
+    <MESSAGE value="kotlin runtime included" />
+    <option name="LAST_COMMIT_MESSAGE" value="kotlin runtime included" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -435,16 +443,16 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="48" key="#com.intellij.ide.macro.MacrosDialog/0.0.1280.680@0.0.1280.680" timestamp="1576846708805" />
-    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser" timestamp="1577024243429">
+    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser" timestamp="1577076078249">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1577024243429" />
+    <state x="446" y="50" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1577076078249" />
     <state x="576" y="257" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1576840668787" />
     <state x="576" y="257" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1576840668787" />
-    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1576847357340">
+    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1577075076704">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1280.680@0.0.1280.680" timestamp="1576847357340" />
+    <state x="345" y="17" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1280.680@0.0.1280.680" timestamp="1577075076704" />
     <state x="443" y="232" width="394" height="223" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1576840668787" />
     <state x="443" y="232" width="394" height="223" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.680@0.0.1280.680" timestamp="1576840668787" />
     <state x="273" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1576840668787" />
@@ -457,54 +465,54 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="367" y="98" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1280.680@0.0.1280.680" timestamp="1577025370311" />
-    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1577065657780">
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1577068971774">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577065657780" />
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577068971774" />
     <state x="344" y="84" key="FileChooserDialogImpl" timestamp="1577025438999">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="344" y="84" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1577025438999" />
-    <state width="1237" height="183" key="GridCell.Tab.0.bottom" timestamp="1577068887082">
+    <state width="1237" height="183" key="GridCell.Tab.0.bottom" timestamp="1577077060349">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="183" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577068887082" />
-    <state width="1237" height="183" key="GridCell.Tab.0.center" timestamp="1577068887082">
+    <state width="1237" height="183" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577077060349" />
+    <state width="1237" height="183" key="GridCell.Tab.0.center" timestamp="1577077060348">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="183" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1577068887082" />
-    <state width="1237" height="183" key="GridCell.Tab.0.left" timestamp="1577068887081">
+    <state width="1237" height="183" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1577077060348" />
+    <state width="1237" height="183" key="GridCell.Tab.0.left" timestamp="1577077060348">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="183" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1577068887081" />
-    <state width="1237" height="183" key="GridCell.Tab.0.right" timestamp="1577068887082">
+    <state width="1237" height="183" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1577077060348" />
+    <state width="1237" height="183" key="GridCell.Tab.0.right" timestamp="1577077060348">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="183" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1577068887082" />
-    <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1577062130148">
+    <state width="1237" height="183" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1577077060348" />
+    <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1577075909902">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577062130148" />
-    <state width="1237" height="204" key="GridCell.Tab.1.center" timestamp="1577062130148">
+    <state width="1237" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577075909902" />
+    <state width="1237" height="204" key="GridCell.Tab.1.center" timestamp="1577075909902">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1577062130148" />
-    <state width="1237" height="204" key="GridCell.Tab.1.left" timestamp="1577062130148">
+    <state width="1237" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1577075909902" />
+    <state width="1237" height="204" key="GridCell.Tab.1.left" timestamp="1577075909902">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1577062130148" />
-    <state width="1237" height="204" key="GridCell.Tab.1.right" timestamp="1577062130148">
+    <state width="1237" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1577075909902" />
+    <state width="1237" height="204" key="GridCell.Tab.1.right" timestamp="1577075909902">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1577062130148" />
-    <state x="117" y="0" key="SettingsEditor" timestamp="1577062325443">
+    <state width="1237" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1577075909902" />
+    <state x="117" y="0" key="SettingsEditor" timestamp="1577077016227">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1577062325443" />
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1577065666670">
+    <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1577077016227" />
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1577068974316">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1577065666670" />
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1577068974316" />
     <state x="452" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577066162684">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -521,10 +529,10 @@
     <state x="350" y="0" key="refactoring.ChangeSignatureDialog/0.0.1280.680@0.0.1280.680" timestamp="1577065368985" />
     <state x="297" y="151" key="run.anything.popup" timestamp="1576840668787" />
     <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1576840668787" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1577023555582">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1577075111574">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1577023555582" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1577075111574" />
     <state x="363" y="258" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1576840668787" />
     <state x="363" y="258" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1280.680@0.0.1280.680" timestamp="1576840668787" />
   </component>

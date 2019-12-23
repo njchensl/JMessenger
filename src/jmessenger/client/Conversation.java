@@ -61,8 +61,11 @@ public class Conversation implements Serializable {
      *
      * @param cm the client message to add
      */
+    @SuppressWarnings("SynchronizeOnNonFinalField")
     public void addMessage(@NotNull ClientMessage cm) {
-        messages.add(cm);
+        synchronized (messages) {
+            messages.add(cm);
+        }
         this.length = messages.size();
     }
 

@@ -55,7 +55,9 @@ public class ConversationPanel extends javax.swing.JPanel {
         this.conversation = conversation;
         List<ClientMessage> messages = conversation.getAllMessages();
 
-        this.pnlConversationMessages = new ConversationMessagesPanel(messages);
+        this.pnlConversationMessages = new ConversationMessagesPanel(messages, null);
+        JScrollPane sp = new JScrollPane(pnlConversationMessages);
+        ((ConversationMessagesPanel) pnlConversationMessages).setScrollPane(sp);
 
         txtInput = new JTextArea();
         txtInput.setFont(new Font("Arial", Font.PLAIN, 17));
@@ -129,7 +131,7 @@ public class ConversationPanel extends javax.swing.JPanel {
         c.gridy = 1;
         ((ConversationMessagesPanel) pnlConversationMessages).refresh();
         pnlConversationMessages.revalidate();
-        this.add(new JScrollPane(pnlConversationMessages), c);
+        this.add(((ConversationMessagesPanel) pnlConversationMessages).getScrollPane(), c);
 
         c = new GridBagConstraints();
         c.fill = GridBagConstraints.BOTH;
