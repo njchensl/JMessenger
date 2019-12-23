@@ -23,6 +23,7 @@
  */
 package jmessenger.client;
 
+import com.formdev.flatlaf.FlatIntelliJLaf;
 import jmessenger.client.ui.MainFrame;
 import jmessenger.client.ui.MainPanel;
 import jmessenger.client.ui.MessagesPanel;
@@ -33,6 +34,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.crypto.SecretKey;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -41,6 +43,7 @@ import java.security.NoSuchProviderException;
 import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Messenger {
@@ -92,14 +95,31 @@ public class Messenger {
     }
 
     public static void main(String... args) {
+
+        new JFrame() {{
+            setContentPane(new JPanel() {{
+                JTabbedPane tabbedPane = new JTabbedPane();
+
+                JComponent panel1 = new JTextArea("Panel #1");
+                tabbedPane.addTab("Tab 1", panel1);
+                tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
+                add(tabbedPane);
+            }});
+            pack();
+            setVisible(true);
+        }};
+
         // L&F
         try {
-            UIManager.setLookAndFeel(new MaterialLookAndFeel());
+            UIManager.setLookAndFeel(new FlatIntelliJLaf()/*new MaterialLookAndFeel()*/);
         } catch (Throwable t) {
             t.printStackTrace();
         }
-        UIManager.put("OptionPane.messageFont", new Font("Arial", Font.PLAIN, 11));
-        UIManager.put("OptionPane.buttonFont", new Font("Arial", Font.PLAIN, 11));
+
+        if (UIManager.getLookAndFeel() instanceof MaterialLookAndFeel) {
+            UIManager.put("OptionPane.messageFont", new Font("Arial", Font.PLAIN, 11));
+            UIManager.put("OptionPane.buttonFont", new Font("Arial", Font.PLAIN, 11));
+        }
 
         File conf = new File("messenger.conf");
         if (!conf.exists()) {
@@ -149,6 +169,7 @@ public class Messenger {
             // load plugins
             PluginManager.initialize();
             PluginManager pm = PluginManager.getInstance();
+            assert pm != null;
             pm.loadPlugins();
 
             pm.onStart(); // call the onStart method of each plugin
@@ -208,7 +229,7 @@ public class Messenger {
      * stops the messenger by closing the IO streams and then the socket
      */
     public void close() throws IOException {
-        PluginManager.getInstance().onClose();
+        Objects.requireNonNull(PluginManager.getInstance()).onClose();
         this.in.stop();
         this.out.stop();
         while (!in.isTerminated() || !out.isTerminated()) {
@@ -348,6 +369,7 @@ public class Messenger {
             if (msg instanceof MessageDeliveryStatus) {
                 MessageDeliveryStatus mds = (MessageDeliveryStatus) msg;
                 if (!mds.isSuccessful()) {
+                    JOptionPane.showMessageDialog(null, "Message Delivery Failed\n" + msg);
                     nc.add(new Exception("Message Delivery Failed\n" + mds.getMessage()));
                 }
             } else if (msg instanceof RegistrationResponseMessage) {
@@ -358,7 +380,7 @@ public class Messenger {
 
             }
         }
-        PluginManager.getInstance().onMessageReceived(msg);
+        Objects.requireNonNull(PluginManager.getInstance()).onMessageReceived(msg);
     }
 
     /**

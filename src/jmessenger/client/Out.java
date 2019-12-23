@@ -43,13 +43,11 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 public class Out implements Runnable {
     private Queue<Message> buffer;
-    private Socket socket;
     private ObjectOutputStream out;
     private boolean running;
     private boolean terminated;
 
     public Out(@NotNull Socket s) throws IOException {
-        this.socket = s;
         this.out = new ObjectOutputStream(s.getOutputStream());
         this.buffer = new ArrayBlockingQueue<>(50);
     }

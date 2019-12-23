@@ -71,6 +71,7 @@ public class ConversationPanel extends javax.swing.JPanel {
         initializeComponents();
 
         this.sendBtn.addActionListener((evt) -> {
+            //JOptionPane.showMessageDialog(null, "");
             // make sure it is not empty
             String txt = txtInput.getText();
             if (!txt.trim().equals("")) {

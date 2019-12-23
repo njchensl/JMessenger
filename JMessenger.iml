@@ -7,8 +7,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Jetbrains_Annotations" level="project" />
-    <orderEntry type="library" name="Apache_Commons" level="project" />
-    <orderEntry type="library" name="material-ui-swing-1.0.6" level="project" />
+    <orderEntry type="library" exported="" name="Jetbrains_Annotations" level="project" />
+    <orderEntry type="library" exported="" name="Apache_Commons" level="project" />
+    <orderEntry type="library" exported="" name="material-ui-swing-1.0.6" level="project" />
+    <orderEntry type="library" exported="" name="flatlaf-0.22" level="project" />
   </component>
 </module>

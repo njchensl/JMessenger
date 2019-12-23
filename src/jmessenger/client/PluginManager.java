@@ -22,6 +22,7 @@ public class PluginManager {
 
     private static volatile PluginManager pluginManager;
     private List<AbstractPlugin> plugins;
+    @SuppressWarnings("all")
     private List<Class> classes;
     //private List<Object> objects = new ArrayList<>(); // testing dynamic class loading and unloading
     /*
@@ -108,6 +109,7 @@ public class PluginManager {
     /**
      * load plugins
      */
+    @SuppressWarnings("deprecation")
     protected void loadPlugins() throws IOException {
         Stream<Path> paths = Files.walk(Paths.get("plugins"));
         List<Path> files = paths
@@ -137,28 +139,32 @@ public class PluginManager {
                     Class c = cl.loadClass(className);
                     //addPath(className);
                     classes.add(c);
-                    if (!className.contains("$")) {
-                        System.out.println(className);
-                        try {
-                            Object o = c.newInstance();
-                            //objects.add(o);
-                            if (o instanceof AbstractPlugin) {
-                                // load the plugin
-                                AbstractPlugin p = (AbstractPlugin) o;
-                                p.setMessenger(Messenger.getInstance());
-                                this.plugins.add(p);
 
-                            }
-                        } catch (Exception ignored) {
-                        }
-                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
 
-
+        // instantiate plugin objects
+        for (Class c : classes) {
+            String className = c.getName();
+            System.out.println(className);
+            if (!className.contains("$")) {
+                //System.out.println(className);
+                try {
+                    Object o = c.newInstance();
+                    //objects.add(o);
+                    if (o instanceof AbstractPlugin) {
+                        // load the plugin
+                        AbstractPlugin p = (AbstractPlugin) o;
+                        p.setMessenger(Messenger.getInstance());
+                        this.plugins.add(p);
+                    }
+                } catch (Exception ignored) {
+                }
+            }
+        }
     }
 
 }

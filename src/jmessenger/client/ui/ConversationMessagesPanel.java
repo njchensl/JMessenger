@@ -45,8 +45,16 @@ public class ConversationMessagesPanel extends JPanel {
 
                  */
                 String text = ((TextMessage) m).getText();
-                JLabel lbl = new JLabel((text.contains("<html>") ? "" : "    ") + text);
+                JLabel lbl = new JLabel((text.contains("<html>") ? "" : "    ") + text) /* {
+                    @Override
+                    protected void paintComponent(Graphics g) {
+                        super.paintComponent(g);
+                        g.setColor(this.getBackground());
+                        g.fillRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+                    }
+                } */;
                 lbl.setFont(new Font("Arial", Font.PLAIN, 17));
+                lbl.setOpaque(true);
                 if (m.isMyMessage()) {
                     lbl.setBackground(new Color(240, 240, 240));
                 } else {
@@ -73,6 +81,7 @@ public class ConversationMessagesPanel extends JPanel {
                     public void mousePressed(MouseEvent e) {
                         originalColor = lbl.getBackground();
                         lbl.setBackground(Color.GRAY);
+                        //lbl.paintComponents(lbl.getGraphics());
                     }
 
                     @Override
