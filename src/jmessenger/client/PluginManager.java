@@ -23,7 +23,7 @@ public class PluginManager {
 
     private static volatile PluginManager pluginManager;
     private List<AbstractPlugin> plugins;
-    @SuppressWarnings("all")
+    @SuppressWarnings("rawtypes")
     private List<Class> classes;
     //private List<Object> objects = new ArrayList<>(); // testing dynamic class loading and unloading
     /*
@@ -110,7 +110,7 @@ public class PluginManager {
     /**
      * the plugin manager will ask each plugin to provide with a custom JPanel
      */
-    public List<JComponent> getAdditionalPanels() {
+    public List<@NotNull JComponent> getAdditionalPanels() {
         List<JComponent> components = new ArrayList<>();
         for (AbstractPlugin p : plugins) {
             JComponent pnl = p.getCustomJComponent();
@@ -121,10 +121,21 @@ public class PluginManager {
         return components;
     }
 
+    public List<@NotNull PluginButton> getAdditionalJButtons() {
+        List<PluginButton> buttons = new ArrayList<>();
+        for (AbstractPlugin p : plugins) {
+            PluginButton btn = p.getCustomJButton();
+            if (btn != null) {
+                buttons.add(btn);
+            }
+        }
+        return buttons;
+    }
+
     /**
      * load plugins
      */
-    @SuppressWarnings("deprecation")
+    @SuppressWarnings({"deprecation", "rawtypes"})
     protected void loadPlugins() throws IOException {
         Stream<Path> paths = Files.walk(Paths.get("plugins"));
         List<Path> files = paths

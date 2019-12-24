@@ -53,5 +53,11 @@ public abstract class AbstractPlugin {
 
     public abstract void onMessageSent(@NotNull Message msg);
 
-    public abstract @Nullable JComponent getCustomJComponent();
+    public @Nullable JComponent getCustomJComponent() {
+        return null;
+    }
+
+    public @Nullable PluginButton getCustomJButton() {
+        return null;
+    }
 }

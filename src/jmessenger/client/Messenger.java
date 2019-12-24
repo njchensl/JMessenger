@@ -403,13 +403,7 @@ public class Messenger {
     @SuppressWarnings("SynchronizeOnNonFinalField")
     private void sortConversations() {
         synchronized (conversationList) {
-            for (Conversation c : conversationList) {
-                System.out.println(c.getTime());
-            }
             sort(conversationList, 0, conversationList.size() - 1);
-            for (Conversation c : conversationList) {
-                System.out.println(c.getTime());
-            }
         }
     }
 

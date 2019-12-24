@@ -25,20 +25,25 @@ package jmessenger.client.ui;
 
 import jmessenger.client.Conversation;
 import jmessenger.client.Messenger;
+import jmessenger.client.PluginButton;
+import jmessenger.client.PluginManager;
 import jmessenger.shared.ClientMessage;
 import jmessenger.shared.TextMessage;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static jmessenger.client.ui.resources.Resources.rb;
 
 /**
  * @author gagao9815
  */
-public class ConversationPanel extends javax.swing.JPanel {
+public class ConversationPanel extends javax.swing.JPanel implements Serializable {
     private Conversation conversation;
     private long length;
 
@@ -57,10 +62,12 @@ public class ConversationPanel extends javax.swing.JPanel {
         this.conversation = conversation;
         List<ClientMessage> messages = conversation.getAllMessages();
 
+        // link the scroll pane to the panel
         this.pnlConversationMessages = new ConversationMessagesPanel(messages, null);
         JScrollPane sp = new JScrollPane(pnlConversationMessages);
         ((ConversationMessagesPanel) pnlConversationMessages).setScrollPane(sp);
 
+        // instantiate components
         txtInput = new JTextArea();
         txtInput.setFont(new Font("Arial", Font.PLAIN, 17));
         sendBtn = new JButton(rb.getString("SEND"));
@@ -71,7 +78,23 @@ public class ConversationPanel extends javax.swing.JPanel {
         lblTitle.setHorizontalTextPosition(SwingConstants.LEFT);
         lblTitle.setFont(new Font("Arial", Font.PLAIN, 19));
         pnlTitle.add(lblTitle);
-        pnlPlugin = new JPanel();
+        // get the plugin buttons
+        List<PluginButton> buttons = Objects.requireNonNull(PluginManager.getInstance()).getAdditionalJButtons();
+        // clone them and set their ConversationPanels separately
+        List<PluginButton> clonedButtons = new ArrayList<>();
+
+        for (PluginButton btn : buttons) {
+            //System.out.println(btn.btn.getActionListeners().length);
+            clonedButtons.add(btn.clone(this));
+        }
+
+        // TODO add the buttons to the panel and configure their action listeners
+        ConversationPanel thisPanel = this;
+        pnlPlugin = new JPanel() {{
+            clonedButtons.forEach(this::add);
+            clonedButtons.forEach(btn -> btn.addActionListener(evt -> btn.action.accept(thisPanel)));
+        }};
+
         initializeComponents();
 
         this.sendBtn.addActionListener((evt) -> {
@@ -112,7 +135,6 @@ public class ConversationPanel extends javax.swing.JPanel {
     }
 
     public void initializeComponents() {
-
         this.removeAll();
 
         GridBagConstraints c = new GridBagConstraints();
