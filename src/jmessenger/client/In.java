@@ -36,7 +36,7 @@ import java.net.Socket;
 public class In implements Runnable {
     private Socket socket;
     private ObjectInputStream in;
-    private boolean running;
+    private volatile boolean running;
     private boolean terminated;
 
     public In(Socket s) throws IOException {

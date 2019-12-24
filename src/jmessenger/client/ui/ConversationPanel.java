@@ -33,6 +33,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
+import static jmessenger.client.ui.resources.Resources.rb;
+
 /**
  * @author gagao9815
  */
@@ -61,13 +63,13 @@ public class ConversationPanel extends javax.swing.JPanel {
 
         txtInput = new JTextArea();
         txtInput.setFont(new Font("Arial", Font.PLAIN, 17));
-        sendBtn = new JButton("SEND");
+        sendBtn = new JButton(rb.getString("SEND"));
         sendBtn.setFont(new Font("Arial", Font.PLAIN, 17));
         pnlTitle = new JPanel();
-        JLabel lblTitle = new JLabel("Conversation with " + conversation.getRecipient());
+        JLabel lblTitle = new JLabel(String.format(rb.getString("CONVERSATION_WITH"), conversation.getRecipient()));
         lblTitle.setHorizontalAlignment(SwingConstants.LEFT);
         lblTitle.setHorizontalTextPosition(SwingConstants.LEFT);
-        lblTitle.setFont(new Font("Arial", Font.PLAIN, 25));
+        lblTitle.setFont(new Font("Arial", Font.PLAIN, 19));
         pnlTitle.add(lblTitle);
         pnlPlugin = new JPanel();
         initializeComponents();

@@ -1,13 +1,13 @@
 package jmessenger.client.ui;
 
-
 import jmessenger.client.PluginManager;
-import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 import java.util.Objects;
+
+import static jmessenger.client.ui.resources.Resources.rb;
 
 public class MainPanel extends JPanel {
     private JPanel main;
@@ -28,7 +28,7 @@ public class MainPanel extends JPanel {
     public void refreshComponents() {
         this.removeAll();
         tp = new JTabbedPane();
-        tp.add("Messages", main);
+        tp.add(rb.getString("MESSAGES"), main);
         for (JComponent p : components) {
             tp.add(p.getName(), p);
         }
@@ -83,8 +83,4 @@ public class MainPanel extends JPanel {
         return this.main;
     }
 
-    public void setMainPanel(@NotNull JPanel pnl) {
-        this.main = pnl;
-        refreshComponents();
-    }
 }

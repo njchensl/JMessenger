@@ -37,7 +37,7 @@ public class ConversationListPanel extends JPanel {
             // add a new conversation
             int recipient;
             try {
-                recipient = Integer.parseInt(JOptionPane.showInputDialog(null, "Who do you want to talk to?", "New Conversation", JOptionPane.OK_OPTION));
+                recipient = Integer.parseInt(JOptionPane.showInputDialog(null, "Who do you want to talk to?", "New Conversation", JOptionPane.INFORMATION_MESSAGE));
             } catch (Exception ignored) {
                 return;
             }
@@ -105,6 +105,7 @@ public class ConversationListPanel extends JPanel {
 
             gridy++;
         }
+
         c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
@@ -113,7 +114,5 @@ public class ConversationListPanel extends JPanel {
         c.weighty = 1;
         JLabel lblEmpty = new JLabel();
         this.add(lblEmpty, c);
-
-
     }
 }

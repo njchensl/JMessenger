@@ -35,8 +35,10 @@ public class Conversation implements Serializable {
     private int recipient;
     private List<ClientMessage> messages;
     private long length;
+    private long time;
 
     public Conversation(int recipient) {
+        this.time = System.currentTimeMillis();
         this.length = 0;
         this.recipient = recipient;
         this.messages = new ArrayList<>();
@@ -63,6 +65,7 @@ public class Conversation implements Serializable {
      */
     @SuppressWarnings("SynchronizeOnNonFinalField")
     public void addMessage(@NotNull ClientMessage cm) {
+        this.time = System.currentTimeMillis();
         synchronized (messages) {
             messages.add(cm);
         }
@@ -92,4 +95,10 @@ public class Conversation implements Serializable {
         return this.length != length;
     }
 
+    /**
+     * @return the last time this conversation was updated
+     */
+    public long getTime() {
+        return time;
+    }
 }

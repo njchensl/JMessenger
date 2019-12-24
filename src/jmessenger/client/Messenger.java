@@ -76,10 +76,6 @@ public class Messenger {
         this.myKey = myKey;
         this.usingAES = false;
         this.initialize(host, port);
-
-
-        // test();
-
     }
 
     /**
@@ -99,7 +95,7 @@ public class Messenger {
         try {
             UIManager.setLookAndFeel(new FlatIntelliJLaf()/*new MaterialLookAndFeel()*/);
         } catch (Throwable t) {
-            t.printStackTrace();
+            NotificationCenter.getInstance().add(t);
         }
 
         if (UIManager.getLookAndFeel() instanceof MaterialLookAndFeel) {
@@ -166,7 +162,6 @@ public class Messenger {
             JOptionPane.showMessageDialog(null, e.getStackTrace(), "Error", JOptionPane.ERROR_MESSAGE);
             System.exit(4);
         }
-
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
@@ -217,8 +212,8 @@ public class Messenger {
      */
     public void close() throws IOException {
         Objects.requireNonNull(PluginManager.getInstance()).onClose();
-        this.in.stop();
         this.out.stop();
+        this.in.stop();
         while (!in.isTerminated() || !out.isTerminated()) {
             Thread.onSpinWait();
         }
@@ -240,6 +235,7 @@ public class Messenger {
      */
     public synchronized void send(@NotNull Message msg) {
         this.out.send(msg);
+        this.sortConversations();
         //PluginManager.getInstance().onMessageSent(msg);
     }
 
@@ -324,6 +320,8 @@ public class Messenger {
     public synchronized void receive(@NotNull Message msg) {
         // analyse the message type
         if (msg instanceof ClientMessage) {
+            // sort the conversations
+            sortConversations();
             ClientMessage cm = (ClientMessage) msg;
             cm.setMyMessage(false); // mark the message as sent by another person
             int recipient = cm.getRecipientID();
@@ -341,7 +339,7 @@ public class Messenger {
                 Conversation cNew = new Conversation(recipient);
                 cNew.addMessage(cm);
                 synchronized (conversationList) {
-                    getConversationList().add(cNew);
+                    getConversationList().add(0, cNew);
                 }
             }
             // update the gui
@@ -400,5 +398,54 @@ public class Messenger {
             }
         }
         return false;
+    }
+
+    @SuppressWarnings("SynchronizeOnNonFinalField")
+    private void sortConversations() {
+        synchronized (conversationList) {
+            for (Conversation c : conversationList) {
+                System.out.println(c.getTime());
+            }
+            sort(conversationList, 0, conversationList.size() - 1);
+            for (Conversation c : conversationList) {
+                System.out.println(c.getTime());
+            }
+        }
+    }
+
+    private int partition(List<Conversation> arr, int low, int high) {
+        Conversation pivot = arr.get(high);
+        int i = (low - 1);
+        for (int j = low; j < high; j++) {
+            if (arr.get(j).getTime() > pivot.getTime()) {
+                i++;
+                Conversation temp = arr.get(i);
+                arr.set(i, arr.get(j));
+                arr.set(j, temp);
+            }
+        }
+
+        Conversation temp = arr.get(i + 1);
+        arr.set(i + 1, arr.get(high));
+        arr.set(high, temp);
+
+        return i + 1;
+    }
+
+
+    private void sort(List<Conversation> arr, int low, int high) {
+        if (low < high) {
+            int pi = partition(arr, low, high);
+            sort(arr, low, pi - 1);
+            sort(arr, pi + 1, high);
+        }
+    }
+
+    public In getIn() {
+        return in;
+    }
+
+    public Out getOut() {
+        return out;
     }
 }

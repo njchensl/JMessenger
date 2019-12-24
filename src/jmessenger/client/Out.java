@@ -44,7 +44,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 public class Out implements Runnable {
     private Queue<Message> buffer;
     private ObjectOutputStream out;
-    private boolean running;
+    private volatile boolean running;
     private boolean terminated;
 
     public Out(@NotNull Socket s) throws IOException {
@@ -119,5 +119,9 @@ public class Out implements Runnable {
 
     public boolean isTerminated() {
         return terminated;
+    }
+
+    public boolean isRunning() {
+        return running;
     }
 }
