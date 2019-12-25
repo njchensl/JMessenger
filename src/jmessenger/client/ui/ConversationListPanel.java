@@ -3,6 +3,7 @@ package jmessenger.client.ui;
 import jmessenger.client.Conversation;
 import jmessenger.client.Messenger;
 import jmessenger.shared.ClientMessage;
+import jmessenger.shared.PluginMessage;
 import jmessenger.shared.TextMessage;
 
 import javax.swing.*;
@@ -77,6 +78,8 @@ public class ConversationListPanel extends JPanel {
                         }
                         latest = s;
                     }
+                } else if (cm instanceof PluginMessage) {
+                    latest = "[Plugin Message]";
                 }
             }
             JButton btn = new JButton("<html><font face=\"arial\"><p><font size=\"5\">" + co.getRecipient() + "</font></p><p><font size=\"3\">" + latest + "</font></p></font></html>");
@@ -89,6 +92,7 @@ public class ConversationListPanel extends JPanel {
                         setPreferredSize(new Dimension(800, 600));
                         setMinimumSize(new Dimension(600, 400));
                         pack();
+                        /*
                         new Thread(() -> {
                             for (; ; ) {
                                 try {
@@ -99,6 +103,7 @@ public class ConversationListPanel extends JPanel {
                                 this.revalidate();
                             }
                         }).start();
+                         */
                     }}.setVisible(true)
             );
             this.add(btn, c);

@@ -88,7 +88,7 @@ public class ConversationPanel extends javax.swing.JPanel implements Serializabl
             clonedButtons.add(btn.clone(this));
         }
 
-        // TODO add the buttons to the panel and configure their action listeners
+        // add the buttons to the panel and configure their action listeners
         ConversationPanel thisPanel = this;
         pnlPlugin = new JPanel() {{
             clonedButtons.forEach(this::add);
@@ -163,7 +163,7 @@ public class ConversationPanel extends javax.swing.JPanel implements Serializabl
         c.weighty = 0;
         c.gridx = 0;
         c.gridy = 2;
-        c.ipady = 25;
+        c.ipady = 15;
         this.add(pnlPlugin, c);
 
         c = new GridBagConstraints();
@@ -172,7 +172,7 @@ public class ConversationPanel extends javax.swing.JPanel implements Serializabl
         c.weighty = 0;
         c.gridx = 0;
         c.gridy = 3;
-        c.ipady = 50;
+        c.ipady = 70;
         DefaultContextMenu.addDefaultContextMenu(txtInput);
         this.add(new JScrollPane(txtInput), c);
 
@@ -213,5 +213,13 @@ public class ConversationPanel extends javax.swing.JPanel implements Serializabl
      */
     public void setPnlPlugin(javax.swing.JPanel pnlPlugin) {
         this.pnlPlugin = pnlPlugin;
+    }
+
+    public Conversation getConversation() {
+        return conversation;
+    }
+
+    public long getLength() {
+        return length;
     }
 }

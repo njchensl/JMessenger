@@ -160,6 +160,7 @@ public class Messenger {
 
         } catch (IOException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, e.getStackTrace(), "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
             System.exit(4);
         }
     }
@@ -320,8 +321,6 @@ public class Messenger {
     public synchronized void receive(@NotNull Message msg) {
         // analyse the message type
         if (msg instanceof ClientMessage) {
-            // sort the conversations
-            sortConversations();
             ClientMessage cm = (ClientMessage) msg;
             cm.setMyMessage(false); // mark the message as sent by another person
             int recipient = cm.getRecipientID();
@@ -347,6 +346,8 @@ public class Messenger {
             if (pnl instanceof MessagesPanel) {
                 ((MessagesPanel) pnl).getConversationListPanel().updateConversations();
             }
+            // sort the conversations
+            sortConversations();
             this.getMainFrame().revalidate();
         } else {
             // server message
@@ -354,15 +355,15 @@ public class Messenger {
             if (msg instanceof MessageDeliveryStatus) {
                 MessageDeliveryStatus mds = (MessageDeliveryStatus) msg;
                 if (!mds.isSuccessful()) {
+                    // inform the user about the failure
                     JOptionPane.showMessageDialog(null, "Message Delivery Failed\n" + msg);
                     nc.add(new Exception("Message Delivery Failed\n" + mds.getMessage()));
                 }
             } else if (msg instanceof RegistrationResponseMessage) {
-                this.usingAES = true;
+                this.usingAES = true; // when registered, the server knows the client AES key
                 RegistrationResponseMessage rrm = (RegistrationResponseMessage) msg;
                 JOptionPane.showMessageDialog(null, "You have successfully registered with the server\nUser ID: " + rrm.getUserID(), "Registration Successful", JOptionPane.INFORMATION_MESSAGE);
                 finishRegistration();
-
             }
         }
         Objects.requireNonNull(PluginManager.getInstance()).onMessageReceived(msg);

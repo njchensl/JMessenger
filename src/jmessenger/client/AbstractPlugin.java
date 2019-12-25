@@ -24,6 +24,7 @@
 package jmessenger.client;
 
 import jmessenger.shared.Message;
+import jmessenger.shared.PluginMessage;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -58,6 +59,10 @@ public abstract class AbstractPlugin {
     }
 
     public @Nullable PluginButton getCustomJButton() {
+        return null;
+    }
+
+    public @Nullable JLabel renderCustomMessage(PluginMessage pm) {
         return null;
     }
 }

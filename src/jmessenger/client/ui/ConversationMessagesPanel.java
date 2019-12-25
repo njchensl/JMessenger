@@ -1,6 +1,8 @@
 package jmessenger.client.ui;
 
+import jmessenger.client.PluginManager;
 import jmessenger.shared.ClientMessage;
+import jmessenger.shared.PluginMessage;
 import jmessenger.shared.TextMessage;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -12,6 +14,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;
+import java.util.Objects;
 
 public class ConversationMessagesPanel extends JPanel {
     private List<ClientMessage> messages;
@@ -38,27 +41,10 @@ public class ConversationMessagesPanel extends JPanel {
                 c.weightx = 1;
                 c.weighty = 0;
 
+                // render as a text message
                 if (m instanceof TextMessage) {
-                /*
-                JButton btn = new JButton(((TextMessage) m).getText());
-                if (m.isMyMessage()) {
-                    btn.setBackground(Color.LIGHT_GRAY);
-                } else {
-                    btn.setBackground(Color.WHITE);
-                }
-                btn.setHorizontalAlignment(SwingConstants.LEFT);
-                this.add(btn, c);
-
-                 */
                     String text = ((TextMessage) m).getText();
-                    JLabel lbl = new JLabel((text.contains("<html>") ? "" : "    ") + text) /* {
-                    @Override
-                    protected void paintComponent(Graphics g) {
-                        super.paintComponent(g);
-                        g.setColor(this.getBackground());
-                        g.fillRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
-                    }
-                } */;
+                    JLabel lbl = new JLabel((text.contains("<html>") ? "" : "    ") + text);
                     lbl.setFont(new Font("Arial", Font.PLAIN, 17));
                     lbl.setOpaque(true);
                     if (m.isMyMessage()) {
@@ -67,6 +53,7 @@ public class ConversationMessagesPanel extends JPanel {
                         lbl.setBackground(Color.WHITE);
                     }
                     lbl.setHorizontalAlignment(SwingConstants.LEFT);
+                    // color changing effect
                     lbl.addMouseListener(new MouseListener() {
                         private Color defaultColor;
                         private Color originalColor;
@@ -77,6 +64,7 @@ public class ConversationMessagesPanel extends JPanel {
 
                         @Override
                         public void mouseClicked(MouseEvent e) {
+                            // copy to clipboard
                             String myString = lbl.getText().trim();
                             StringSelection stringSelection = new StringSelection(myString);
                             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -106,6 +94,18 @@ public class ConversationMessagesPanel extends JPanel {
                             lbl.setBackground(defaultColor);
                         }
                     });
+                    this.add(lbl, c);
+                } else if (m instanceof PluginMessage) {
+                    // this message type is unsupported by default, therefore,
+                    // the program will now ask the plugins to do the rendering
+                    JLabel lbl = Objects.requireNonNull(PluginManager.getInstance()).renderCustomMessage((PluginMessage) m);
+                    if (lbl == null) {
+                        // unsupported by the plugin
+                        lbl = new JLabel("    Unsupported message type, please check your plugin installation with the other person.");
+                        lbl.setFont(new Font("Arial", Font.PLAIN, 17));
+                        lbl.setOpaque(true);
+                        lbl.setBackground(new Color(180, 180, 180));
+                    }
                     this.add(lbl, c);
                 }
                 gridy++;

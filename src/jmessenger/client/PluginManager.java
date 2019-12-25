@@ -1,6 +1,7 @@
 package jmessenger.client;
 
 import jmessenger.shared.Message;
+import jmessenger.shared.PluginMessage;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -121,6 +122,9 @@ public class PluginManager {
         return components;
     }
 
+    /**
+     * @return a list of custom buttons from the plugins
+     */
     public List<@NotNull PluginButton> getAdditionalJButtons() {
         List<PluginButton> buttons = new ArrayList<>();
         for (AbstractPlugin p : plugins) {
@@ -130,6 +134,25 @@ public class PluginManager {
             }
         }
         return buttons;
+    }
+
+    /**
+     * requests the plugins to render an unsupported client message
+     *
+     * @param pm the ClientMessage to render
+     * @return the rendered JLabel, null if non of the plugins supported this message type
+     */
+    public JLabel renderCustomMessage(PluginMessage pm) {
+        for (AbstractPlugin p : plugins) {
+            try {
+                JLabel lbl = p.renderCustomMessage(pm);
+                if (lbl != null) {
+                    return lbl;
+                }
+            } catch (Exception ignored) {
+            }
+        }
+        return null;
     }
 
     /**
