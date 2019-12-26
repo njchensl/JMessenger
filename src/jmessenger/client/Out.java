@@ -60,6 +60,13 @@ public class Out implements Runnable {
             Message msg = buffer.poll();
             if (msg == null) {
                 if (running) {
+                    // wait a few hundred milliseconds before retrying
+                    try {
+                        Thread.sleep(500);
+                        // this makes it a lot easier on the CPU
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     continue;
                 } else {
                     end();

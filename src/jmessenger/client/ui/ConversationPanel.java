@@ -46,6 +46,7 @@ import static jmessenger.client.ui.resources.Resources.rb;
 public class ConversationPanel extends javax.swing.JPanel implements Serializable {
     private Conversation conversation;
     private long length;
+    private Thread t;
 
     private javax.swing.JButton sendBtn;
     private javax.swing.JPanel pnlConversationMessages;
@@ -119,19 +120,29 @@ public class ConversationPanel extends javax.swing.JPanel implements Serializabl
         });
 
         // refreshing when message is received
-        new Thread(() -> {
-            for (; ; ) {
-                try {
+        t = new Thread(() -> {
+            try {
+                for (; ; ) {
                     Thread.sleep(200);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    if (conversation.hasNewMessage(length)) {
+                        ((ConversationMessagesPanel) pnlConversationMessages).refresh();
+                        this.length = conversation.getAllMessages().size();
+                    }
                 }
-                if (conversation.hasNewMessage(length)) {
-                    ((ConversationMessagesPanel) pnlConversationMessages).refresh();
-                    this.length = conversation.getAllMessages().size();
-                }
+            } catch (InterruptedException ignored) {
+                // the thread will now stop
             }
-        }).start();
+        });
+        t.start();
+    }
+
+    /**
+     * terminate the
+     */
+    public void onClose() {
+        while (t.getState() != Thread.State.TERMINATED) {
+            t.interrupt();
+        }
     }
 
     public void initializeComponents() {

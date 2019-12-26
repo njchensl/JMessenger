@@ -231,6 +231,12 @@ class Out implements Runnable {
         while (running) {
             Message msg = buffer.poll();
             if (msg == null) {
+                // wait some time before continuing
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 continue;
             }
             if (connection.getUser() != null) {

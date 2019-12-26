@@ -8,6 +8,8 @@ import jmessenger.shared.TextMessage;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.List;
 
 public class ConversationListPanel extends JPanel {
@@ -87,8 +89,41 @@ public class ConversationListPanel extends JPanel {
             // clicking the button will open up a new conversation window
             btn.addActionListener((evt) ->
                     new JFrame() {{
-                        setContentPane(new ConversationPanel(co));
-                        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                        ConversationPanel cp = new ConversationPanel(co);
+                        setContentPane(cp);
+                        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+                        addWindowListener(new WindowListener() {
+                            @Override
+                            public void windowOpened(WindowEvent e) {
+                            }
+
+                            @Override
+                            public void windowClosing(WindowEvent e) {
+                                // stop the refreshing thread, then dispose
+                                cp.onClose();
+                                dispose();
+                            }
+
+                            @Override
+                            public void windowClosed(WindowEvent e) {
+                            }
+
+                            @Override
+                            public void windowIconified(WindowEvent e) {
+                            }
+
+                            @Override
+                            public void windowDeiconified(WindowEvent e) {
+                            }
+
+                            @Override
+                            public void windowActivated(WindowEvent e) {
+                            }
+
+                            @Override
+                            public void windowDeactivated(WindowEvent e) {
+                            }
+                        });
                         setPreferredSize(new Dimension(800, 600));
                         setMinimumSize(new Dimension(600, 400));
                         pack();

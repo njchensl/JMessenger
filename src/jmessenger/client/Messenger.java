@@ -107,15 +107,16 @@ public class Messenger {
         if (!conf.exists()) {
             try {
                 initialize(conf);
-            } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, e.getStackTrace(), "Error", JOptionPane.ERROR_MESSAGE);
+            } catch (IOException | NoSuchAlgorithmException | NoSuchProviderException e) {
+                StringWriter sw = new StringWriter();
+                e.printStackTrace(new PrintWriter(sw));
+                String exceptionAsString = sw.toString();
+                // show throwable and stack trace
+                JOptionPane.showMessageDialog(null, new JScrollPane(new JTextArea() {{
+                    setEditable(false);
+                    setText("Unable to initialize\n" + exceptionAsString);
+                }}), "Fatal Error", JOptionPane.ERROR_MESSAGE);
                 System.exit(1);
-            } catch (NoSuchAlgorithmException e) {
-                JOptionPane.showMessageDialog(null, e.getStackTrace(), "Error", JOptionPane.ERROR_MESSAGE);
-                System.exit(2);
-            } catch (NoSuchProviderException e) {
-                e.printStackTrace();
-                System.exit(4);
             }
         }
         System.out.println("Running");
@@ -128,8 +129,15 @@ public class Messenger {
             key = (SecretKey) keyIn.readObject();
             keyIn.close();
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-            System.exit(3);
+            StringWriter sw = new StringWriter();
+            e.printStackTrace(new PrintWriter(sw));
+            String exceptionAsString = sw.toString();
+            // show throwable and stack trace
+            JOptionPane.showMessageDialog(null, new JScrollPane(new JTextArea() {{
+                setEditable(false);
+                setText("Unable to read client key\n" + exceptionAsString);
+            }}), "Fatal Error", JOptionPane.ERROR_MESSAGE);
+            System.exit(2);
         }
 
         // read the client config
@@ -159,9 +167,15 @@ public class Messenger {
 
 
         } catch (IOException | ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, e.getStackTrace(), "Error", JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace();
-            System.exit(4);
+            StringWriter sw = new StringWriter();
+            e.printStackTrace(new PrintWriter(sw));
+            String exceptionAsString = sw.toString();
+            // show throwable and stack trace
+            JOptionPane.showMessageDialog(null, new JScrollPane(new JTextArea() {{
+                setEditable(false);
+                setText("Unable to start the messenger\n" + exceptionAsString);
+            }}), "Fatal Error", JOptionPane.ERROR_MESSAGE);
+            System.exit(3);
         }
     }
 

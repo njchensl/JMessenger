@@ -7,6 +7,8 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.file.Files;
@@ -169,8 +171,8 @@ public class PluginManager {
         files.forEach(System.out::println);
 
         files.forEach((f) -> {
+            String pathToJar = f.toString();
             try {
-                String pathToJar = f.toString();
                 JarFile jarFile = new JarFile(pathToJar);
                 Enumeration<JarEntry> e = jarFile.entries();
 
@@ -191,7 +193,15 @@ public class PluginManager {
 
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                // convert stack trace to string
+                StringWriter sw = new StringWriter();
+                e.printStackTrace(new PrintWriter(sw));
+                String exceptionAsString = sw.toString();
+                // show stack trace
+                JOptionPane.showMessageDialog(null, new JScrollPane(new JTextArea() {{
+                    setEditable(false);
+                    setText("Error loading plugin: " + pathToJar + "\n" + exceptionAsString);
+                }}), "Fatal Error", JOptionPane.ERROR_MESSAGE);
             }
         });
 

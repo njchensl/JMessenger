@@ -8,18 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/plugins/JMessengerImageSupportPlugin.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/JMessengerRefreshPlugin.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jmessenger/shared/PluginMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/JMessengerDemoPlugin.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/kotlin-runtime.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/AbstractPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/AbstractPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/JMessengerNotificationCenter.jar" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/JMessengerNotificationCenter.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/NotificationCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/NotificationCenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Out.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Out.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jmessenger/client/PluginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/PluginManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationListPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationMessagesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationMessagesPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/server/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/server/Connection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +66,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="http.proxy" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Application.Messenger">
     <configuration name="Messenger" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -407,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577169509481</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="more plugin interface">
+      <created>1577241767978</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1577241767979</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -496,30 +500,30 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="367" y="98" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1280.680@0.0.1280.680" timestamp="1577025370311" />
-    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1577169508508">
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1577241765966">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577169508508" />
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577241765966" />
     <state x="344" y="84" key="FileChooserDialogImpl" timestamp="1577025438999">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="344" y="84" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1577025438999" />
-    <state width="1237" height="144" key="GridCell.Tab.0.bottom" timestamp="1577241589731">
+    <state width="1237" height="144" key="GridCell.Tab.0.bottom" timestamp="1577326414287">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="144" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577241589731" />
-    <state width="1237" height="144" key="GridCell.Tab.0.center" timestamp="1577241589730">
+    <state width="1237" height="144" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577326414287" />
+    <state width="1237" height="144" key="GridCell.Tab.0.center" timestamp="1577326414286">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="144" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1577241589730" />
-    <state width="1237" height="144" key="GridCell.Tab.0.left" timestamp="1577241589730">
+    <state width="1237" height="144" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1577326414286" />
+    <state width="1237" height="144" key="GridCell.Tab.0.left" timestamp="1577326414286">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="144" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1577241589730" />
-    <state width="1237" height="144" key="GridCell.Tab.0.right" timestamp="1577241589731">
+    <state width="1237" height="144" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1577326414286" />
+    <state width="1237" height="144" key="GridCell.Tab.0.right" timestamp="1577326414287">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="144" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1577241589731" />
+    <state width="1237" height="144" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1577326414287" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1577154234307">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -536,10 +540,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1577154234307" />
-    <state x="117" y="0" key="SettingsEditor" timestamp="1577169560204">
+    <state x="117" y="0" key="SettingsEditor" timestamp="1577252538324">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1577169560204" />
+    <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1577252538324" />
     <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1577169579121">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

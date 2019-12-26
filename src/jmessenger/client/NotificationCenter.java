@@ -70,10 +70,10 @@ public class NotificationCenter {
             String exceptionAsString = sw.toString();
             // show throwable and stack trace
             JOptionPane.showMessageDialog(null, new JScrollPane(new JTextArea() {{
-                setFocusable(false);
+                setEditable(false);
                 setText(exceptionAsString);
             }}), "Fatal Error", JOptionPane.ERROR_MESSAGE);
-            System.exit(5);
+            System.exit(4);
         }
     }
 
