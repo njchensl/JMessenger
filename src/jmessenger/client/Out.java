@@ -74,7 +74,7 @@ public class Out implements Runnable {
                 }
             }
             byte[] unencrypted = SerializationUtils.serialize(msg);
-            System.out.println(unencrypted.length);
+            //System.out.println(unencrypted.length);
             // encrypt and send
             if (Messenger.getInstance().isUsingAES()) {
                 SecretKey key = Messenger.getInstance().getMyKey();

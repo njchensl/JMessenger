@@ -10,12 +10,24 @@ import java.security.*;
 
 public class AESUtils {
 
+    /**
+     * generates a secret AES key with AES-256
+     *
+     * @return the 256-bit key
+     */
     public static SecretKey generate() throws NoSuchAlgorithmException, NoSuchProviderException {
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         keyGen.init(256, SecureRandom.getInstance("SHA1PRNG", "SUN"));
         return keyGen.generateKey();
     }
 
+    /**
+     * encrypts data using AES-256-CBC
+     *
+     * @param data the data to encrypt
+     * @param key  the key to use
+     * @return the encrypted data with the IV concatenated to the front
+     */
     public static byte[] encrypt(byte[] data, @NotNull SecretKey key) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException {
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         SecretKeySpec keySpec = new SecretKeySpec(key.getEncoded(), "AES");
@@ -29,6 +41,13 @@ public class AESUtils {
         return ArrayUtils.addAll(IV, encryptedData);
     }
 
+    /**
+     * decrypts data encrypted with AES-256-CBC
+     *
+     * @param data the encrypted data with the IV concatenated to the front
+     * @param key  the key to use
+     * @return the decrypted data
+     */
     public static byte[] decrypt(byte[] data, @NotNull SecretKey key) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException {
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         SecretKeySpec keySpec = new SecretKeySpec(key.getEncoded(), "AES");

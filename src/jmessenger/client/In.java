@@ -57,8 +57,8 @@ public class In implements Runnable {
                 SecretKey key = Messenger.getInstance().getMyKey();
                 byte[] decrypted = AESUtils.decrypt(data, key);
                 Message decryptedMsg = SerializationUtils.deserialize(decrypted);
-                System.out.println("Message Received:");
-                System.out.println(decryptedMsg);
+                //System.out.println("Message Received:");
+                //System.out.println(decryptedMsg);
                 Messenger.getInstance().receive(decryptedMsg);
             } catch (Exception e) {
                 NotificationCenter.getInstance().add(e);

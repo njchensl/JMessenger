@@ -51,7 +51,7 @@ public class Connection {
     private Out out;
 
     Connection(@NotNull Socket s) throws IOException {
-        System.out.println("Initializing connection...");
+        //System.out.println("Initializing connection...");
         this.s = s;
         this.out = new Out(new ObjectOutputStream(s.getOutputStream()), this);
         InputStream is = s.getInputStream();
@@ -59,7 +59,7 @@ public class Connection {
         this.in = new In(oin, this);
 
         initialize();
-        System.out.println("Connection initialized");
+        //System.out.println("Connection initialized");
     }
 
     private void initialize() {
@@ -114,7 +114,7 @@ class In implements Runnable {
     private boolean running;
 
     In(ObjectInputStream in, @NotNull Connection c) {
-        System.out.println("creating in");
+        //System.out.println("creating in");
         this.in = in;
         this.connection = c;
         this.running = true;
@@ -124,7 +124,7 @@ class In implements Runnable {
     public void run() {
         // listening for new messages regardless if the user is null
         while (running) {
-            System.out.println("Listening for incoming messages");
+            //System.out.println("Listening for incoming messages");
             try {
                 EncryptedMessage e = (EncryptedMessage) in.readObject();
                 byte[] data = e.getMessage();
@@ -137,8 +137,8 @@ class In implements Runnable {
                 }
 
                 Message msg = SerializationUtils.deserialize(decrypted);
-                System.out.println("Message received:");
-                System.out.println(msg);
+                //System.out.println("Message received:");
+                //System.out.println(msg);
                 if (msg instanceof ServerMessage) {
                     // login
                     if (msg instanceof LoginMessage) {
@@ -165,7 +165,7 @@ class In implements Runnable {
                         String sID = RandomStringUtils.random((int) (Math.random() * 3) + 6, false, true);
                         // add this user
                         User u = new User(userKey, Integer.parseInt(sID));
-                        System.out.println("New user registered:\n" + u);
+                        //System.out.println("New user registered:\n" + u);
                         this.connection.setUser(u);
                         u.setConnection(this.connection);
                         Server.getInstance().addUser(u);
@@ -193,10 +193,10 @@ class In implements Runnable {
                     System.out.println("Unrecognized message type " + msg);
                 }
             } catch (IOException | ClassNotFoundException | NoSuchAlgorithmException | InvalidKeyException | NoSuchPaddingException | BadPaddingException | IllegalBlockSizeException | InvalidAlgorithmParameterException ex) {
-                ex.printStackTrace();
+                //ex.printStackTrace();
                 // stop connection
                 this.connection.end();
-                System.out.println("Connection terminated");
+                //System.out.println("Connection terminated");
             }
         }
         try {
@@ -227,7 +227,7 @@ class Out implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("Waiting for outgoing messages");
+        //System.out.println("Waiting for outgoing messages");
         while (running) {
             Message msg = buffer.poll();
             if (msg == null) {
@@ -250,7 +250,7 @@ class Out implements Runnable {
                     e.printStackTrace();
                     // assuming that the connection is not possible
                     this.connection.end();
-                    System.out.println("Connection terminated");
+                    //System.out.println("Connection terminated");
                 }
             }
         }

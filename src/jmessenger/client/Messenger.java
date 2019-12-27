@@ -119,7 +119,7 @@ public class Messenger {
                 System.exit(1);
             }
         }
-        System.out.println("Running");
+        //System.out.println("Running");
         // read the keys
 
         SecretKey key = null;
@@ -181,7 +181,7 @@ public class Messenger {
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     private static void initialize(@NotNull File conf) throws IOException, NoSuchAlgorithmException, NoSuchProviderException {
-        System.out.println("Initializing");
+        //System.out.println("Initializing");
 
         // create the files
         conf.createNewFile();

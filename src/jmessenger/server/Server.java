@@ -141,7 +141,7 @@ public class Server implements Runnable {
         sPrivate.close();
         sPublic.close();
         // show the user the base64 string representation of the public key
-        System.out.println("Public Key:\n");
+        System.out.println("Public Key:");
         System.out.println(RSAUtils.encode(pub));
 
         Scanner in = new Scanner(System.in);
@@ -157,10 +157,10 @@ public class Server implements Runnable {
     @SuppressWarnings("InfiniteLoopStatement")
     public void run() {
         for (; ; ) {
-            System.out.println("Listening for incoming connections...");
+            //System.out.println("Listening for incoming connections...");
             try {
                 Socket s = ss.accept();
-                System.out.println("User connected: " + s.getRemoteSocketAddress());
+                //System.out.println("User connected: " + s.getRemoteSocketAddress());
                 connections.add(new Connection(s));
             } catch (IOException e) {
                 e.printStackTrace();
@@ -179,8 +179,8 @@ public class Server implements Runnable {
     @Nullable
     User getUserByKey(@NotNull SecretKey key) {
         for (User u : users) {
-            System.out.println(RSAUtils.encode(u.getKey()));
-            System.out.println(RSAUtils.encode(key));
+            //System.out.println(RSAUtils.encode(u.getKey()));
+            //System.out.println(RSAUtils.encode(key));
             if (RSAUtils.encode(u.getKey()).equals(RSAUtils.encode(key))) {
                 return u;
             }
