@@ -7,14 +7,30 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
+    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="license headers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/In.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/In.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Out.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Out.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/server/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/server/Connection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ConversationSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ConversationSaver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/PluginButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/PluginButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/PluginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/PluginManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationListPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationMessagesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationMessagesPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/MainPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/MessagesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/MessagesPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/resources/Resources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/resources/Resources.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/server/UserDatabaseBackup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/server/UserDatabaseBackup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/AESUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/AESUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/EncryptedMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/EncryptedMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/LoginMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/LoginMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/MessageDeliveryStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/MessageDeliveryStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/PluginMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/PluginMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/RSAKeyPairGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/RSAKeyPairGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/RSAUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/RSAUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/RegistrationMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/RegistrationMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/RegistrationResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/RegistrationResponseMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/ServerMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/ServerMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/TextMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/TextMessage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -423,7 +439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577408123530</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="removed unnecessary println's">
+      <created>1577408854512</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1577408854512</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -445,7 +468,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="server lib and logic" />
     <MESSAGE value="server lib" />
     <MESSAGE value="buggy encryption" />
     <MESSAGE value="aes library" />
@@ -470,7 +492,8 @@
     <MESSAGE value="more plugin interface" />
     <MESSAGE value="HUGE performance optimization" />
     <MESSAGE value="improved AES encryption security" />
-    <option name="LAST_COMMIT_MESSAGE" value="improved AES encryption security" />
+    <MESSAGE value="removed unnecessary println's" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed unnecessary println's" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -512,30 +535,30 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="367" y="98" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1280.680@0.0.1280.680" timestamp="1577025370311" />
-    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1577408122376">
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1577409211254">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577408122376" />
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577409211254" />
     <state x="344" y="84" key="FileChooserDialogImpl" timestamp="1577025438999">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="344" y="84" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1577025438999" />
-    <state width="1237" height="144" key="GridCell.Tab.0.bottom" timestamp="1577408818654">
+    <state width="1237" height="144" key="GridCell.Tab.0.bottom" timestamp="1577409211323">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="144" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577408818654" />
-    <state width="1237" height="144" key="GridCell.Tab.0.center" timestamp="1577408818654">
+    <state width="1237" height="144" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577409211323" />
+    <state width="1237" height="144" key="GridCell.Tab.0.center" timestamp="1577409211322">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="144" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1577408818654" />
-    <state width="1237" height="144" key="GridCell.Tab.0.left" timestamp="1577408818654">
+    <state width="1237" height="144" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1577409211322" />
+    <state width="1237" height="144" key="GridCell.Tab.0.left" timestamp="1577409211322">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="144" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1577408818654" />
-    <state width="1237" height="144" key="GridCell.Tab.0.right" timestamp="1577408818654">
+    <state width="1237" height="144" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1577409211322" />
+    <state width="1237" height="144" key="GridCell.Tab.0.right" timestamp="1577409211323">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="144" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1577408818654" />
+    <state width="1237" height="144" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1577409211323" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1577154234307">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
