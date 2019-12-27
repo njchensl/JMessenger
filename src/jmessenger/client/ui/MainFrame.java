@@ -38,12 +38,14 @@ public class MainFrame extends JFrame {
 
             @Override
             public void windowIconified(WindowEvent e) {
-                // ignored
+                // gc
+                System.gc();
             }
 
             @Override
             public void windowDeiconified(WindowEvent e) {
-                // ignored
+                // gc
+                System.gc();
             }
 
             @Override
