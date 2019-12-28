@@ -7,18 +7,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="i18n">
-      <change afterPath="$PROJECT_DIR$/plugins/JMessengerLanguagePackPlugin.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/languagepack.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/org_netbeans_modules_java_j2seproject_copylibstask.xml" beforeDir="false" />
+    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/CopyLibs/org-netbeans-modules-java-j2seproject-copylibstask.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/JMessengerNotificationCenter.jar" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/JMessengerNotificationCenter.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/ConversationListPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/DefaultContextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/DefaultContextMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/resources/Resources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/resources/Resources.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/ui/resources/en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/ui/resources/en_US.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/shared/AESUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/shared/AESUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -441,7 +432,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577409278497</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="i18n">
+      <created>1577502511814</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1577502511814</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -530,30 +528,30 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="367" y="98" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1280.680@0.0.1280.680" timestamp="1577025370311" />
-    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1577502404373">
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1577502509567">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577502404373" />
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577502509567" />
     <state x="344" y="84" key="FileChooserDialogImpl" timestamp="1577025438999">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="344" y="84" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1577025438999" />
-    <state width="1237" height="153" key="GridCell.Tab.0.bottom" timestamp="1577439428179">
+    <state width="1237" height="153" key="GridCell.Tab.0.bottom" timestamp="1577503195535">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577439428179" />
-    <state width="1237" height="153" key="GridCell.Tab.0.center" timestamp="1577439428178">
+    <state width="1237" height="153" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577503195535" />
+    <state width="1237" height="153" key="GridCell.Tab.0.center" timestamp="1577503195534">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1577439428178" />
-    <state width="1237" height="153" key="GridCell.Tab.0.left" timestamp="1577439428178">
+    <state width="1237" height="153" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1577503195534" />
+    <state width="1237" height="153" key="GridCell.Tab.0.left" timestamp="1577503195534">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1577439428178" />
-    <state width="1237" height="153" key="GridCell.Tab.0.right" timestamp="1577439428179">
+    <state width="1237" height="153" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1577503195534" />
+    <state width="1237" height="153" key="GridCell.Tab.0.right" timestamp="1577503195534">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1577439428179" />
+    <state width="1237" height="153" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1577503195534" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1577154234307">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -574,10 +572,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1577435362630" />
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1577409286630">
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1577502517370">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1577409286630" />
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1577502517370" />
     <state x="452" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577066162684">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
