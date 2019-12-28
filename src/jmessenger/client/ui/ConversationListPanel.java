@@ -35,6 +35,8 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.List;
 
+import static jmessenger.client.ui.resources.Resources.rb;
+
 public class ConversationListPanel extends JPanel {
 
     /**
@@ -63,13 +65,13 @@ public class ConversationListPanel extends JPanel {
             // add a new conversation
             int recipient;
             try {
-                recipient = Integer.parseInt(JOptionPane.showInputDialog(null, "Who do you want to talk to?", "New Conversation", JOptionPane.INFORMATION_MESSAGE));
+                recipient = Integer.parseInt(JOptionPane.showInputDialog(null, rb.getString("TALK_TO_WHOM"), rb.getString("NEW_CONVERSATION"), JOptionPane.INFORMATION_MESSAGE));
             } catch (Exception ignored) {
                 return;
             }
             // see if a conversation already exists
             if (Messenger.getInstance().conversationAlreadyExists(recipient)) {
-                JOptionPane.showMessageDialog(null, "This conversation already exists", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, rb.getString("CONVERSATION_ALREADY_EXISTS"), "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             Messenger.getInstance().getConversationList().add(new Conversation(recipient));
@@ -91,12 +93,12 @@ public class ConversationListPanel extends JPanel {
             c.weighty = 0;
             // html fonts
             ClientMessage cm = co.getLatestMessage();
-            String latest = "Empty Conversation";
+            String latest = rb.getString("EMPTY_CONVERSATION");
             if (cm != null) {
                 if (cm instanceof TextMessage) {
                     String s = ((TextMessage) cm).getText();
                     if (s.contains("<html>")) {
-                        latest = "[HTML Message]";
+                        latest = rb.getString("HTML_MESSAGE");
                     } else {
                         if (s.length() > 20) {
                             s = s.substring(0, 20) + " ...";
@@ -104,7 +106,7 @@ public class ConversationListPanel extends JPanel {
                         latest = s;
                     }
                 } else if (cm instanceof PluginMessage) {
-                    latest = "[Plugin Message]";
+                    latest = rb.getString("PLUGIN_MESSAGE");
                 }
             }
             JButton btn = new JButton("<html><font face=\"arial\"><p><font size=\"5\">" + co.getRecipient() + "</font></p><p><font size=\"3\">" + latest + "</font></p></font></html>");

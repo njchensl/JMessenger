@@ -15,6 +15,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import static jmessenger.client.ui.resources.Resources.rb;
+
 public class DefaultContextMenu extends JPopupMenu {
     private Clipboard clipboard;
 
@@ -44,14 +46,14 @@ public class DefaultContextMenu extends JPopupMenu {
 
     @SuppressWarnings("deprecation")
     private void addPopupMenuItems() {
-        undo = new JMenuItem("Undo");
+        undo = new JMenuItem(rb.getString("UNDO"));
         undo.setFont(new Font("Arial", Font.PLAIN, 16));
         undo.setEnabled(false);
         undo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         undo.addActionListener(event -> undoManager.undo());
         add(undo);
 
-        redo = new JMenuItem("Redo");
+        redo = new JMenuItem(rb.getString("REDO"));
         redo.setFont(new Font("Arial", Font.PLAIN, 16));
         redo.setEnabled(false);
         redo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Y, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
@@ -60,28 +62,28 @@ public class DefaultContextMenu extends JPopupMenu {
 
         add(new JSeparator());
 
-        cut = new JMenuItem("Cut");
+        cut = new JMenuItem(rb.getString("CUT"));
         cut.setFont(new Font("Arial", Font.PLAIN, 16));
         cut.setEnabled(false);
         cut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         cut.addActionListener(event -> textComponent.cut());
         add(cut);
 
-        copy = new JMenuItem("Copy");
+        copy = new JMenuItem(rb.getString("COPY"));
         copy.setFont(new Font("Arial", Font.PLAIN, 16));
         copy.setEnabled(false);
         copy.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         copy.addActionListener(event -> textComponent.copy());
         add(copy);
 
-        paste = new JMenuItem("Paste");
+        paste = new JMenuItem(rb.getString("PASTE"));
         paste.setFont(new Font("Arial", Font.PLAIN, 16));
         paste.setEnabled(false);
         paste.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         paste.addActionListener(event -> textComponent.paste());
         add(paste);
 
-        delete = new JMenuItem("Delete");
+        delete = new JMenuItem(rb.getString("DELETE"));
         delete.setFont(new Font("Arial", Font.PLAIN, 16));
         delete.setEnabled(false);
         delete.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_DELETE, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
@@ -90,7 +92,7 @@ public class DefaultContextMenu extends JPopupMenu {
 
         add(new JSeparator());
 
-        selectAll = new JMenuItem("Select All");
+        selectAll = new JMenuItem(rb.getString("SELECT_ALL"));
         selectAll.setFont(new Font("Arial", Font.PLAIN, 16));
         selectAll.setEnabled(false);
         selectAll.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));

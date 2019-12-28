@@ -40,10 +40,8 @@ import java.net.Socket;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.PublicKey;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class Messenger {
     private static volatile Messenger messenger;
@@ -176,6 +174,16 @@ public class Messenger {
                 setText("Unable to start the messenger\n" + exceptionAsString);
             }}), "Fatal Error", JOptionPane.ERROR_MESSAGE);
             System.exit(3);
+        } catch (MissingResourceException e) {
+            StringWriter sw = new StringWriter();
+            e.printStackTrace(new PrintWriter(sw));
+            String exceptionAsString = sw.toString();
+            // show throwable and stack trace
+            JOptionPane.showMessageDialog(null, new JScrollPane(new JTextArea() {{
+                setEditable(false);
+                setText("Error loading resources\nPlease check your language pack installation\n" + exceptionAsString);
+            }}), "Fatal Error", JOptionPane.ERROR_MESSAGE);
+            System.exit(10);
         }
     }
 
@@ -356,13 +364,17 @@ public class Messenger {
                 }
             }
             // update the gui
-            JPanel pnl = ((MainPanel) this.getMainFrame().getContentPane()).getMainPanel();
-            if (pnl instanceof MessagesPanel) {
-                ((MessagesPanel) pnl).getConversationListPanel().updateConversations();
+            try {
+                JPanel pnl = ((MainPanel) this.getMainFrame().getContentPane()).getMainPanel();
+                if (pnl instanceof MessagesPanel) {
+                    ((MessagesPanel) pnl).getConversationListPanel().updateConversations();
+                }
+                // sort the conversations
+                sortConversations();
+                this.getMainFrame().revalidate();
+            } catch (NullPointerException ignored) {
+                // the exception will be thrown if the user is saved messages from the server
             }
-            // sort the conversations
-            sortConversations();
-            this.getMainFrame().revalidate();
         } else {
             // server message
             // analyse the type
