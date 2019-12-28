@@ -32,6 +32,7 @@ import javax.swing.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.lang.reflect.Constructor;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.file.Files;
@@ -49,8 +50,7 @@ public class PluginManager {
 
     private static volatile PluginManager pluginManager;
     private List<AbstractPlugin> plugins;
-    @SuppressWarnings("rawtypes")
-    private List<Class> classes;
+    private List<Class<?>> classes;
     //private List<Object> objects = new ArrayList<>(); // testing dynamic class loading and unloading
     /*
      * IF THE OBJECTS ARE NOT GC'ED, THEIR RESPECTIVE CLASSES WILL NOT BE UNLOADED
@@ -183,7 +183,6 @@ public class PluginManager {
     /**
      * load plugins
      */
-    @SuppressWarnings({"deprecation", "rawtypes"})
     protected void loadPlugins() throws IOException {
         Stream<Path> paths = Files.walk(Paths.get("plugins"));
         List<Path> files = paths
@@ -210,7 +209,7 @@ public class PluginManager {
                     // -6 because of .class
                     String className = je.getName().substring(0, je.getName().length() - 6);
                     className = className.replace('/', '.');
-                    Class c = cl.loadClass(className);
+                    Class<?> c = cl.loadClass(className);
                     //addPath(className);
                     classes.add(c);
 
@@ -229,13 +228,14 @@ public class PluginManager {
         });
 
         // instantiate plugin objects
-        for (Class c : classes) {
+        for (Class<?> c : classes) {
             String className = c.getName();
             System.out.println(className);
             if (!className.contains("$")) {
                 //System.out.println(className);
                 try {
-                    Object o = c.newInstance();
+                    Constructor<?> con = c.getConstructor();
+                    Object o = con.newInstance();
                     //objects.add(o);
                     if (o instanceof AbstractPlugin) {
                         // load the plugin

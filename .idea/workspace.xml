@@ -8,9 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/CopyLibs/org-netbeans-modules-java-j2seproject-copylibstask.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/nblibraries.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lib/nblibraries.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jmessenger/client/PluginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/PluginManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -447,7 +447,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577503538742</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="ant build library added">
+      <created>1577504519925</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1577504519925</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -469,7 +476,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="encryption fixed, untested" />
     <MESSAGE value="gui" />
     <MESSAGE value="more gui" />
     <MESSAGE value="html button" />
@@ -494,7 +500,8 @@
     <MESSAGE value="consistent line separators and code clean up" />
     <MESSAGE value="i18n" />
     <MESSAGE value="encryption changed from AES-256-CBC to AES-256-GCM" />
-    <option name="LAST_COMMIT_MESSAGE" value="encryption changed from AES-256-CBC to AES-256-GCM" />
+    <MESSAGE value="ant build library added" />
+    <option name="LAST_COMMIT_MESSAGE" value="ant build library added" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -536,30 +543,30 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="367" y="98" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1280.680@0.0.1280.680" timestamp="1577025370311" />
-    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1577504492718">
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1577505936978">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577504492718" />
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577505936978" />
     <state x="344" y="84" key="FileChooserDialogImpl" timestamp="1577025438999">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="344" y="84" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1577025438999" />
-    <state width="1237" height="153" key="GridCell.Tab.0.bottom" timestamp="1577503854263">
+    <state width="1237" height="153" key="GridCell.Tab.0.bottom" timestamp="1577505907352">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577503854263" />
-    <state width="1237" height="153" key="GridCell.Tab.0.center" timestamp="1577503854263">
+    <state width="1237" height="153" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577505907352" />
+    <state width="1237" height="153" key="GridCell.Tab.0.center" timestamp="1577505907352">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1577503854263" />
-    <state width="1237" height="153" key="GridCell.Tab.0.left" timestamp="1577503854263">
+    <state width="1237" height="153" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1577505907352" />
+    <state width="1237" height="153" key="GridCell.Tab.0.left" timestamp="1577505907352">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1577503854263" />
-    <state width="1237" height="153" key="GridCell.Tab.0.right" timestamp="1577503854263">
+    <state width="1237" height="153" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1577505907352" />
+    <state width="1237" height="153" key="GridCell.Tab.0.right" timestamp="1577505907352">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1577503854263" />
+    <state width="1237" height="153" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1577505907352" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1577154234307">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -580,20 +587,20 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1577435362630" />
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1577503540110">
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1577504523467">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1577503540110" />
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1577504523467" />
     <state x="452" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577066162684">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="452" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1577066162684" />
     <state x="372" y="144" key="git4idea.merge.GitPullDialog" timestamp="1576840668787" />
     <state x="372" y="144" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1576840668787" />
-    <state x="91" y="0" key="new project wizard" timestamp="1577436301896">
+    <state x="91" y="0" key="new project wizard" timestamp="1577505747369">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="91" y="0" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1577436301896" />
+    <state x="91" y="0" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1577505747369" />
     <state x="350" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1577161653285">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
