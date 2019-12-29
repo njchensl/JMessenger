@@ -59,7 +59,7 @@ public class Server implements Runnable {
         this.privateKey = privateKey;
         this.users = new ArrayList<>();
         // read users from database
-        File db = new File("database");
+        File db = new File("serverconfig/database");
         if (db.exists()) {
             Object o = new ObjectInputStream(new FileInputStream(db)).readObject();
             this.users = (List<User>) o;
@@ -78,7 +78,7 @@ public class Server implements Runnable {
     }
 
     public static void main(String... args) {
-        File conf = new File("server.conf");
+        File conf = new File("serverconfig/server.conf");
         if (!conf.exists()) {
             System.out.println("Initializing");
             try {
@@ -100,7 +100,7 @@ public class Server implements Runnable {
         }
         PrivateKey pri = null;
         try {
-            ObjectInputStream privateIn = new ObjectInputStream(new FileInputStream(new File("server-private.key")));
+            ObjectInputStream privateIn = new ObjectInputStream(new FileInputStream(new File("serverconfig/server-private.key")));
             pri = (PrivateKey) privateIn.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -123,8 +123,8 @@ public class Server implements Runnable {
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     private static void initialize(@NotNull File conf) throws IOException, NoSuchAlgorithmException, NoSuchProviderException {
-        File privateKey = new File("server-private.key");
-        File publicKey = new File("server-public.key");
+        File privateKey = new File("serverconfig/server-private.key");
+        File publicKey = new File("serverconfig/server-public.key");
         conf.createNewFile();
         privateKey.createNewFile();
         publicKey.createNewFile();

@@ -39,7 +39,7 @@ public class ConversationSaver implements Runnable {
     @Override
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public void run() {
-        File con = new File("conversations");
+        File con = new File("clientconfig/conversations");
         if (!con.exists()) {
             try {
                 con.createNewFile();

@@ -34,7 +34,6 @@ import org.jetbrains.annotations.NotNull;
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -81,19 +80,11 @@ public class ConversationPanel extends javax.swing.JPanel implements Serializabl
         pnlTitle.add(lblTitle);
         // get the plugin buttons
         List<PluginButton> buttons = Objects.requireNonNull(PluginManager.getInstance()).getAdditionalJButtons();
-        // clone them and set their ConversationPanels separately
-        List<PluginButton> clonedButtons = new ArrayList<>();
-
-        for (PluginButton btn : buttons) {
-            //System.out.println(btn.btn.getActionListeners().length);
-            clonedButtons.add(btn.clone(this));
-        }
-
         // add the buttons to the panel and configure their action listeners
         ConversationPanel thisPanel = this;
         pnlPlugin = new JPanel() {{
-            clonedButtons.forEach(this::add);
-            clonedButtons.forEach(btn -> btn.addActionListener(evt -> btn.action.accept(thisPanel)));
+            buttons.forEach(this::add);
+            buttons.forEach(btn -> btn.addActionListener(evt -> btn.action.accept(thisPanel)));
         }};
 
         initializeComponents();

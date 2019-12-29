@@ -16,3 +16,6 @@ database
 conversations
 
 *.disabled
+
+/clientconfig
+/serverconfig

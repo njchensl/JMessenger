@@ -51,18 +51,6 @@ public class AESUtils {
      * @return the encrypted data with the IV concatenated to the front
      */
     public static byte[] encrypt(byte[] data, @NotNull SecretKey key) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException {
-        /*
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-        SecretKeySpec keySpec = new SecretKeySpec(key.getEncoded(), "AES");
-        byte[] IV = new byte[16];
-        SecureRandom sr = new SecureRandom();
-        sr.nextBytes(IV);
-        IvParameterSpec ivSpec = new IvParameterSpec(IV);
-        cipher.init(Cipher.ENCRYPT_MODE, keySpec, ivSpec);
-        byte[] encryptedData = cipher.doFinal(data);
-        // add the IV to the start of the data
-        return ArrayUtils.addAll(IV, encryptedData);
-         */
         SecureRandom secureRandom = new SecureRandom();
         byte[] IV = new byte[12];
         secureRandom.nextBytes(IV);
@@ -86,20 +74,6 @@ public class AESUtils {
      * @return the decrypted data
      */
     public static byte[] decrypt(byte[] data, @NotNull SecretKey key) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException {
-        /*
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-        SecretKeySpec keySpec = new SecretKeySpec(key.getEncoded(), "AES");
-        // get the IV from the beginning of the data
-        byte[] IV = new byte[16];
-        System.arraycopy(data, 0, IV, 0, 16);
-        // remove the IV from the data
-        byte[] originalData = new byte[data.length - 16];
-        System.arraycopy(data, 16, originalData, 0, originalData.length);
-        IvParameterSpec ivSpec = new IvParameterSpec(IV);
-        cipher.init(Cipher.DECRYPT_MODE, keySpec, ivSpec);
-        return cipher.doFinal(originalData);
-
-         */
         ByteBuffer byteBuffer = ByteBuffer.wrap(data);
         int ivLength = byteBuffer.getInt();
         if (ivLength < 12 || ivLength >= 16) { // check input parameter

@@ -116,7 +116,7 @@ public class Out implements Runnable {
         running = false;
     }
 
-    public synchronized void send(@NotNull Message msg) {
+    protected synchronized void send(@NotNull Message msg) {
         buffer.add(msg);
         PluginManager pm = PluginManager.getInstance();
         if (pm != null) {

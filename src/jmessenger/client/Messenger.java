@@ -88,7 +88,10 @@ public class Messenger {
     }
 
     public static void main(String... args) {
-
+        boolean safe = false;
+        if (args.length == 1 && args[0].replaceAll("-", "").equals("safemode")) {
+            safe = true;
+        }
         // L&F
         try {
             UIManager.setLookAndFeel(new FlatIntelliJLaf()/*new MaterialLookAndFeel()*/);
@@ -101,7 +104,7 @@ public class Messenger {
             UIManager.put("OptionPane.buttonFont", new Font("Arial", Font.PLAIN, 11));
         }
 
-        File conf = new File("messenger.conf");
+        File conf = new File("clientconfig/messenger.conf");
         if (!conf.exists()) {
             try {
                 initialize(conf);
@@ -121,7 +124,7 @@ public class Messenger {
         // read the keys
 
         SecretKey key = null;
-        File k = new File("client.key");
+        File k = new File("clientconfig/client.key");
         try {
             ObjectInputStream keyIn = new ObjectInputStream(new FileInputStream(k));
             key = (SecretKey) keyIn.readObject();
@@ -147,7 +150,7 @@ public class Messenger {
             sc.close();
 
             // read the server public key
-            ObjectInputStream serverPublicKeyIn = new ObjectInputStream(new FileInputStream(new File("client-stored-server-public.key")));
+            ObjectInputStream serverPublicKeyIn = new ObjectInputStream(new FileInputStream(new File("clientconfig/client-stored-server-public.key")));
             PublicKey serverPublicKey = (PublicKey) serverPublicKeyIn.readObject();
             serverPublicKeyIn.close();
 
@@ -157,7 +160,11 @@ public class Messenger {
             PluginManager.initialize();
             PluginManager pm = PluginManager.getInstance();
             assert pm != null;
-            pm.loadPlugins();
+
+            // if safe mode, don't load plugins
+            if (!safe) {
+                pm.loadPlugins();
+            }
 
             pm.onStart(); // call the onStart method of each plugin
 
@@ -194,7 +201,7 @@ public class Messenger {
         // create the files
         conf.createNewFile();
 
-        File clientKey = new File("client.key");
+        File clientKey = new File("clientconfig/client.key");
         ObjectOutputStream sKey = new ObjectOutputStream(new FileOutputStream(clientKey));
 
         // generate client key
@@ -215,7 +222,7 @@ public class Messenger {
         PublicKey serverPub = RSAUtils.getPublicKey(serverPublicKey);
         assert serverPub != null;
         // store the server public key
-        File serverPublicKeyFile = new File("client-stored-server-public.key");
+        File serverPublicKeyFile = new File("clientconfig/client-stored-server-public.key");
         serverPublicKeyFile.createNewFile();
         ObjectOutputStream outServerPublic = new ObjectOutputStream(new FileOutputStream(serverPublicKeyFile));
         outServerPublic.writeObject(serverPub);
@@ -282,7 +289,7 @@ public class Messenger {
         this.send(lm);
 
         // read all conversations from the datafile
-        File db = new File("conversations");
+        File db = new File("clientconfig/conversations");
         if (db.exists()) {
             Object o = new ObjectInputStream(new FileInputStream(db)).readObject();
             this.conversationList = (List<Conversation>) o;
@@ -318,7 +325,7 @@ public class Messenger {
     private void finishRegistration() {
         registered = true;
         // write it to the file
-        File f = new File("messenger.conf");
+        File f = new File("clientconfig/messenger.conf");
         try {
             Scanner sc = new Scanner(f);
             sc.nextLine();

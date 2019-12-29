@@ -39,7 +39,7 @@ public class UserDatabaseBackup implements Runnable {
     @Override
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public void run() {
-        File db = new File("database");
+        File db = new File("serverconfig/database");
         if (!db.exists()) {
             try {
                 db.createNewFile();

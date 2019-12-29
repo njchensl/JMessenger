@@ -230,7 +230,7 @@ public class PluginManager {
         // instantiate plugin objects
         for (Class<?> c : classes) {
             String className = c.getName();
-            System.out.println(className);
+            //System.out.println(className);
             if (!className.contains("$")) {
                 //System.out.println(className);
                 try {
