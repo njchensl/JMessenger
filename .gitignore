@@ -15,7 +15,5 @@ client-stored-server-public.key
 database
 conversations
 
-*.disabled
-
 /clientconfig
 /serverconfig

@@ -428,6 +428,7 @@ public class Messenger {
                 this.usingAES = true; // when registered, the server knows the client AES key
                 RegistrationResponseMessage rrm = (RegistrationResponseMessage) msg;
                 JOptionPane.showMessageDialog(null, "You have successfully registered with the server\nUser ID: " + rrm.getUserID(), "Registration Successful", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, new JTextArea(RSAUtils.encode(myKey)), "Secret Key", JOptionPane.INFORMATION_MESSAGE);
                 finishRegistration();
             }
         }

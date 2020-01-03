@@ -7,8 +7,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="minor changes:&#10;added safe mode&#10;public -&gt; package-private&#10;public -&gt; protected">
+    <list default="true" id="f37fc509-9b1d-4a79-a101-edb77f0ecef3" name="Default Changelist" comment="feature finished, untested">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/JMessengerLanguagePackPlugin.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jmessenger/client/Messenger.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,9 +63,9 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.customizations" />
   </component>
-  <component name="RunManager" selected="Application.Server">
+  <component name="RunManager" selected="Application.Messenger">
     <configuration name="Messenger" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jmessenger.client.Messenger" />
       <module name="JMessenger" />
@@ -96,8 +98,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Server" />
         <item itemvalue="Application.Messenger" />
+        <item itemvalue="Application.Server" />
         <item itemvalue="Application.Messenger" />
         <item itemvalue="Application.Server" />
       </list>
@@ -129,13 +131,6 @@
       <workItem from="1577588512018" duration="11000" />
       <workItem from="1577588567717" duration="104000" />
       <workItem from="1577595624824" duration="985000" />
-    </task>
-    <task id="LOCAL-00001" summary="fix">
-      <created>1576271918865</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1576271918865</updated>
     </task>
     <task id="LOCAL-00002" summary="fix">
       <created>1576272161456</created>
@@ -473,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577623869799</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="feature finished, untested">
+      <created>1577939869686</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1577939869687</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +500,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="html button" />
     <MESSAGE value="deleted unused classes" />
     <MESSAGE value="conversation gui" />
     <MESSAGE value="more gui work" />
@@ -523,7 +524,8 @@
     <MESSAGE value="ant build library added" />
     <MESSAGE value="deprecated reflection API calls removed" />
     <MESSAGE value="minor changes:&#10;added safe mode&#10;public -&gt; package-private&#10;public -&gt; protected" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor changes:&#10;added safe mode&#10;public -&gt; package-private&#10;public -&gt; protected" />
+    <MESSAGE value="feature finished, untested" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature finished, untested" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -533,12 +535,14 @@
     <state x="233" y="2" key="#Auto_Import/0.0.1280.680@0.0.1280.680" timestamp="1576840668787" />
     <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser" timestamp="1576840668787" />
     <state x="421" y="148" key="#BuildArtifactsBeforeRunChooser/0.0.1280.680@0.0.1280.680" timestamp="1576840668787" />
-    <state x="191" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577608145660">
+    <state x="75" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578041956814">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="191" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1577608145660" />
-    <state x="400" y="150" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1576840668787" />
-    <state x="400" y="150" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1576840668787" />
+    <state x="75" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1578041956814" />
+    <state x="400" y="150" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578041876545">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="400" y="150" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1578041876545" />
     <state x="421" y="48" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1576846708805">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -569,10 +573,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="367" y="98" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1280.680@0.0.1280.680" timestamp="1577025370311" />
-    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1577939467643">
+    <state x="299" y="0" key="CommitChangelistDialog2" timestamp="1578042930804">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577939467643" />
+    <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1578042930804" />
     <state x="401" y="0" key="Diagram.Print.Preview.Dialog" timestamp="1577596521957">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -581,22 +585,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="344" y="84" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1577596383681" />
-    <state width="1237" height="153" key="GridCell.Tab.0.bottom" timestamp="1577623905837">
+    <state width="1237" height="153" key="GridCell.Tab.0.bottom" timestamp="1578042931226">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577623905837" />
-    <state width="1237" height="153" key="GridCell.Tab.0.center" timestamp="1577623905837">
+    <state width="1237" height="153" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1578042931226" />
+    <state width="1237" height="153" key="GridCell.Tab.0.center" timestamp="1578042931225">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1577623905837" />
-    <state width="1237" height="153" key="GridCell.Tab.0.left" timestamp="1577623905837">
+    <state width="1237" height="153" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1578042931225" />
+    <state width="1237" height="153" key="GridCell.Tab.0.left" timestamp="1578042931225">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1577623905837" />
-    <state width="1237" height="153" key="GridCell.Tab.0.right" timestamp="1577623905837">
+    <state width="1237" height="153" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1578042931225" />
+    <state width="1237" height="153" key="GridCell.Tab.0.right" timestamp="1578042931226">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1577623905837" />
+    <state width="1237" height="153" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1578042931226" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1577154234307">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -613,14 +617,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1577154234307" />
-    <state x="117" y="0" key="SettingsEditor" timestamp="1577609651721">
+    <state x="117" y="0" key="SettingsEditor" timestamp="1578025665920">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1577609651721" />
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1577623879859">
+    <state x="117" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1578025665920" />
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1577939873375">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1577623879859" />
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1577939873375" />
     <state x="348" y="169" key="com.intellij.ide.util.TipDialog" timestamp="1577587107752">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -643,10 +647,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1577939217636" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1577238150216">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1578041810647">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1577238150216" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1578041810647" />
     <state x="363" y="258" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1576840668787" />
     <state x="363" y="258" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1280.680@0.0.1280.680" timestamp="1576840668787" />
   </component>
