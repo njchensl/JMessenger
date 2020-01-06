@@ -32,6 +32,7 @@ import mdlaf.MaterialLookAndFeel;
 import org.jetbrains.annotations.NotNull;
 
 import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
@@ -316,7 +317,38 @@ public class Messenger {
         return this.myKey;
     }
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     private void register() {
+        int result = JOptionPane.showConfirmDialog(null, "Would you like to link this client to an existing account?", "Registration", JOptionPane.YES_NO_OPTION);
+        if (result == JOptionPane.OK_OPTION) {
+            // ask for the current key
+            String keyString = JOptionPane.showInputDialog("Please enter your secret key");
+            byte[] encodedKey = Base64.getDecoder().decode(keyString);
+            SecretKey key = new SecretKeySpec(encodedKey, 0, encodedKey.length, "AES");
+            // write to file
+            File keyFile = new File("clientconfig/client.key");
+            if (keyFile.exists()) {
+                keyFile.delete();
+            }
+            try {
+                keyFile.createNewFile();
+                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(keyFile));
+                oos.writeObject(key);
+                oos.flush();
+                oos.close();
+                this.myKey = key;
+                finishRegistration();
+            } catch (IOException e) {
+                nc.add(e);
+                // if things go wrong, register with the server
+                registerWithServer();
+            }
+        } else {
+            registerWithServer();
+        }
+    }
+
+    private void registerWithServer() {
         // register with the server
         RegistrationMessage msg = new RegistrationMessage(myKey);
         out.send(msg);
@@ -396,6 +428,7 @@ public class Messenger {
                 this.usingAES = true; // when registered, the server knows the client AES key
                 RegistrationResponseMessage rrm = (RegistrationResponseMessage) msg;
                 JOptionPane.showMessageDialog(null, "You have successfully registered with the server\nUser ID: " + rrm.getUserID(), "Registration Successful", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, new JTextArea(RSAUtils.encode(myKey)), "Secret Key", JOptionPane.INFORMATION_MESSAGE);
                 finishRegistration();
             }
         }
