@@ -39,6 +39,10 @@ public class PluginMessage extends ClientMessage {
         return data;
     }
 
+    public void setData(byte[] data) {
+        this.data = data;
+    }
+
     @NotNull
     @Override
     @SuppressWarnings("ImplicitArrayToString")
