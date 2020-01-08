@@ -44,6 +44,7 @@ import java.security.PublicKey;
 import java.util.List;
 import java.util.*;
 
+@SuppressWarnings("WeakerAccess")
 public class Messenger {
     private static volatile Messenger messenger;
     private In in;
@@ -89,6 +90,10 @@ public class Messenger {
     }
 
     public static void main(String... args) {
+        // show splash screen
+        SplashScreen ss = new SplashScreen();
+        ss.show();
+
         boolean safe = false;
         if (args.length == 1 && args[0].replaceAll("-", "").equals("safemode")) {
             safe = true;
@@ -171,6 +176,8 @@ public class Messenger {
 
             messenger.displayGUI();
 
+            // hide splash screen
+            ss.hide();
 
         } catch (IOException | ClassNotFoundException e) {
             StringWriter sw = new StringWriter();
