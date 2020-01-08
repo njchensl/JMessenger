@@ -33,7 +33,7 @@ class SplashScreen {
 
     SplashScreen() {
         window = new JWindow();
-        var image = new ImageIcon(SplashScreen.class.getResource("Splash.png"));
+        ImageIcon image = new ImageIcon(SplashScreen.class.getResource("Splash.png"));
         window.getContentPane().add(new JLabel("", image, SwingConstants.CENTER));
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         window.setBounds((int) ((screenSize.getWidth() - image.getIconWidth()) / 2),
