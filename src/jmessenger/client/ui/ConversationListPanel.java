@@ -116,6 +116,7 @@ public class ConversationListPanel extends JPanel {
                     new JFrame() {{
                         ConversationPanel cp = new ConversationPanel(co);
                         setContentPane(cp);
+                        setIconImage(new ImageIcon(Messenger.class.getResource("icon.png")).getImage());
                         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
                         addWindowListener(new WindowListener() {
                             @Override
