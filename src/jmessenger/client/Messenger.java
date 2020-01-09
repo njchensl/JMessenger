@@ -57,6 +57,7 @@ public class Messenger {
     private boolean registered;
     private boolean usingAES;
     private MainFrame mainFrame;
+    private ConversationSaver conversationSaver;
 
     /**
      * creates a messenger object
@@ -255,13 +256,27 @@ public class Messenger {
         while (!in.isTerminated() || !out.isTerminated()) {
             Thread.onSpinWait();
         }
+        // prevents data corruption
+        while (conversationSaver.isWorking()) {
+            Thread.onSpinWait();
+        }
         this.socket.close();
     }
 
+    /**
+     * @return whether or not the encryption mode is set to AES
+     */
     public boolean isUsingAES() {
         return usingAES;
     }
 
+    /**
+     * set the encryption mode
+     * true: AES
+     * false: RSA
+     *
+     * @param b the mode
+     */
     public void setUsingAES(boolean b) {
         this.usingAES = b;
     }
@@ -304,7 +319,8 @@ public class Messenger {
         }
 
         // start to backup conversations to the datafile
-        Thread t = new Thread(new ConversationSaver(this.conversationList));
+        this.conversationSaver = new ConversationSaver(this.conversationList);
+        Thread t = new Thread(conversationSaver);
         t.setDaemon(true);
         t.start();
     }

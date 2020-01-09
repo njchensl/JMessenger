@@ -31,14 +31,17 @@ import java.util.List;
 
 public class ConversationSaver implements Runnable {
     private final List<Conversation> conversations;
+    private volatile boolean working;
 
     public ConversationSaver(List<Conversation> conversations) {
         this.conversations = conversations;
+        this.working = false;
     }
 
     @Override
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public void run() {
+        working = true;
         File con = new File("clientconfig/conversations");
         if (!con.exists()) {
             try {
@@ -52,8 +55,9 @@ public class ConversationSaver implements Runnable {
 
         for (; ; ) {
             try {
-
+                working = false;
                 Thread.sleep(5000);
+                working = true;
                 // recreate the file
                 con.delete();
                 con.createNewFile();
@@ -72,8 +76,12 @@ public class ConversationSaver implements Runnable {
                     out.flush();
                 }
             } catch (InterruptedException | IOException e) {
-                e.printStackTrace();
+                NotificationCenter.getInstance().add(e);
             }
         }
+    }
+
+    public boolean isWorking() {
+        return working;
     }
 }
