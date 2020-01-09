@@ -38,6 +38,7 @@ public class MainFrame extends JFrame {
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.setMinimumSize(new Dimension(200, 500));
         this.setPreferredSize(new Dimension(350, 700));
+        this.setIconImage(new ImageIcon(Messenger.class.getResource("icon.png")).getImage());
         this.addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
