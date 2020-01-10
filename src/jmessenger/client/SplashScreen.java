@@ -26,7 +26,7 @@ package jmessenger.client;
 import javax.swing.*;
 import java.awt.*;
 
-class SplashScreen {
+public class SplashScreen {
     private final JWindow window;
     private long startTime;
     private int minimumMilliseconds;
