@@ -46,7 +46,9 @@ import java.util.*;
 
 @SuppressWarnings("WeakerAccess")
 public class Messenger {
-    private static volatile Messenger messenger;
+    public final static String version = "1.1";
+    private static volatile Messenger messenger; // made volatile to suppress a warning
+
     private In in;
     private Out out;
     private Socket socket;
