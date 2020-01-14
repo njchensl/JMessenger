@@ -74,6 +74,9 @@ public class PluginManager {
         return pluginManager;
     }
 
+    /**
+     * called when the program starts
+     */
     protected void onStart() {
         for (AbstractPlugin p : plugins) {
             try {
@@ -84,6 +87,9 @@ public class PluginManager {
         }
     }
 
+    /**
+     * called when the program closes
+     */
     protected void onClose() {
         for (AbstractPlugin p : plugins) {
             try {
@@ -94,6 +100,11 @@ public class PluginManager {
         }
     }
 
+    /**
+     * called when a message is received
+     *
+     * @param msg the message
+     */
     protected void onMessageReceived(@NotNull Message msg) {
         for (AbstractPlugin p : plugins) {
             try {
@@ -123,6 +134,11 @@ public class PluginManager {
     }
     */
 
+    /**
+     * called when a message is sent
+     *
+     * @param msg the message
+     */
     protected void onMessageSent(@NotNull Message msg) {
         for (AbstractPlugin p : plugins) {
             try {
@@ -181,7 +197,8 @@ public class PluginManager {
     }
 
     /**
-     * load plugins
+     * load plugins from the .jar files under the /plugins directory and loads the classes
+     * then instantiate the plugin objects and store them in a list
      */
     protected void loadPlugins() throws IOException {
         Stream<Path> paths = Files.walk(Paths.get("plugins"));

@@ -183,6 +183,7 @@ public class Messenger {
             ss.hide();
 
         } catch (IOException | ClassNotFoundException e) {
+            // convert to string
             StringWriter sw = new StringWriter();
             e.printStackTrace(new PrintWriter(sw));
             String exceptionAsString = sw.toString();
@@ -193,6 +194,7 @@ public class Messenger {
             }}), "Fatal Error", JOptionPane.ERROR_MESSAGE);
             System.exit(3);
         } catch (MissingResourceException e) {
+            // convert to string
             StringWriter sw = new StringWriter();
             e.printStackTrace(new PrintWriter(sw));
             String exceptionAsString = sw.toString();
@@ -243,6 +245,9 @@ public class Messenger {
         bfConf.close();
     }
 
+    /**
+     * shows the GUI
+     */
     private void displayGUI() {
         this.mainFrame = new MainFrame();
         SwingUtilities.invokeLater(() -> this.mainFrame.setVisible(true));
@@ -294,6 +299,14 @@ public class Messenger {
         //PluginManager.getInstance().onMessageSent(msg);
     }
 
+    /**
+     * initializes the client
+     *
+     * @param host the host
+     * @param port the port
+     * @throws IOException            when unable to connect
+     * @throws ClassNotFoundException when a problem arises while deserializiing and casting
+     */
     @SuppressWarnings("unchecked")
     private void initialize(@NotNull String host, int port) throws IOException, ClassNotFoundException {
         this.socket = new Socket();
@@ -342,6 +355,9 @@ public class Messenger {
         return this.myKey;
     }
 
+    /**
+     * registers the program, either with the server or bind it to an existing account
+     */
     @SuppressWarnings("ResultOfMethodCallIgnored")
     private void register() {
         int result = JOptionPane.showConfirmDialog(null, "Would you like to link this client to an existing account?", "Registration", JOptionPane.YES_NO_OPTION);
@@ -373,12 +389,18 @@ public class Messenger {
         }
     }
 
+    /**
+     * registers with the server
+     */
     private void registerWithServer() {
         // register with the server
         RegistrationMessage msg = new RegistrationMessage(myKey);
         out.send(msg);
     }
 
+    /**
+     * finishes the registration process
+     */
     private void finishRegistration() {
         registered = true;
         // write it to the file
@@ -492,6 +514,9 @@ public class Messenger {
         return false;
     }
 
+    /**
+     * sorts the conversations according to the last time they were updated
+     */
     @SuppressWarnings("SynchronizeOnNonFinalField")
     private void sortConversations() {
         synchronized (conversationList) {
@@ -499,6 +524,9 @@ public class Messenger {
         }
     }
 
+    /**
+     * quick sort partition
+     */
     private int partition(List<Conversation> arr, int low, int high) {
         Conversation pivot = arr.get(high);
         int i = (low - 1);
@@ -518,7 +546,9 @@ public class Messenger {
         return i + 1;
     }
 
-
+    /**
+     * quick sort
+     */
     private void sort(List<Conversation> arr, int low, int high) {
         if (low < high) {
             int pi = partition(arr, low, high);
@@ -527,10 +557,16 @@ public class Messenger {
         }
     }
 
+    /**
+     * @return the input object
+     */
     public In getIn() {
         return in;
     }
 
+    /**
+     * @return the output object
+     */
     public Out getOut() {
         return out;
     }

@@ -79,6 +79,9 @@ public class Conversation implements Serializable {
         return this.messages;
     }
 
+    /**
+     * @return the latest message
+     */
     @Nullable
     public ClientMessage getLatestMessage() {
         if (messages.isEmpty()) {

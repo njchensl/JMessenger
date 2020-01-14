@@ -172,6 +172,7 @@ public class ConversationListPanel extends JPanel {
             gridy++;
         }
 
+        // the "spring"
         c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;

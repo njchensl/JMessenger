@@ -121,6 +121,9 @@ public class Server implements Runnable {
         return server;
     }
 
+    /**
+     * creates the key files and asks the user for the port
+     */
     @SuppressWarnings("ResultOfMethodCallIgnored")
     private static void initialize(@NotNull File conf) throws IOException, NoSuchAlgorithmException, NoSuchProviderException {
         File privateKey = new File("serverconfig/server-private.key");
@@ -176,6 +179,12 @@ public class Server implements Runnable {
         this.privateKey = privateKey;
     }
 
+    /**
+     * search for a user by their key
+     *
+     * @param key the user's key
+     * @return the user
+     */
     @Nullable
     User getUserByKey(@NotNull SecretKey key) {
         for (User u : users) {
@@ -188,6 +197,12 @@ public class Server implements Runnable {
         return null;
     }
 
+    /**
+     * search for a user by their id
+     *
+     * @param id the user's id
+     * @return the user
+     */
     @Nullable
     User getUserByID(int id) {
         for (User u : users) {

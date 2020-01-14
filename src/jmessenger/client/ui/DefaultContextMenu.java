@@ -17,6 +17,9 @@ import java.awt.event.MouseEvent;
 
 import static jmessenger.client.ui.resources.Resources.rb;
 
+/**
+ * copied from stack overflow
+ */
 public class DefaultContextMenu extends JPopupMenu {
     private Clipboard clipboard;
 

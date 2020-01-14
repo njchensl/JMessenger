@@ -28,6 +28,10 @@ import jmessenger.client.ui.ConversationPanel;
 import javax.swing.*;
 import java.util.function.Consumer;
 
+/**
+ * for custom buttons
+ * action: the action to execute
+ */
 public class PluginButton extends JButton {
     public Consumer<ConversationPanel> action;
 

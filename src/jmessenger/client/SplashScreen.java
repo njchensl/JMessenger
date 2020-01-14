@@ -31,6 +31,9 @@ public class SplashScreen {
     private long startTime;
     private int minimumMilliseconds;
 
+    /**
+     * creates a splash screen
+     */
     SplashScreen() {
         window = new JWindow();
         ImageIcon image = new ImageIcon(SplashScreen.class.getResource("splash.png"));
@@ -41,12 +44,19 @@ public class SplashScreen {
                 image.getIconWidth(), image.getIconHeight());
     }
 
+    /**
+     * shows the splash screen
+     */
     void show() {
         this.minimumMilliseconds = 1000;
         window.setVisible(true);
         startTime = System.currentTimeMillis();
     }
 
+    /**
+     * hides and disposes the splash screen
+     * SHOULD NEVER BE CALLED TWICE!!!
+     */
     void hide() {
         long elapsedTime = System.currentTimeMillis() - startTime;
         try {

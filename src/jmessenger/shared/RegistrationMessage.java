@@ -34,6 +34,9 @@ import javax.crypto.SecretKey;
 public class RegistrationMessage extends ServerMessage {
     protected SecretKey key;
 
+    /**
+     * @param publicKey the user's key
+     */
     public RegistrationMessage(@NotNull SecretKey publicKey) {
         super();
         this.key = publicKey;

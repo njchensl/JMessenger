@@ -43,6 +43,12 @@ public class ConversationMessagesPanel extends JPanel {
     private List<ClientMessage> messages;
     private JScrollPane scrollPane;
 
+    /**
+     * creates a conversation messages panel
+     *
+     * @param messages   the messages list
+     * @param scrollPane the scroll pane
+     */
     public ConversationMessagesPanel(@NotNull List<ClientMessage> messages, @Nullable JScrollPane scrollPane) {
         super(new GridBagLayout());
         this.messages = messages;
@@ -50,6 +56,9 @@ public class ConversationMessagesPanel extends JPanel {
         refresh();
     }
 
+    /**
+     * removes and adds back all the components
+     */
     @SuppressWarnings("SynchronizeOnNonFinalField")
     public void refresh() {
         this.removeAll();
@@ -147,6 +156,9 @@ public class ConversationMessagesPanel extends JPanel {
         this.revalidate();
     }
 
+    /**
+     * re-validates and scrolls to the bottom
+     */
     @Override
     public void revalidate() {
         super.revalidate();
@@ -164,18 +176,30 @@ public class ConversationMessagesPanel extends JPanel {
         }
     }
 
+    /**
+     * @return the message list
+     */
     public List<ClientMessage> getMessages() {
         return messages;
     }
 
+    /**
+     * @param messages the message list
+     */
     public void setMessages(List<ClientMessage> messages) {
         this.messages = messages;
     }
 
+    /**
+     * @return the scroll pane
+     */
     public JScrollPane getScrollPane() {
         return scrollPane;
     }
 
+    /**
+     * @param scrollPane the scroll pane
+     */
     public void setScrollPane(JScrollPane scrollPane) {
         this.scrollPane = scrollPane;
     }

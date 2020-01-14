@@ -43,6 +43,7 @@ public class ConversationSaver implements Runnable {
     public void run() {
         working = true;
         File con = new File("clientconfig/conversations");
+        // create new file if does not exist
         if (!con.exists()) {
             try {
                 con.createNewFile();
@@ -81,7 +82,12 @@ public class ConversationSaver implements Runnable {
         }
     }
 
-    public boolean isWorking() {
+    /**
+     * this method is used internally to determine if this thread is still running
+     *
+     * @return whether or not it is doing work
+     */
+    boolean isWorking() {
         return working;
     }
 }

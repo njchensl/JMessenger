@@ -136,6 +136,9 @@ public class ConversationPanel extends javax.swing.JPanel implements Serializabl
         }
     }
 
+    /**
+     * removes and adds back everything
+     */
     public void initializeComponents() {
         this.removeAll();
 

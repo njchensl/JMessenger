@@ -48,6 +48,9 @@ public class MainPanel extends JPanel {
         initialize();
     }
 
+    /**
+     * removes and adds all components back
+     */
     public void refreshComponents() {
         this.removeAll();
         tp = new JTabbedPane();
@@ -98,10 +101,16 @@ public class MainPanel extends JPanel {
          */
     }
 
+    /**
+     * initializes the panel by refreshing its components
+     */
     private void initialize() {
         refreshComponents();
     }
 
+    /**
+     * @return the main panel
+     */
     public JPanel getMainPanel() {
         return this.main;
     }

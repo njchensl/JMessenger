@@ -29,6 +29,10 @@ public class EncryptedMessage implements java.io.Serializable {
     private byte[] data;
     private boolean usingAES;
 
+    /**
+     * @param data     the encrypted bytes
+     * @param usingAES true: AES, false: RSA
+     */
     public EncryptedMessage(@NotNull byte[] data, boolean usingAES) {
         this.data = data.clone();
         this.usingAES = usingAES;

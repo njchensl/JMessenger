@@ -29,6 +29,9 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.List;
 
+/**
+ * backs up user data by writing them to a file
+ */
 public class UserDatabaseBackup implements Runnable {
     private boolean running;
 

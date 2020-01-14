@@ -82,6 +82,11 @@ public class User implements java.io.Serializable {
         return inbox;
     }
 
+    /**
+     * sends out a message to the user
+     *
+     * @param msg the message
+     */
     public synchronized void send(Message msg) {
         if (this.isOnline()) {
             this.connection.send(msg);
@@ -94,6 +99,9 @@ public class User implements java.io.Serializable {
         }
     }
 
+    /**
+     * @return whether or not the user is online
+     */
     public boolean isOnline() {
         return connection != null;
     }

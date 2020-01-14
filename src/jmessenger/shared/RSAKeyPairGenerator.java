@@ -40,6 +40,12 @@ public class RSAKeyPairGenerator {
     private final PrivateKey privateKey;
     private final PublicKey publicKey;
 
+    /**
+     * constructs a key pair generator with 3500 bit keys
+     *
+     * @throws NoSuchAlgorithmException never thrown
+     * @throws NoSuchProviderException never thrown
+     */
     public RSAKeyPairGenerator() throws NoSuchAlgorithmException, NoSuchProviderException {
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
         keyGen.initialize(3500, SecureRandom.getInstance("SHA1PRNG", "SUN"));
