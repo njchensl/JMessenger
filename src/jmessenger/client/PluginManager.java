@@ -209,7 +209,7 @@ public class PluginManager {
                 .collect(Collectors.toList());
         files.forEach(System.out::println);
 
-        files.forEach((f) -> {
+        files.stream().parallel().forEach((f) -> {
             String pathToJar = f.toString();
             try {
                 JarFile jarFile = new JarFile(pathToJar);
